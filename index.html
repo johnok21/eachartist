@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EACH — Eager Arts & Culture Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f5f0;
+    --green: #6dde5a;
+    --lavender: #c4a8d8;
+    --red: #ff3b30;
+    --gold: #f5c542;
+    --orange: #ff8c2e;
+    --blue: #1a5fb4;
+    --cyan: #00d4aa;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  .bold-type {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, var(--green) 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 12vw, 9rem);
+    max-width: 900px;
+  }
+
+  .hero-headline .highlight-green { color: var(--green); }
+  .hero-headline .highlight-gold { color: var(--gold); }
+  .hero-headline .highlight-lavender { color: var(--lavender); }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--green);
+    color: var(--green);
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── COLOR BLOCKS (flyer-style) ── */
+  .block {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+  }
+
+  .block-green {
+    background: var(--green);
+    color: var(--black);
+  }
+
+  .block-lavender {
+    background: var(--lavender);
+    color: var(--black);
+  }
+
+  .block-red {
+    background: var(--red);
+    color: var(--black);
+  }
+
+  .block-gold {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .block-orange {
+    background: var(--orange);
+    color: var(--black);
+  }
+
+  .block-blue {
+    background: var(--blue);
+    color: var(--gold);
+  }
+
+  .block-black {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .block-title {
+    font-size: clamp(2.5rem, 10vw, 7rem);
+    max-width: 800px;
+  }
+
+  .block-body {
+    margin-top: 1rem;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* ── WHAT WE DO grid ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+  }
+
+  .what-card {
+    padding: 2.5rem 2rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .what-card-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .what-card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 400px;
+  }
+
+  /* ── CTA / EMAIL SIGNUP ── */
+  .cta-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--black);
+    color: var(--white);
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, var(--lavender) 0%, transparent 60%);
+    opacity: 0.08;
+    pointer-events: none;
+  }
+
+  .cta-headline {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-sub {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  .signup-form {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .signup-form input[type="email"] {
+    flex: 1 1 280px;
+    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid var(--green);
+    background: transparent;
+    color: var(--white);
+    outline: none;
+  }
+
+  .signup-form input[type="email"]::placeholder {
+    color: rgba(245,245,240,0.4);
+  }
+
+  .signup-form input[type="email"]:focus {
+    border-color: var(--gold);
+  }
+
+  .signup-form button {
+    padding: 1rem 2rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--green);
+    color: var(--black);
+    border: 2px solid var(--green);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .signup-form button:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    margin-top: 0.5rem;
+  }
+
+  /* ── CONTACT ── */
+  .contact-strip {
+    padding: 2rem;
+    background: var(--green);
+    color: var(--black);
+    text-align: center;
+  }
+
+  .contact-strip a {
+    color: var(--black);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .contact-name {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 700;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.4;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 1.5rem; }
+    .block { padding: 2.5rem 1.5rem; }
+    .what-card { min-height: 220px; padding: 2rem 1.5rem; }
+    .signup-form { flex-direction: column; }
+    .signup-form input[type="email"],
+    .signup-form button { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <h1 class="bold-type hero-headline fade-up">
+    <span class="highlight-green">EACH</span> ARTIST
+  </h1>
+  <p class="hero-sub fade-up delay-1">
+    A cooperative hub by-and-for Bay Area artists to practice 
+    <strong>mutual care</strong>, <strong>shared economics</strong>, 
+    and <strong>unabashed creativity</strong>.
+  </p>
+  <span class="hero-tag fade-up delay-2">eachartist.org</span>
+</section>
+
+<!-- ═══ THE PITCH ═══ -->
+<section class="block block-green">
+  <h2 class="bold-type block-title">Artistic & Economic Freedom</h2>
+  <p class="block-body">
+    Artists are the immune and imaginary systems of our communities. In the Bay Area, 
+    too many of us are isolated, burned out, and getting pushed out. EACH exists because 
+    artists deserve connective tissue — relationships, resource-sharing, and healing so we 
+    can stay rooted in our work and our freedom.
+  </p>
+</section>
+
+<!-- ═══ WHAT WE DO ═══ -->
+<div class="what-grid">
+  <div class="what-card block-lavender">
+    <h3 class="bold-type what-card-title">We Gather</h3>
+    <p class="what-card-text">Small groups of artists meeting consistently to exchange ideas, opportunities, care, and feedback.</p>
+  </div>
+  <div class="what-card block-gold">
+    <h3 class="bold-type what-card-title">We Make</h3>
+    <p class="what-card-text">Art resonant with our home — shaped by the realities and possibilities of our local community and land.</p>
+  </div>
+  <div class="what-card block-red">
+    <h3 class="bold-type what-card-title">We Share</h3>
+    <p class="what-card-text">Resources, tools, space, connections, and money via mutual aid. Pop-ups, shows, art walks, teach-ins, and more.</p>
+  </div>
+  <div class="what-card block-green">
+    <h3 class="bold-type what-card-title">We Invest</h3>
+    <p class="what-card-text">Community contributions — tax-deductible donations, sliding-scale tickets — flow into a shared pool managed by advisory circles of neighborhood artists who receive financial coaching and shape creative budgets together.</p>
+  </div>
+</div>
+
+<!-- ═══ THE MODEL ═══ -->
+<section class="block block-blue">
+  <h2 class="bold-type block-title">Culture Circles</h2>
+  <p class="block-body" style="color: var(--white);">
+    Our pilot program: small groups of local artists who meet regularly to build shared economic 
+    and community power over time. EACH coaches circle-keepers, connects circles to grants 
+    and fellowships, distributes small circulating funds, and handles the admin so you can focus 
+    on your art.
+  </p>
+</section>
+
+<!-- ═══ IMPACT ═══ -->
+<section class="block block-orange">
+  <h2 class="bold-type block-title">San Francisco Needs Its Artists</h2>
+  <p class="block-body">
+    Imagine an artistic renaissance — garage doors rolling up after dark, sidewalks and backyards 
+    and balconies and storefronts opening to a wave of artists ready to share their work. Art pouring 
+    into the streets. Neighbors stopping to listen, to look, to feel something together. A more 
+    connected, awe-inspired city — because when artists are resourced and rooted, there is more 
+    space for truth and play in public life. More beauty. More courage. More civic imagination.
+  </p>
+</section>
+
+<!-- ═══ PLUG IN ═══ -->
+<section class="block block-black">
+  <h2 class="bold-type block-title" style="color: var(--green);">Get Involved</h2>
+  <p class="block-body">
+    <strong style="color:var(--gold);">Join a Culture Circle</strong> — be part of the inaugural pilot in SF.<br><br>
+    <strong style="color:var(--lavender);">Advise</strong> — lend your expertise across arts, philanthropy, ecology, finance, or coaching.<br><br>
+    <strong style="color:var(--orange);">Co-Direct</strong> — help hold the hub: program design, partnerships, and operations.<br><br>
+    <strong style="color:var(--red);">Contribute</strong> — spare cash for our neighborhood artists? Make a creative contribution today.
+  </p>
+</section>
+
+<!-- ═══ EMAIL SIGNUP ═══ -->
+<section class="cta-section" id="signup">
+  <h2 class="bold-type cta-headline">Stay<br>Connected</h2>
+  <p class="cta-sub">
+    Join the EACH mailing list. We'll share updates on Culture Circles, 
+    creative activations, and ways to plug in.
+  </p>
+  <!-- 
+    ╔══════════════════════════════════════════════════════╗
+    ║  REPLACE THE FORM ACTION BELOW WITH YOUR            ║
+    ║  MAILCHIMP / BUTTONDOWN / GOOGLE FORM LINK          ║
+    ╚══════════════════════════════════════════════════════╝
+  -->
+  <div class="signup-form" id="email-form">
+    <input type="email" id="email-input" placeholder="your@email.com" required>
+    <button type="button" onclick="handleSignup()">Join</button>
+  </div>
+  <p class="form-note">No spam. Just art and community.</p>
+  <p id="form-msg" style="margin-top:1rem; color:var(--green); display:none;"></p>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="contact-strip">
+  <p class="contact-name">jawno okhiulu — founder</p>
+  <p><a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+</div>
+
+<footer>
+  &copy; 2026 Eager Arts &amp; Culture Hub. This project is for EACH of us.
+</footer>
+
+<script>
+  // Placeholder signup handler — replace with your email service integration
+  function handleSignup() {
+    const email = document.getElementById('email-input').value;
+    const msg = document.getElementById('form-msg');
+    if (!email || !email.includes('@')) {
+      msg.style.display = 'block';
+      msg.style.color = 'var(--red)';
+      msg.textContent = 'Please enter a valid email.';
+      return;
+    }
+    
+    // ── OPTION A: Google Form (easiest, free) ──
+    // Uncomment and replace YOUR_FORM_ID and YOUR_ENTRY_ID:
+    //
+    // const formUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+    // const formData = new FormData();
+    // formData.append('entry.YOUR_ENTRY_ID', email);
+    // fetch(formUrl, { method: 'POST', mode: 'no-cors', body: formData });
+    
+    // ── OPTION B: Buttondown (free up to 100 subscribers) ──
+    // Uncomment and replace YOUR_USERNAME:
+    //
+    // fetch('https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email: email })
+    // });
+
+    msg.style.display = 'block';
+    msg.style.color = 'var(--green)';
+    msg.textContent = 'Welcome to the circle, ' + email.split('@')[0] + '! 🌿';
+    document.getElementById('email-input').value = '';
+  }
+
+  // Allow Enter key to submit
+  document.getElementById('email-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') handleSignup();
+  });
+</script>
+
+</body>
+</html>
