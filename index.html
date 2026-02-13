@@ -234,50 +234,21 @@
     line-height: 1.5;
   }
 
-  .signup-form {
-    display: flex;
-    gap: 0;
-    max-width: 500px;
-    margin: 0 auto 1.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .signup-form input[type="email"] {
-    flex: 1 1 280px;
-    padding: 1rem 1.2rem;
-    font-size: 1.1rem;
-    font-family: 'DM Sans', sans-serif;
-    border: 2px solid var(--green);
-    background: transparent;
-    color: var(--white);
-    outline: none;
-  }
-
-  .signup-form input[type="email"]::placeholder {
-    color: rgba(245,245,240,0.4);
-  }
-
-  .signup-form input[type="email"]:focus {
-    border-color: var(--gold);
-  }
-
-  .signup-form button {
-    padding: 1rem 2rem;
-    font-family: 'Anton', sans-serif;
-    font-size: 1.1rem;
+  .cta-button {
+    display: inline-block;
+    padding: 1.1rem 3rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     background: var(--green);
     color: var(--black);
-    border: 2px solid var(--green);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
   }
 
-  .signup-form button:hover {
+  .cta-button:hover {
     background: var(--gold);
-    border-color: var(--gold);
+    transform: scale(1.03);
   }
 
   .form-note {
@@ -432,18 +403,11 @@
     Join the EACH mailing list. We'll share updates on Culture Circles, 
     creative activations, and ways to plug in.
   </p>
-  <!-- 
-    ╔══════════════════════════════════════════════════════╗
-    ║  REPLACE THE FORM ACTION BELOW WITH YOUR            ║
-    ║  MAILCHIMP / BUTTONDOWN / GOOGLE FORM LINK          ║
-    ╚══════════════════════════════════════════════════════╝
-  -->
-  <div class="signup-form" id="email-form">
-    <input type="email" id="email-input" placeholder="your@email.com" required>
-    <button type="button" onclick="handleSignup()">Join</button>
-  </div>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" 
+     target="_blank" 
+     rel="noopener" 
+     class="cta-button bold-type">Join Us</a>
   <p class="form-note">No spam. Just art and community.</p>
-  <p id="form-msg" style="margin-top:1rem; color:var(--green); display:none;"></p>
 </section>
 
 <!-- ═══ CONTACT ═══ -->
@@ -457,44 +421,7 @@
 </footer>
 
 <script>
-  // Placeholder signup handler — replace with your email service integration
-  function handleSignup() {
-    const email = document.getElementById('email-input').value;
-    const msg = document.getElementById('form-msg');
-    if (!email || !email.includes('@')) {
-      msg.style.display = 'block';
-      msg.style.color = 'var(--red)';
-      msg.textContent = 'Please enter a valid email.';
-      return;
-    }
-    
-    // ── OPTION A: Google Form (easiest, free) ──
-    // Uncomment and replace YOUR_FORM_ID and YOUR_ENTRY_ID:
-    //
-    // const formUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
-    // const formData = new FormData();
-    // formData.append('entry.YOUR_ENTRY_ID', email);
-    // fetch(formUrl, { method: 'POST', mode: 'no-cors', body: formData });
-    
-    // ── OPTION B: Buttondown (free up to 100 subscribers) ──
-    // Uncomment and replace YOUR_USERNAME:
-    //
-    // fetch('https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ email: email })
-    // });
-
-    msg.style.display = 'block';
-    msg.style.color = 'var(--green)';
-    msg.textContent = 'Welcome to the circle, ' + email.split('@')[0] + '! 🌿';
-    document.getElementById('email-input').value = '';
-  }
-
-  // Allow Enter key to submit
-  document.getElementById('email-input').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') handleSignup();
-  });
+  // No form logic needed — Google Form handles submissions
 </script>
 
 </body>
