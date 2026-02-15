@@ -24,6 +24,43 @@
 
   html { scroll-behavior: smooth; }
 
+  /* ── FLOATING HOME BUTTON ── */
+  .floating-logo {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+
+  .floating-logo:hover {
+    transform: scale(1.08);
+    background: rgba(10, 10, 10, 0.9);
+  }
+
+  .floating-logo img {
+    width: 44px;
+    height: auto;
+  }
+
+  /* ── HERO LOGO ── */
+  .hero-logo {
+    max-width: 600px;
+    width: 80%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+  }
+
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--black);
@@ -314,15 +351,18 @@
 </head>
 <body>
 
+<!-- ═══ FLOATING HOME BUTTON ═══ -->
+<a href="#" class="floating-logo">
+  <img src="each-logo-small.png" alt="EACH" />
+</a>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-  <h1 class="bold-type hero-headline fade-up">
-    <span class="highlight-green">EACH</span> ARTIST
-  </h1>
+  <img src="each-logo-full.png" alt="Eager Arts & Culture Hub" class="hero-logo fade-up" />
   <p class="hero-sub fade-up delay-1">
     A cooperative hub by-and-for Bay Area artists to practice 
     <strong>mutual care</strong>, <strong>shared economics</strong>, 
@@ -412,7 +452,7 @@
 
 <!-- ═══ CONTACT ═══ -->
 <div class="contact-strip">
-  <p class="contact-name">jawno okhiulu — founder</p>
+  <p class="contact-name"><a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno okhiulu</a> — founder</p>
   <p><a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
 </div>
 
