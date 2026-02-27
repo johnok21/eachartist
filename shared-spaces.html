@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shared Spaces — EACH</title>
+<link rel="icon" type="image/png" href="each-logo-small.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+.floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
+.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--lavender);color:var(--black);border-color:var(--lavender)}
+a{color:inherit}
+
+/* HERO */
+.hero{min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:5rem 2rem 3rem;background:var(--lavender);position:relative;overflow:hidden}
+.hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.5rem,11vw,9rem);line-height:.85;color:var(--black);text-transform:uppercase;letter-spacing:.02em}
+.hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:600px;margin-top:1.2rem;line-height:1.6}
+
+/* MARQUEE */
+.marquee{background:var(--black);color:var(--lavender);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--lavender);border-bottom:3px solid var(--lavender);font-family:"Space Mono",monospace}
+.marquee-inner{display:inline-block;animation:scroll 30s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* INTRO */
+.intro{max-width:750px;padding:2.5rem 2rem 1.5rem}
+.intro p{font-size:1rem;line-height:1.7;opacity:.85}
+.intro p+p{margin-top:.8rem}
+
+/* HOW IT WORKS */
+.how{background:var(--blue);color:var(--white);padding:2.5rem 2rem}
+.how h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1rem;color:var(--gold)}
+.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:900px}
+.step{border:2px solid rgba(255,255,255,.2);padding:1.2rem;position:relative}
+.step-num{font-family:"Anton",sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;margin-bottom:.4rem}
+.step h3{font-size:.95rem;font-weight:700;margin-bottom:.3rem}.step p{font-size:.85rem;line-height:1.5;opacity:.8}
+
+/* VENUE TYPES */
+.types{padding:2.5rem 2rem}
+.types h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1rem;color:var(--green)}
+.type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.type-card{border:3px solid;padding:1rem;text-align:center;transition:transform .2s}
+.type-card:hover{transform:translateY(-3px)}
+.type-card .icon{font-size:2rem;margin-bottom:.3rem}
+.type-card h3{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+.type-card p{font-size:.8rem;opacity:.7;line-height:1.4}
+
+/* PREVIEW */
+.preview{padding:2.5rem 2rem;border-top:3px solid rgba(255,255,255,.06)}
+.preview h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:.6rem;color:var(--lavender)}
+.preview .note{font-size:.9rem;opacity:.65;margin-bottom:1.5rem;max-width:650px;line-height:1.5}
+.venue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+.venue-card{border:2px solid rgba(196,168,216,.3);padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
+.venue-card:hover{border-color:var(--lavender);transform:translateY(-2px)}
+.venue-tag{display:inline-block;padding:.2rem .6rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:.7rem .7rem 0}
+.venue-body{padding:.5rem .7rem .8rem}
+.venue-body h3{font-size:1rem;margin-bottom:.2rem;line-height:1.3}
+.venue-body p{font-size:.84rem;line-height:1.5;opacity:.8}
+.venue-body .venue-meta{font-size:.72rem;margin-top:.4rem;opacity:.5;text-transform:uppercase;letter-spacing:.03em}
+.venue-body .venue-meta a{text-decoration:underline;opacity:1}
+.tag-free{background:var(--green);color:var(--black)}.tag-cheap{background:var(--gold);color:var(--black)}.tag-alt{background:var(--lavender);color:var(--black)}.tag-outdoor{background:var(--cyan);color:var(--black)}.tag-community{background:var(--orange);color:var(--black)}
+
+/* DYK */
+.dyk{border:4px solid var(--gold);padding:1.5rem;margin:1.5rem 2rem;position:relative;background:var(--black)}
+.dyk::before{content:"✦ DID YOU KNOW?";position:absolute;top:-.8rem;left:1.5rem;background:var(--gold);color:var(--black);padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
+.dyk .fact{font-size:1.15rem;font-weight:700;line-height:1.4;color:var(--gold)}.dyk .context{font-size:.88rem;margin-top:.4rem;opacity:.75;line-height:1.5}
+.dyk .src{font-size:.68rem;margin-top:.5rem;opacity:.45;text-transform:uppercase;letter-spacing:.05em}
+
+/* CTA */
+.cta{background:var(--lavender);color:var(--black);padding:3rem 2rem;text-align:center}
+.cta h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.5rem);text-transform:uppercase;margin-bottom:.8rem}
+.cta p{font-size:1rem;max-width:550px;margin:0 auto;line-height:1.6}
+.cta a{color:var(--black);font-weight:700}
+
+/* FOOTER */
+.footer{background:var(--lavender);color:var(--black);padding:1rem 2rem 2.5rem;text-align:center;border-top:3px solid rgba(0,0,0,.1)}.footer a{color:var(--black);font-weight:700}
+
+@media(max-width:700px){.venue-grid,.type-grid,.how-steps{grid-template-columns:1fr}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.dyk{margin:1rem}}
+</style>
+</head>
+<body>
+<a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
+<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html">On Air</a><a href="shared-spaces.html" class="active">Shared Spaces</a></nav>
+
+<section class="hero">
+<h1>SHARED<br>SPACES</h1>
+<p class="subtitle">A personally curated archive of free, cheap, and alternative venues across San Francisco — for artists who need somewhere to make, show, and share their work.</p>
+</section>
+
+<div class="marquee"><div class="marquee-inner">✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp; ✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp;</div></div>
+
+<div class="intro">
+<p>Finding space in San Francisco is one of the biggest barriers artists face. The venues listed here aren't a database you search alone — they're a starting point for a conversation. Think of this as a matchmaking service: you tell us what you need, we help you find a fit.</p>
+<p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, <a href="mailto:okhiuluj@gmail.com" style="font-weight:700;text-decoration:underline">send it our way</a>.</p>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+<h2>How It Works</h2>
+<div class="how-steps">
+<div class="step"><div class="step-num">1</div><h3>Tell us what you need</h3><p>What kind of event? How many people? What neighborhood? Indoor or outdoor? We want the details.</p></div>
+<div class="step"><div class="step-num">2</div><h3>We matchmake</h3><p>jawno connects you to the right space — and the right person at that space. This is relationship-based, not transactional.</p></div>
+<div class="step"><div class="step-num">3</div><h3>You make the thing</h3><p>Show up, set up, share your work. We'll help spread the word if you want it.</p></div>
+</div>
+</section>
+
+<!-- VENUE TYPES -->
+<section class="types">
+<h2>What We're Tracking</h2>
+<div class="type-grid">
+<div class="type-card" style="border-color:var(--green)"><div class="icon">🏛</div><h3>Community Rooms</h3><p>Libraries, rec centers, churches, nonprofits with free or low-cost event space</p></div>
+<div class="type-card" style="border-color:var(--gold)"><div class="icon">🎪</div><h3>Alternative Venues</h3><p>Garages, storefronts, living rooms, warehouses, laundromats, barbershops</p></div>
+<div class="type-card" style="border-color:var(--lavender)"><div class="icon">🌳</div><h3>Outdoor Spaces</h3><p>Parks, plazas, community gardens, sidewalk permits, balconies, rooftops</p></div>
+<div class="type-card" style="border-color:var(--orange)"><div class="icon">🎵</div><h3>Performance Venues</h3><p>Stages, open mics, gallery spaces, cafes with artist-friendly booking</p></div>
+<div class="type-card" style="border-color:var(--cyan)"><div class="icon">🔧</div><h3>Studios & Workshops</h3><p>Shared maker spaces, rehearsal rooms, recording studios, darkrooms</p></div>
+<div class="type-card" style="border-color:var(--red)"><div class="icon">🏠</div><h3>Residencies & Housing</h3><p>Artist live/work spaces, residency programs, affordable housing resources</p></div>
+</div>
+</section>
+
+<div class="dyk">
+<div class="fact">The Red Poppy Art House operates out of a 650-square-foot storefront and hosts 150+ events a year.</div>
+<div class="context">You don't need a concert hall. You need a room, a community, and a reason to open the door.</div>
+<div class="src">Source: Red Poppy Art House, Mission District, since 2003</div>
+</div>
+
+<!-- PREVIEW VENUES -->
+<section class="preview">
+<h2>Venue Preview</h2>
+<p class="note">This archive is actively growing. Below are initial listings — more coming as we build relationships across the city. Want to be matched to a space? <a href="mailto:okhiuluj@gmail.com" style="text-decoration:underline;font-weight:700">Email jawno</a>.</p>
+
+<div class="venue-grid">
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Mission</span>
+<div class="venue-body">
+<h3>Red Poppy Art House</h3>
+<p>Artist-run, community-governed. 150+ events/year in a 650 sq ft storefront — music, visual art, workshops, residencies. MAPP (Mission Arts & Performance Project) hub. Intimate, unpretentious, essential.</p>
+<div class="venue-meta">2698 Folsom St · <a href="https://redpoppyarthouse.org" target="_blank">redpoppyarthouse.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-free">Free · Citywide</span>
+<div class="venue-body">
+<h3>SF Public Library — Community Meeting Rooms</h3>
+<p>Free meeting and event rooms at library branches across the city. Projectors, seating, accessible locations. Book through the library system — first come, first served.</p>
+<div class="venue-meta">Multiple locations · <a href="https://sfpl.org/locations/meeting-rooms" target="_blank">sfpl.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-cheap">Low Cost · Multiple</span>
+<div class="venue-body">
+<h3>SF Rec & Park — Community Rooms</h3>
+<p>Rec centers across the city rent rooms at below-market rates for community events. Some have stages, kitchens, outdoor adjacent space. Permit process is straightforward.</p>
+<div class="venue-meta">Citywide · <a href="https://sfrecpark.org/facilities/rental" target="_blank">sfrecpark.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-alt">Alternative · SOMA</span>
+<div class="venue-body">
+<h3>Public Works</h3>
+<p>Music venue, community space, and cultural hub. Artist-friendly booking, multi-room layout, outdoor patio. Hosted SF Music Week's Artist Development Day. A venue that acts like a partner, not a landlord.</p>
+<div class="venue-meta">161 Erie St · <a href="https://publicsf.com" target="_blank">publicsf.com</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Western Addition</span>
+<div class="venue-body">
+<h3>Community Music Center</h3>
+<p>Sliding-scale music education and performance space since 1921. Recital hall, classrooms, and a deep commitment to accessibility. One of SF's oldest continuously operating community arts spaces.</p>
+<div class="venue-meta">544 Capp St · <a href="https://sfcmc.org" target="_blank">sfcmc.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-outdoor">Outdoor · Multiple</span>
+<div class="venue-body">
+<h3>SF Parks — Permitted Performances</h3>
+<p>Golden Gate Park, Dolores Park, McLaren Park, and neighborhood parks all allow permitted performances and gatherings. Amplified sound permits available through Rec & Park.</p>
+<div class="venue-meta">Citywide · <a href="https://sfrecpark.org/permits" target="_blank">sfrecpark.org/permits</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Marina</span>
+<div class="venue-body">
+<h3>Fort Mason Center for Arts & Culture</h3>
+<p>A campus of arts organizations, galleries, and event spaces on the waterfront. Hosts BATS Improv, galleries, and major fairs. Some spaces available for community rates.</p>
+<div class="venue-meta">2 Marina Blvd · <a href="https://fortmason.org" target="_blank">fortmason.org</a></div>
+</div></div>
+
+
+
+<div class="venue-card">
+<span class="venue-tag tag-free">Free · Mid-Market</span>
+<div class="venue-body">
+<h3>Warfield Commons</h3>
+<p>The new 9-floor arts, media, and journalism hub at 988 Market. KALW anchor tenant. Below-market creative workspace. Still onboarding tenants — worth tracking for rehearsal, recording, and event space.</p>
+<div class="venue-meta">988 Market St · <a href="https://warfieldcommons.com" target="_blank">warfieldcommons.com</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Bayview</span>
+<div class="venue-body">
+<h3>Bayview Opera House / Ruth Williams Memorial Theatre</h3>
+<p>One of SF's oldest community performance venues, deeply rooted in the Bayview. Hosts concerts, theatre, community events, and SF Music Week programming. A neighborhood anchor.</p>
+<div class="venue-meta">4705 3rd St · <a href="https://bfrrt.org" target="_blank">bfrrt.org</a></div>
+</div></div>
+
+</div>
+</section>
+
+<div class="dyk" style="border-color:var(--green)">
+<div class="fact" style="color:var(--green)">The Artist Space Trust uses a community land trust model to permanently remove land from the speculative market — preserving artist housing through deed restrictions.</div>
+<div class="context">Meg Shiffler's organization is building the infrastructure for artists to stay.</div>
+<div class="src">Source: Artist Space Trust · SF Music Week panel, Feb 2025</div>
+</div>
+
+<!-- CTA -->
+<section class="cta">
+<h2>Know a Space?</h2>
+<p>A garage that hosts shows. A church basement with a piano. A backyard with a view. A storefront between tenants. If you know a space in SF that could welcome artists, tell us about it — <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+</section>
+
+<footer class="footer">
+<p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
+<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+<p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
+<p style="font-size:.75rem;opacity:.5;margin-top:.8rem">© 2026 Eager Arts & Culture Hub. This project is for EACH of us.</p>
+</footer>
+
+<script>
+document.querySelectorAll(".dyk").forEach(function(c){c.style.transform="rotate("+((Math.random()-.5)*1.5).toFixed(1)+"deg)"});
+</script>
+</body></html>

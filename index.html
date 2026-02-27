@@ -26,6 +26,39 @@
 
   html { scroll-behavior: smooth; }
 
+  /* ── SITE NAV ── */
+  .site-nav {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    display: flex;
+    gap: 0.4rem;
+  }
+  .site-nav a {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    background: rgba(10,10,10,0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .site-nav a:hover {
+    background: var(--green);
+    color: var(--black);
+    border-color: var(--green);
+  }
+  @media (max-width: 600px) {
+    .site-nav { gap: 0.2rem; }
+    .site-nav a { padding: 0.35rem 0.5rem; font-size: 0.65rem; }
+  }
+
   /* ── FLOATING HOME BUTTON ── */
   .floating-logo {
     position: fixed;
@@ -358,6 +391,12 @@
   <img src="each-logo-small.png" alt="EACH" />
 </a>
 
+<nav class="site-nav">
+  <a href="resource-hub.html">Resources</a>
+  <a href="on-air.html">On Air</a>
+  <a href="shared-spaces.html">Shared Spaces</a>
+</nav>
+
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
@@ -455,16 +494,8 @@
 <!-- ═══ CONTACT ═══ -->
 <div class="contact-strip">
   <p class="contact-name"><a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno okhiulu</a> — founder</p>
-  <p><a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+  <p><a href="/cdn-cgi/l/email-protection#5c33373435293029361c3b313d3530723f3331"><span class="__cf_email__" data-cfemail="3e515556574b524b547e59535f5752105d5153">[email&#160;protected]</span></a></p>
 </div>
 
 <footer>
-  &copy; 2026 Eager Arts &amp; Culture Hub. This project is for EACH of us.
-</footer>
-
-<script>
-  // No form logic needed — Google Form handles submissions
-</script>
-
-</body>
-</html>
+  &copy; 2026 Eager Arts &amp; Culture Hub. This pro
