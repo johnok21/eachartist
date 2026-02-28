@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>On Air — EACH</title>
+<title>News — EACH</title>
 <link rel="icon" type="image/png" href="each-logo-small.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
-.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#fff0e0;color:var(--black);overflow-x:hidden}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.5);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
 .floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
 .site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
-.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.5);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
 .site-nav a:hover,.site-nav a.active{background:var(--orange);color:var(--black);border-color:var(--orange)}
 a{color:inherit}
 
@@ -25,7 +25,7 @@ a{color:inherit}
 .hero .update-note{font-family:"Space Mono",monospace;font-size:.75rem;color:rgba(0,0,0,.55);margin-top:1rem;text-transform:uppercase;letter-spacing:.08em}
 
 /* MARQUEE */
-.marquee{background:var(--black);color:var(--orange);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--orange);border-bottom:3px solid var(--orange);font-family:"Space Mono",monospace}
+.marquee{background:var(--black);color:var(--orange);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--black);border-bottom:3px solid var(--black);font-family:"Space Mono",monospace}
 .marquee-inner{display:inline-block;animation:scroll 28s linear infinite}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
@@ -34,8 +34,8 @@ a{color:inherit}
 .section-label{font-family:"Anton",sans-serif;font-size:clamp(1.8rem,5vw,3rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1.2rem;line-height:1}
 
 /* FEATURED */
-.featured{background:var(--black);border-bottom:3px solid rgba(255,255,255,.06)}
-.featured-card{border:4px solid var(--red);padding:2rem;position:relative;max-width:800px}
+.featured{background:#fff0e0;border-bottom:3px solid rgba(0,0,0,.06)}
+.featured-card{border:4px solid var(--red);padding:2rem;position:relative;max-width:800px;background:#fff}
 .featured-card::before{content:"✦ FEATURED";position:absolute;top:-.8rem;left:1.5rem;background:var(--red);color:#fff;padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
 .featured-card h2{font-size:1.3rem;line-height:1.3;margin-bottom:.6rem}
 .featured-card p{font-size:.95rem;line-height:1.6;opacity:.88;margin-bottom:.5rem}
@@ -46,7 +46,7 @@ a{color:inherit}
 .events{background:var(--blue);color:var(--white)}
 .events .section-label{color:var(--gold)}
 .event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
-.event-card{border:2px solid rgba(255,255,255,.2);padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
+.event-card{border:2px solid rgba(0,0,0,.1);background:#fff;color:var(--black);padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
 .event-card:hover{border-color:var(--gold);transform:translateY(-2px)}
 .event-date{background:var(--gold);color:var(--black);padding:.35rem .8rem;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:inline-block}
 .event-body{padding:.7rem .8rem .8rem}
@@ -57,11 +57,11 @@ a{color:inherit}
 .free-badge{display:inline-block;background:var(--green);color:var(--black);padding:.1rem .4rem;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-left:.3rem;vertical-align:middle}
 
 /* ARTICLES */
-.articles{background:var(--black);border-top:3px solid rgba(255,255,255,.06)}
+.articles{background:#fff0e0;border-top:3px solid rgba(0,0,0,.06)}
 .articles .section-label{color:var(--lavender)}
 .article-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.2rem}
-.article-card{border-left:4px solid var(--lavender);padding:.8rem 1rem;background:rgba(255,255,255,.02);transition:background .2s}
-.article-card:hover{background:rgba(255,255,255,.05)}
+.article-card{border-left:4px solid var(--lavender);padding:.8rem 1rem;background:#fff;transition:background .2s}
+.article-card:hover{background:rgba(0,0,0,.1)}
 .article-card h3{font-size:1rem;margin-bottom:.3rem;line-height:1.3}
 .article-card p{font-size:.85rem;line-height:1.5;opacity:.8}
 .article-card .source{font-size:.72rem;margin-top:.4rem;opacity:.5;text-transform:uppercase;letter-spacing:.04em}
@@ -70,20 +70,20 @@ a{color:inherit}
 /* FOLLOW */
 .follow{background:var(--green);color:var(--black);border-top:3px solid var(--black)}
 .follow .section-label{color:var(--black)}
-.follow-card{border:3px solid var(--black);padding:1.2rem;max-width:600px;background:rgba(0,0,0,.05)}
+.follow-card{border:3px solid var(--black);padding:1.2rem;max-width:600px;background:#fff}
 .follow-card h3{font-size:1.1rem;margin-bottom:.3rem}.follow-card p{font-size:.9rem;line-height:1.5;opacity:.85}
 .follow-card .follow-links{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
 .follow-card .follow-links a{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;padding:.25rem .5rem;border:2px solid var(--black);text-decoration:none;font-weight:700;transition:all .2s}
 .follow-card .follow-links a:hover{background:var(--black);color:var(--green)}
 
 /* DYK */
-.dyk{border:4px solid var(--gold);padding:1.5rem;margin:0 auto;max-width:700px;position:relative;background:var(--black)}
+.dyk{border:4px solid var(--gold);padding:1.5rem;margin:0 auto;max-width:700px;position:relative;background:#fff}
 .dyk::before{content:"✦ DID YOU KNOW?";position:absolute;top:-.8rem;left:1.5rem;background:var(--gold);color:var(--black);padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
 .dyk .fact{font-size:1.15rem;font-weight:700;line-height:1.4;color:var(--gold)}.dyk .context{font-size:.88rem;margin-top:.4rem;opacity:.75;line-height:1.5}
 .dyk .src{font-size:.68rem;margin-top:.5rem;opacity:.45;text-transform:uppercase;letter-spacing:.05em}
 
 /* CTA */
-.cta-section{background:var(--black);text-align:center;padding:3rem 2rem}
+.cta-section{background:#fff0e0;text-align:center;padding:3rem 2rem}
 .cta-section p{font-size:1rem;opacity:.7;max-width:500px;margin:0 auto;line-height:1.6}
 .cta-section a{color:var(--orange);font-weight:700}
 
@@ -95,10 +95,10 @@ a{color:inherit}
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html" class="active">On Air</a><a href="shared-spaces.html">Shared Spaces</a></nav>
+<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html" class="active">News</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
 
 <section class="hero">
-<h1>EACH:<br>ON AIR</h1>
+<h1>NEWS</h1>
 <p class="subtitle">A curated digest of Bay Area arts news, events, and voices worth following. Updated semi-monthly.</p>
 <p class="update-note">Last updated: February 26, 2026</p>
 </section>
@@ -275,17 +275,11 @@ a{color:inherit}
 
 <!-- CTA -->
 <section class="cta-section">
-<p>Got an event, article, or artist we should feature? Send it to jawno <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+<p>Got an event, article, or artist we should feature? Send it to jawno <a href="mailto:info@eachartist.org">info@eachartist.org</a></p>
 </section>
 
 <footer class="footer">
 <p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
-<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:info@eachartist.org">info@eachartist.org</a> · <a href="contact.html">Contact & Connect</a></p>
 <p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
-<p style="font-size:.75rem;opacity:.5;margin-top:.8rem">© 2026 Eager Arts & Culture Hub. This project is for EACH of us.</p>
-</footer>
-
-<script>
-document.querySelectorAll(".dyk").forEach(function(c){c.style.transform="rotate("+((Math.random()-.5)*2).toFixed(1)+"deg)"});
-</script>
-</body></html>
+<p style="font-size:.75rem;opa

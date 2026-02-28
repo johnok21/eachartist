@@ -11,11 +11,11 @@
 <style>
 :root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
-.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none}
+body{font-family:"DM Sans",sans-serif;background:#e8f8e4;color:var(--black);overflow-x:hidden}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none}
 .floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
 .site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
-.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
 .site-nav a:hover,.site-nav a.active{background:var(--green);color:var(--black);border-color:var(--green)}
 .bold-type{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.02em}.mono{font-family:"Space Mono",monospace}a{color:inherit}
 .hub-hero{min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:5rem 2rem 3rem;position:relative;overflow:hidden;background:var(--green)}
@@ -25,48 +25,48 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 .search-bar input{flex:1;padding:.7rem 1rem;border:3px solid var(--black);background:rgba(255,255,255,.9);color:var(--black);font-size:1rem;font-family:"DM Sans",sans-serif;outline:none}
 .search-bar input::placeholder{color:rgba(0,0,0,.4)}
 .search-bar button{padding:.7rem 1.2rem;border:3px solid var(--black);border-left:none;background:var(--black);color:var(--green);font-weight:700;font-size:.85rem;text-transform:uppercase;cursor:pointer;letter-spacing:.05em}
-.marquee-bar{background:var(--black);color:var(--gold);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
+.marquee-bar{background:var(--black);color:var(--green);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:none;border-bottom:none}
 .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.filter-bar{display:flex;flex-wrap:wrap;gap:0;padding:0 2rem;background:var(--black);border-bottom:3px solid var(--green)}
-.filter-tab{padding:.7rem 1.3rem;cursor:pointer;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;color:var(--green);border:3px solid var(--green);border-bottom:none;position:relative;top:3px;transition:all .2s}
-.filter-tab.active{background:var(--green);color:var(--black)}.filter-tab:not(.active):hover{background:rgba(109,222,90,.1)}
-.subsection-toggle{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;cursor:pointer;border-top:2px solid rgba(255,255,255,.08);transition:background .2s}
-.subsection-toggle:hover{background:rgba(255,255,255,.03)}
+.filter-bar{display:flex;flex-wrap:wrap;gap:0;padding:0 2rem;background:#e8f8e4;border-bottom:3px solid rgba(0,0,0,.1)}
+.filter-tab{padding:.7rem 1.3rem;cursor:pointer;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;border:3px solid;border-bottom:none;position:relative;top:3px;transition:all .2s}
+.filter-tab.active{color:#fff}.filter-tab:not(.active):hover{opacity:.8}
+.subsection-toggle{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;cursor:pointer;border-top:2px solid rgba(0,0,0,.08);transition:background .2s}
+.subsection-toggle:hover{background:#fff}
 .subsection-toggle h3{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .subsection-toggle .toggle-icon{font-size:1.5rem;transition:transform .3s;line-height:1}
 .subsection-toggle.open .toggle-icon{transform:rotate(45deg)}
 .subsection-content{max-height:0;overflow:hidden;transition:max-height .5s ease}.subsection-content.open{max-height:none}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;padding:1rem 2rem 2rem}
-.resource-card{border:3px solid rgba(109,222,90,.25);padding:0;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
-.resource-card:hover{transform:translateY(-3px);border-color:rgba(109,222,90,.5)}.resource-card.hidden{display:none}
+.resource-card{border:2px solid rgba(0,0,0,.08);background:#fff;padding:0;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.resource-card:hover{transform:translateY(-3px);border-color:var(--black)}.resource-card.hidden{display:none}
 .card-badge{display:inline-block;padding:.25rem .65rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:.8rem .8rem 0}
 .card-body{padding:.6rem .8rem .8rem}.card-body h3{font-size:1.05rem;margin-bottom:.4rem;line-height:1.3}.card-body p{font-size:.88rem;line-height:1.5;opacity:.88}
 .card-links{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.card-links a{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;padding:.2rem .5rem;border:1.5px solid rgba(255,255,255,.25);text-decoration:none;transition:all .2s;opacity:.7}
-.card-links a:hover{opacity:1;border-color:var(--green);color:var(--green)}
+.card-links a{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;padding:.2rem .5rem;border:1.5px solid rgba(0,0,0,.3);text-decoration:none;transition:all .2s;opacity:.8}
+.card-links a:hover{opacity:1;border-color:var(--black);color:var(--black)}
 .card-source{display:block;margin-top:.6rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;opacity:.5;text-decoration:none;transition:opacity .2s}.card-source:hover{opacity:1}
 .badge-documentary{background:var(--red);color:#fff}.badge-case-study{background:var(--blue);color:#fff}.badge-article{background:var(--gold);color:var(--black)}
 .badge-essay{background:var(--lavender);color:var(--black)}.badge-video{background:var(--orange);color:var(--black)}.badge-toolkit{background:var(--green);color:var(--black)}
 .badge-data{background:var(--cyan);color:var(--black)}.badge-directory{background:var(--white);color:var(--black)}.badge-podcast{background:#e040fb;color:#fff}
 .badge-book{background:#8d6e63;color:#fff}.badge-fellowship{background:var(--gold);color:var(--black)}.badge-community{background:var(--green);color:var(--black)}
-.badge-course{background:var(--blue);color:#fff}.badge-tool{background:var(--orange);color:var(--black)}.badge-sessions{background:var(--red);color:#fff}.badge-report{background:var(--lavender);color:var(--black)}
-.dyk-card{border:4px solid var(--gold);padding:1.5rem;margin:1.5rem 2rem;position:relative;background:var(--black)}
+.badge-course{background:var(--blue);color:#fff}.badge-tool{background:var(--orange);color:var(--black)}.badge-sessions{background:var(--blue);color:var(--gold)}.badge-report{background:var(--lavender);color:var(--black)}
+.dyk-card{border:4px solid var(--gold);padding:1.5rem;margin:1.5rem 2rem;position:relative;background:#fff}
 .dyk-card::before{content:"✦ DID YOU KNOW?";position:absolute;top:-.8rem;left:1.5rem;background:var(--gold);color:var(--black);padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
 .dyk-card .dyk-fact{font-size:1.15rem;font-weight:700;line-height:1.4;color:var(--gold)}.dyk-card .dyk-context{font-size:.88rem;margin-top:.4rem;opacity:.75;line-height:1.5}
 .dyk-card .dyk-source{font-size:.68rem;margin-top:.5rem;opacity:.45;text-transform:uppercase;letter-spacing:.05em}
-.callout-box{border-left:6px solid;padding:1.2rem 1.2rem 1.2rem 1.8rem;margin:1.5rem 2rem;background:rgba(255,255,255,.03);position:relative}
+.callout-box{border-left:6px solid;padding:1.2rem 1.2rem 1.2rem 1.8rem;margin:1.5rem 2rem;background:#fff;position:relative}
 .callout-box .callout-label{position:absolute;top:-.6rem;left:1.2rem;padding:.12rem .6rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .callout-box blockquote{font-style:italic;font-size:1rem;line-height:1.6}.callout-box .callout-cite{font-size:.78rem;margin-top:.4rem;opacity:.65}
-.cta-strip{padding:1rem 2rem;font-size:.9rem;color:var(--green)}.cta-strip a{font-weight:700}
+.cta-strip{padding:1rem 2rem;font-size:.9rem;color:var(--black)}.cta-strip a{font-weight:700}
 .hub-footer{background:var(--green);color:var(--black);padding:2.5rem 2rem;text-align:center}.hub-footer a{color:var(--black);font-weight:700}
-.no-results{padding:3rem 2rem;text-align:center;font-size:1.1rem;opacity:.6;display:none}
-.section-intro{padding:1.5rem 2rem .5rem;max-width:800px}.section-intro p{font-size:.95rem;line-height:1.6;opacity:.8}
+.no-results{padding:3rem 2rem;text-align:center;font-size:1.1rem;opacity:.7;display:none;color:var(--black)}
+.section-intro{padding:1.5rem 2rem .5rem;max-width:800px}.section-intro p{font-size:.95rem;line-height:1.6;opacity:.85}
 @media(max-width:700px){.cards-grid{grid-template-columns:1fr;padding:.8rem 1rem;gap:1rem}.dyk-card,.callout-box{margin:1rem}.filter-bar{padding:0 1rem}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.search-bar{margin:1.2rem 1rem 0}}
 </style>
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html" class="active">Resources</a><a href="on-air.html">On Air</a><a href="shared-spaces.html">Shared Spaces</a></nav>
+<nav class="site-nav"><a href="resource-hub.html" class="active">Resources</a><a href="on-air.html">News</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
 
 <section class="hub-hero">
 <h1 class="bold-type big-title">RESOURCE<br>HUB</h1>
@@ -77,10 +77,10 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 <div class="marquee-bar mono"><div class="marquee-inner">✦ MUTUAL CARE &nbsp;&nbsp;&nbsp; ✦ SHARED ECONOMICS &nbsp;&nbsp;&nbsp; ✦ UNABASHED CREATIVITY &nbsp;&nbsp;&nbsp; ✦ KNOW THE TOOLS &nbsp;&nbsp;&nbsp; ✦ KNOW YOU'RE NOT ALONE &nbsp;&nbsp;&nbsp; ✦ MUTUAL CARE &nbsp;&nbsp;&nbsp; ✦ SHARED ECONOMICS &nbsp;&nbsp;&nbsp; ✦ UNABASHED CREATIVITY &nbsp;&nbsp;&nbsp; ✦ KNOW THE TOOLS &nbsp;&nbsp;&nbsp; ✦ KNOW YOU'RE NOT ALONE &nbsp;&nbsp;&nbsp;</div></div>
 
 <div class="filter-bar">
-<div class="filter-tab active" onclick="filterCategory('all',this)">All Resources</div>
-<div class="filter-tab" onclick="filterCategory('stories',this)">Stories & Case Studies</div>
-<div class="filter-tab" onclick="filterCategory('reports',this)">Articles, Reports & Data</div>
-<div class="filter-tab" onclick="filterCategory('practices',this)">Practices</div>
+<div class="filter-tab active" onclick="filterCategory('all',this)" style="color:var(--black);border-color:var(--black);background:var(--black);color:var(--green);" data-color="var(--black)">All Resources</div>
+<div class="filter-tab" onclick="filterCategory('stories',this)" style="color:var(--black);border-color:var(--black);" data-color="var(--black)">Stories & Case Studies</div>
+<div class="filter-tab" onclick="filterCategory('reports',this)" style="color:var(--black);border-color:var(--black);" data-color="var(--black)">Articles, Reports & Data</div>
+<div class="filter-tab" onclick="filterCategory('practices',this)" style="color:var(--black);border-color:var(--black);" data-color="var(--black)">Practices</div>
 </div>
 <div class="no-results" id="noResults">No resources match your search.</div>
 
@@ -148,7 +148,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 <a class="card-source" href="https://pbs.org/video/emory-douglas-the-black-panther-artist-uiabo7" target="_blank">PBS / American Masters · pbs.org</a></div></div>
 
 </div>
-<div class="cta-strip">Know a story or case study that should be here? Send it to jawno <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></div>
+<div class="cta-strip">Know a story or case study that should be here? Send it to jawno <a href="/cdn-cgi/l/email-protection#315e5a5958445d445b71565c50585d1f525e5c"><span class="__cf_email__" data-cfemail="b6d9dddedfc3dac3dcf6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a></div>
 </div></div>
 
 <!-- ARTICLES REPORTS DATA -->
@@ -184,7 +184,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 <div class="resource-card" data-cat="reports" data-search="solidarity not charity grantmaking arts culture solidarity economy giarts"><span class="card-badge badge-report">Report</span><div class="card-body"><h3>Solidarity Not Charity: Arts & Culture Grantmaking in the Solidarity Economy</h3><p>How arts and culture funding can align with solidarity economy principles — moving from extractive philanthropy toward reciprocal, community-driven investment.</p><a class="card-source" href="https://www.giarts.org/sites/default/files/solidarity-not-charity.pdf" target="_blank">Grantmakers in the Arts · giarts.org · PDF</a></div></div>
 
 </div>
-<div class="cta-strip">Know a report, dataset, or article that should be here? Send it to jawno <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></div>
+<div class="cta-strip">Know a report, dataset, or article that should be here? Send it to jawno <a href="/cdn-cgi/l/email-protection#4e212526273b223b240e29232f2722602d2123"><span class="__cf_email__" data-cfemail="4b242023223e273e210b2c262a222765282426">[email&#160;protected]</span></a></div>
 </div></div>
 
 <!-- PRACTICES -->
@@ -192,15 +192,15 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 <div class="subsection-toggle" onclick="toggleSection(this)"><h3 style="color:var(--lavender)">Practices</h3><span class="toggle-icon">+</span></div>
 <div class="subsection-content">
 
-<div style="background:var(--red);color:#fff;padding:.8rem 2rem;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em">✦ Money Health</div>
-<div class="callout-box" style="border-color:var(--red)"><span class="callout-label" style="background:var(--red);color:#fff">From the Room</span><blockquote>"The non-judgmental quality feels very important. I have so much self-judgment and shame. Our money stories are not necessarily true, but they are advertised."</blockquote><div class="callout-cite">— Money Health Collective participant</div></div>
+<div style="background:var(--blue);color:var(--gold);padding:.8rem 2rem;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em">✦ Money Health</div>
+<div class="callout-box" style="border-color:var(--blue)"><span class="callout-label" style="background:var(--blue);color:var(--gold)">From the Room</span><blockquote>"The non-judgmental quality feels very important. I have so much self-judgment and shame. Our money stories are not necessarily true, but they are advertised."</blockquote><div class="callout-cite">— Money Health Collective participant</div></div>
 <div class="section-intro"><p>Money is hard to talk about. The shame, the scarcity mindset, the voice that says "artists aren't supposed to care about this" — we know. The goal isn't to turn you into a finance person. It's to help you understand your own money story, build real economic resilience, and find community around the stuff we were never taught.</p></div>
 
-<div class="dyk-card" style="border-color:var(--red)"><div class="dyk-fact" style="color:var(--red)">The Black Panther Party's free breakfast program fed 20,000 children a day at its peak — before the federal government created its own version.</div><div class="dyk-context">Communities can build their own economic infrastructure from scratch.</div><div class="dyk-source">Source: History.com / Smithsonian Magazine</div></div>
+<div class="dyk-card" style="border-color:var(--blue)"><div class="dyk-fact" style="color:var(--blue)">The Black Panther Party's free breakfast program fed 20,000 children a day at its peak — before the federal government created its own version.</div><div class="dyk-context">Communities can build their own economic infrastructure from scratch.</div><div class="dyk-source">Source: History.com / Smithsonian Magazine</div></div>
 
 <div class="cards-grid">
 
-<div class="resource-card" data-cat="practices" data-search="money journey sessions money health collective lin shi free virtual group financial"><span class="card-badge badge-sessions">Community Sessions · Confirmed ✓</span><div class="card-body"><h3>Money Journey Sessions — Money Health Collective</h3><p>Free, virtual group sessions where participants share money experiences, learn together, and build real financial skills in a non-judgmental community. New cohort starts March 2026. Facilitated by Lin Shi.</p><a class="card-source" href="https://calendly.com/lin-moneyhealthcollective" target="_blank">Money Health Collective · calendly.com</a></div></div>
+<div class="resource-card" data-cat="practices" data-search="money journey sessions money health collective lin shi free virtual group financial"><span class="card-badge badge-sessions">Community Sessions · Confirmed ✓</span><div class="card-body"><h3>Money Journey Sessions — Money Health Collective</h3><p>Free, virtual group sessions where participants share money experiences, learn together, and build real financial skills in a non-judgmental community. New cohort starts March 2026. Facilitated by Lin Shi.</p><a class="card-source" href="https://www.moneyhealthcollective.com" target="_blank">Money Health Collective · moneyhealthcollective.com</a></div></div>
 
 <div class="resource-card" data-cat="practices" data-search="rocket money budget tracker free app bank accounts spending irregular income"><span class="card-badge badge-tool">Tool</span><div class="card-body"><h3>Rocket Money (Budget Tracker)</h3><p>Free app that syncs with bank accounts and makes your actual spending visible. Excellent starting point for artists with irregular income.</p><a class="card-source" href="https://rocketmoney.com" target="_blank">Rocket Money · rocketmoney.com</a></div></div>
 
@@ -251,7 +251,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 <div class="resource-card" data-cat="practices" data-search="darraj trying write terrible world sumud steadfast presence palestinian erasure"><span class="card-badge badge-essay">Essay</span><div class="card-body"><h3>Trying to Write in a Terrible World — Susan Muaddi Darraj</h3><p>Darraj explores the Palestinian value of sumud — steadfast presence, refusing erasure — and what it means to write while bearing witness. An invitation to every artist navigating their practice in a world that gives many reasons to put down the pen.</p><a class="card-source" href="https://theconsciouscitizens.org" target="_blank">The Conscious Citizens</a></div></div>
 
 </div>
-<div class="cta-strip">Know a practice or tool that should live here? Send it to jawno <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></div>
+<div class="cta-strip">Know a practice or tool that should live here? Send it to jawno <a href="/cdn-cgi/l/email-protection#79161211100c150c13391e14181015571a1614"><span class="__cf_email__" data-cfemail="cfa0a4a7a6baa3baa58fa8a2aea6a3e1aca0a2">[email&#160;protected]</span></a></div>
 </div></div>
 
 <!-- BOTTOM DYK -->
@@ -259,17 +259,12 @@ body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white)
 
 <footer class="hub-footer">
 <p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
-<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:info@eachartist.org">info@eachartist.org</a> · <a href="contact.html">Contact & Connect</a></p>
 <p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
 <p style="font-size:.75rem;opacity:.5;margin-top:.8rem">© 2026 Eager Arts & Culture Hub. This project is for EACH of us.</p>
 </footer>
 
 <script>
 function toggleSection(el){var c=el.nextElementSibling;el.classList.toggle('open');c.classList.toggle('open')}
-function filterCategory(cat,el){document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active')});el.classList.add('active');document.querySelectorAll('.subsection').forEach(function(s){if(cat==='all'||s.dataset.category===cat){s.style.display=''}else{s.style.display='none'}});if(cat!=='all'){document.querySelectorAll('.subsection').forEach(function(s){if(s.dataset.category===cat){s.querySelector('.subsection-toggle').classList.add('open');s.querySelector('.subsection-content').classList.add('open')}})}}
-function filterResources(){var q=document.getElementById('searchInput').value.toLowerCase().trim();var cards=document.querySelectorAll('.resource-card');var any=false;if(!q){cards.forEach(function(c){c.classList.remove('hidden')});document.querySelectorAll('.subsection').forEach(function(s){s.style.display=''});document.getElementById('noResults').style.display='none';return}cards.forEach(function(c){var t=(c.dataset.search||'')+' '+(c.textContent||'');if(t.toLowerCase().indexOf(q)!==-1){c.classList.remove('hidden');any=true}else{c.classList.add('hidden')}});document.querySelectorAll('.subsection').forEach(function(s){s.style.display='';s.querySelector('.subsection-toggle').classList.add('open');s.querySelector('.subsection-content').classList.add('open')});document.getElementById('noResults').style.display=any?'none':'block'}
-function clearSearch(){document.getElementById('searchInput').value='';filterResources()}
-document.querySelectorAll('.subsection-toggle').forEach(function(t){t.classList.add('open');t.nextElementSibling.classList.add('open')});
-document.querySelectorAll('.dyk-card').forEach(function(c){c.style.transform='rotate('+((Math.random()-.5)*2).toFixed(1)+'deg)'});
-</script>
-</body></html>
+function filterCategory(cat,el){document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active');t.style.background='transparent'});el.classList.add('active');el.style.background='var(--black)';el.style.color='var(--green)';document.querySelectorAll('.subsection').forEach(function(s){if(cat==='all'||s.dataset.category===cat){s.style.display=''}else{s.style.display='none'}});if(cat!=='all'){document.querySelectorAll('.subsection').forEach(function(s){if(s.dataset.category===cat){s.querySelector('.subsection-toggle').classList.add('open');s.querySelector('.subsection-content').classList.add('open')}})}}
+function filterResources(){var q=document.getElementById('searchInput').value.toLowerCase().trim();var cards=document.querySelectorAll('.resource-card');var any=false;if(!q){cards.forEach(function(c){c.classList.remove('hidden')});document.querySelectorAll('.subsection').forEach(function(s){s.style.display=''});document.getElementById('noResults').style.display='none';return}cards.forEach(function(c){var t=(c.dataset.search||'')+' '+(c.textContent||'');if(t.toLowerCase().indexOf(q)!==-1){c.classList.remove('hidden');any=true}else{c.classList.add('hidden')}});document.querySele

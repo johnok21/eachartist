@@ -10,11 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
-.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#efe6f5;color:var(--black);overflow-x:hidden}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
 .floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
 .site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
-.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.45);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
 .site-nav a:hover,.site-nav a.active{background:var(--lavender);color:var(--black);border-color:var(--lavender)}
 a{color:inherit}
 
@@ -24,7 +24,7 @@ a{color:inherit}
 .hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:600px;margin-top:1.2rem;line-height:1.6}
 
 /* MARQUEE */
-.marquee{background:var(--black);color:var(--lavender);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--lavender);border-bottom:3px solid var(--lavender);font-family:"Space Mono",monospace}
+.marquee{background:var(--black);color:var(--lavender);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--black);border-bottom:3px solid var(--black);font-family:"Space Mono",monospace}
 .marquee-inner{display:inline-block;animation:scroll 30s linear infinite}
 @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
@@ -37,7 +37,7 @@ a{color:inherit}
 .how{background:var(--blue);color:var(--white);padding:2.5rem 2rem}
 .how h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1rem;color:var(--gold)}
 .how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:900px}
-.step{border:2px solid rgba(255,255,255,.2);padding:1.2rem;position:relative}
+.step{border:2px solid rgba(255,255,255,.2);padding:1.2rem;position:relative;background:rgba(255,255,255,.1)}
 .step-num{font-family:"Anton",sans-serif;font-size:2.5rem;color:var(--gold);line-height:1;margin-bottom:.4rem}
 .step h3{font-size:.95rem;font-weight:700;margin-bottom:.3rem}.step p{font-size:.85rem;line-height:1.5;opacity:.8}
 
@@ -45,18 +45,18 @@ a{color:inherit}
 .types{padding:2.5rem 2rem}
 .types h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1rem;color:var(--green)}
 .type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-.type-card{border:3px solid;padding:1rem;text-align:center;transition:transform .2s}
+.type-card{border:3px solid;padding:1rem;text-align:center;transition:transform .2s;background:#fff}
 .type-card:hover{transform:translateY(-3px)}
 .type-card .icon{font-size:2rem;margin-bottom:.3rem}
 .type-card h3{font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
 .type-card p{font-size:.8rem;opacity:.7;line-height:1.4}
 
 /* PREVIEW */
-.preview{padding:2.5rem 2rem;border-top:3px solid rgba(255,255,255,.06)}
+.preview{padding:2.5rem 2rem;border-top:3px solid rgba(0,0,0,.06);background:#efe6f5}
 .preview h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:.6rem;color:var(--lavender)}
 .preview .note{font-size:.9rem;opacity:.65;margin-bottom:1.5rem;max-width:650px;line-height:1.5}
 .venue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
-.venue-card{border:2px solid rgba(196,168,216,.3);padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
+.venue-card{border:2px solid rgba(0,0,0,.1);background:#fff;padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
 .venue-card:hover{border-color:var(--lavender);transform:translateY(-2px)}
 .venue-tag{display:inline-block;padding:.2rem .6rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:.7rem .7rem 0}
 .venue-body{padding:.5rem .7rem .8rem}
@@ -67,7 +67,7 @@ a{color:inherit}
 .tag-free{background:var(--green);color:var(--black)}.tag-cheap{background:var(--gold);color:var(--black)}.tag-alt{background:var(--lavender);color:var(--black)}.tag-outdoor{background:var(--cyan);color:var(--black)}.tag-community{background:var(--orange);color:var(--black)}
 
 /* DYK */
-.dyk{border:4px solid var(--gold);padding:1.5rem;margin:1.5rem 2rem;position:relative;background:var(--black)}
+.dyk{border:4px solid var(--gold);padding:1.5rem;margin:1.5rem 2rem;position:relative;background:#fff}
 .dyk::before{content:"✦ DID YOU KNOW?";position:absolute;top:-.8rem;left:1.5rem;background:var(--gold);color:var(--black);padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
 .dyk .fact{font-size:1.15rem;font-weight:700;line-height:1.4;color:var(--gold)}.dyk .context{font-size:.88rem;margin-top:.4rem;opacity:.75;line-height:1.5}
 .dyk .src{font-size:.68rem;margin-top:.5rem;opacity:.45;text-transform:uppercase;letter-spacing:.05em}
@@ -86,7 +86,7 @@ a{color:inherit}
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html">On Air</a><a href="shared-spaces.html" class="active">Shared Spaces</a></nav>
+<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html">News</a><a href="shared-spaces.html" class="active">Shared Spaces</a><a href="contact.html">Contact</a></nav>
 
 <section class="hero">
 <h1>SHARED<br>SPACES</h1>
@@ -97,7 +97,7 @@ a{color:inherit}
 
 <div class="intro">
 <p>Finding space in San Francisco is one of the biggest barriers artists face. The venues listed here aren't a database you search alone — they're a starting point for a conversation. Think of this as a matchmaking service: you tell us what you need, we help you find a fit.</p>
-<p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, <a href="mailto:okhiuluj@gmail.com" style="font-weight:700;text-decoration:underline">send it our way</a>.</p>
+<p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, <a href="/cdn-cgi/l/email-protection#600f0b0809150c150a20070d01090c4e030f0d" style="font-weight:700;text-decoration:underline">send it our way</a>.</p>
 </div>
 
 <!-- HOW IT WORKS -->
@@ -132,7 +132,7 @@ a{color:inherit}
 <!-- PREVIEW VENUES -->
 <section class="preview">
 <h2>Venue Preview</h2>
-<p class="note">This archive is actively growing. Below are initial listings — more coming as we build relationships across the city. Want to be matched to a space? <a href="mailto:okhiuluj@gmail.com" style="text-decoration:underline;font-weight:700">Email jawno</a>.</p>
+<p class="note">This archive is actively growing. Below are initial listings — more coming as we build relationships across the city. Want to be matched to a space? <a href="/cdn-cgi/l/email-protection#4e212526273b223b240e29232f2722602d2123" style="text-decoration:underline;font-weight:700">Email jawno</a>.</p>
 
 <div class="venue-grid">
 
@@ -222,17 +222,10 @@ a{color:inherit}
 <!-- CTA -->
 <section class="cta">
 <h2>Know a Space?</h2>
-<p>A garage that hosts shows. A church basement with a piano. A backyard with a view. A storefront between tenants. If you know a space in SF that could welcome artists, tell us about it — <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
+<p>A garage that hosts shows. A church basement with a piano. A backyard with a view. A storefront between tenants. If you know a space in SF that could welcome artists, tell us about it — <a href="mailto:info@eachartist.org">info@eachartist.org</a></p>
 </section>
 
 <footer class="footer">
 <p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
-<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:okhiuluj@gmail.com">okhiuluj@gmail.com</a></p>
-<p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
-<p style="font-size:.75rem;opacity:.5;margin-top:.8rem">© 2026 Eager Arts & Culture Hub. This project is for EACH of us.</p>
-</footer>
-
-<script>
-document.querySelectorAll(".dyk").forEach(function(c){c.style.transform="rotate("+((Math.random()-.5)*1.5).toFixed(1)+"deg)"});
-</script>
-</body></html>
+<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:info@eachartist.org">info@eachartist.org</a> · <a href="contact.html">Contact & Connect</a></p>
+<p style="font-size:.8rem;opacity:.7"><a hre
