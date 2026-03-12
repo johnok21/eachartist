@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gatherings — EACH</title>
+<link rel="icon" type="image/png" href="each-logo-small.png">
+<link rel="apple-touch-icon" href="each-logo-small.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--orange);color:var(--black);border-color:var(--orange)}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s,background .2s}
+.floating-logo:hover{transform:scale(1.06);background:rgba(10,10,10,.92)}
+.floating-logo img{width:44px;height:auto;display:block}
+.hero{min-height:78vh;padding:8rem 2rem 3rem;display:grid;align-items:end;position:relative;background:
+radial-gradient(circle at 18% 18%,rgba(0,212,170,.23),transparent 22%),
+radial-gradient(circle at 80% 22%,rgba(196,168,216,.28),transparent 18%),
+radial-gradient(circle at 76% 78%,rgba(255,140,46,.26),transparent 22%),
+linear-gradient(180deg,rgba(10,10,10,.42),rgba(10,10,10,.86)),
+var(--black)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:8px 8px;mix-blend-mode:soft-light;opacity:.35;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:980px;margin:0 auto;width:100%}
+.kicker{display:inline-block;padding:.4rem .7rem;border:2px solid var(--green);color:var(--green);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;background:rgba(10,10,10,.55)}
+.hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.2rem,10vw,7rem);line-height:.88;text-transform:uppercase;max-width:12ch;margin-bottom:1rem}
+.hero h1 .lav{color:var(--lavender)}
+.hero h1 .org{color:var(--orange)}
+.lead{font-size:1.2rem;line-height:1.65;max-width:760px;color:rgba(245,245,240,.92)}
+.rule{height:12px;width:min(100%,760px);background:var(--gold);border-radius:999px;margin:1.8rem 0 0;clip-path:polygon(0 60%,6% 20%,12% 70%,20% 35%,28% 80%,38% 30%,47% 75%,55% 42%,64% 85%,73% 36%,82% 78%,90% 28%,100% 68%,100% 100%,0 100%)}
+.section{padding:0 2rem 3rem}
+.panel{max-width:980px;margin:-2rem auto 0;position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:1.3rem}
+.card{background:var(--white);color:var(--black);padding:1.6rem;border:3px solid var(--black);box-shadow:12px 12px 0 var(--green)}
+.card h2{font-family:"Anton",sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);line-height:.92;text-transform:uppercase;margin-bottom:.9rem}
+.card p{font-size:1rem;line-height:1.65;margin-bottom:1rem}
+.card p:last-child{margin-bottom:0}
+.note{background:var(--lavender);box-shadow:12px 12px 0 var(--gold)}
+.note h3{font-family:"Anton",sans-serif;font-size:1.8rem;line-height:.92;text-transform:uppercase;margin-bottom:.7rem}
+.note p{line-height:1.6}
+.values{max-width:980px;margin:2.2rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.value{border:3px solid var(--white);padding:1.1rem;background:rgba(255,255,255,.04);backdrop-filter:blur(4px)}
+.value h3{font-family:"Anton",sans-serif;font-size:1.35rem;text-transform:uppercase;margin-bottom:.45rem}
+.value p{font-size:.98rem;line-height:1.55;color:rgba(245,245,240,.86)}
+.cta{max-width:980px;margin:2rem auto 0;border:3px solid var(--green);padding:1.4rem 1.5rem;background:rgba(109,222,90,.08)}
+.cta p{font-size:1rem;line-height:1.6;max-width:760px}
+.cta a{color:var(--green);font-weight:700}
+.footer{text-align:center;padding:2rem;font-size:.78rem;opacity:.55;border-top:2px solid rgba(255,255,255,.12);margin-top:2rem}
+@media(max-width:860px){.panel,.values{grid-template-columns:1fr}.card,.note{box-shadow:8px 8px 0 var(--green)}.note{box-shadow:8px 8px 0 var(--gold)}}
+@media(max-width:700px){.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.hero{padding-top:7rem}.lead{font-size:1.05rem}}
+</style>
+</head>
+<body>
+<a href="index.html" class="floating-logo" aria-label="Eager Arts &amp; Culture Hub home"><img src="each-logo-small.png" alt="Eager Arts &amp; Culture Hub logo"></a>
+<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="gatherings.html" class="active">Gatherings</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Placeholder page · Spring 2026</div>
+    <h1><span class="lav">Gather</span> <span class="org">Together</span></h1>
+    <p class="lead">We are excited to launch into planning our first community town hall in the spring of 2026 — a space that welcomes artists across generations, mediums, and walks of life into dialogue about the future of arts in our city.</p>
+    <div class="rule"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="panel">
+    <div class="card">
+      <h2>No panelists. No consultants. This one is for you.</h2>
+      <p>We want to create a session where artists can show up with their lived experience, their questions, their hopes, and their honest read of what this city needs. No performance of expertise required. No polished talking points. Just authentic voice, shared imagination, and real conversation.</p>
+      <p>This first town hall — and the gatherings that follow — will help shape our path forward as a community. We are treating this page as a placeholder while we build the format, invite people in, and make sure the room reflects the values we want to practice together.</p>
+    </div>
+    <aside class="card note">
+      <h3>What we're building toward</h3>
+      <p>A multigenerational, cross-medium gathering rooted in care, cultural power, and the future of artists in San Francisco.</p>
+    </aside>
+  </div>
+
+  <div class="values">
+    <div class="value">
+      <h3>Across generations</h3>
+      <p>Emerging artists, elders, culture workers, and neighbors in one room — learning from one another rather than sorting by status.</p>
+    </div>
+    <div class="value">
+      <h3>Across mediums</h3>
+      <p>Visual artists, musicians, writers, dancers, filmmakers, designers, organizers, and the forms that do not fit neat categories.</p>
+    </div>
+    <div class="value">
+      <h3>Across walks of life</h3>
+      <p>Artists with different relationships to institutions, money, housing, family, labor, and place — all bringing essential perspective.</p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <p>Programming details are still taking shape. In the meantime, you can <a href="contact.html">reach out through the contact page</a> or join the mailing list there to hear when the first gathering is announced.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 Eager Arts &amp; Culture Hub. This project is for EACH of us.</p>
+</footer>
+</body>
+</html>
