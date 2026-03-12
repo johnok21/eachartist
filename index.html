@@ -175,6 +175,12 @@
     opacity: 0.85;
   }
 
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
+
   .hero-tag {
     display: inline-block;
     margin-top: 2rem;
@@ -185,6 +191,8 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* ── COLOR BLOCKS (flyer-style) ── */
@@ -360,21 +368,27 @@
 
   /* ── HERO JOIN BUTTON ── */
   .hero-join-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1.5rem;
     padding: 0.9rem 2.5rem;
     font-size: clamp(1rem, 2.5vw, 1.25rem);
-    background: var(--green);
-    color: var(--black);
+    background: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
     text-decoration: none;
     letter-spacing: 0.06em;
     position: relative;
     z-index: 2;
-    transition: background 0.2s, transform 0.15s;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    width: 100%;
+    max-width: 100%;
   }
   .hero-join-btn:hover {
-    background: var(--gold);
-    transform: scale(1.04);
+    background: var(--green);
+    color: var(--black);
+    transform: scale(1.02);
   }
 
   /* ── ANIMATIONS ── */
@@ -412,7 +426,7 @@
 
 <nav class="site-nav">
   <a href="resource-hub.html">Resources</a>
-  <a href="gatherings.html">Gatherings</a>
+  <a href="on-air.html">News</a>
   <a href="shared-spaces.html">Shared Spaces</a>
   <a href="contact.html">Contact</a>
 </nav>
@@ -424,16 +438,18 @@
   </video>
   <div class="hero-overlay"></div>
   <img src="each-logo-full.png" alt="Eager Arts & Culture Hub" class="hero-logo fade-up" />
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
-     target="_blank"
-     rel="noopener"
-     class="hero-join-btn bold-type fade-up delay-1">Join Us ↗</a>
-  <p class="hero-sub fade-up delay-2">
-    A cooperative hub by-and-for Bay Area artists to practice 
-    <strong>mutual care</strong>, <strong>shared economics</strong>, 
-    and <strong>unabashed creativity</strong>.
-  </p>
-  <span class="hero-tag fade-up delay-3">eachartist.org</span>
+  <div class="hero-content">
+    <p class="hero-sub fade-up delay-1">
+      A cooperative hub by-and-for Bay Area artists to practice 
+      <strong>mutual care</strong>, <strong>shared economics</strong>, 
+      and <strong>unabashed creativity</strong>.
+    </p>
+    <span class="hero-tag fade-up delay-2">eachartist.org</span>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
+       target="_blank"
+       rel="noopener"
+       class="hero-join-btn bold-type fade-up delay-3">Join Us ↗</a>
+  </div>
 </section>
 
 <!-- ═══ THE PITCH ═══ -->
