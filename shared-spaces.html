@@ -19,9 +19,18 @@
 a{color:inherit}
 
 /* HERO */
-.hero{min-height:55vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:5rem 2rem 3rem;background:var(--lavender);position:relative;overflow:hidden}
+.hero{min-height:68vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(180deg,#b895d1 0%,#a985c5 100%);position:relative;overflow:hidden}
 .hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.5rem,11vw,9rem);line-height:.85;color:var(--black);text-transform:uppercase;letter-spacing:.02em}
 .hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:600px;margin-top:1.2rem;line-height:1.6}
+.hero::before{content:"";position:absolute;inset:0;opacity:.14;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.55) 1px, transparent 0);background-size:14px 14px;pointer-events:none}
+.hero::after{content:"";position:absolute;width:220px;height:220px;right:-40px;top:90px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.88;transform:rotate(10deg);pointer-events:none}
+.hero h1,.hero-text,.squiggle{position:relative;z-index:1}
+.hero-text{max-width:760px;margin:1.5rem auto 0;text-align:center;font-size:1rem;line-height:1.8;background:rgba(255,255,255,.16);border:2px solid rgba(0,0,0,.14);padding:1.4rem 1.3rem;border-radius:16px;backdrop-filter:blur(2px)}
+.hero-text p + p{margin-top:1rem}
+.squiggle{width:110px;height:14px;margin:1rem auto 0;background:radial-gradient(circle at 7px 7px, transparent 6px, var(--black) 6px, var(--black) 8px, transparent 8px) 0 0/22px 14px repeat-x}
+.affordable-block{max-width:760px;margin:2.5rem auto 4rem;padding:0 2rem;text-align:center}
+.affordable-block p{font-size:1.05rem;line-height:1.8}
+.affordable-block p + p{margin-top:1rem}
 
 /* MARQUEE */
 .marquee{background:var(--black);color:var(--lavender);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--black);border-bottom:3px solid var(--black);font-family:"Space Mono",monospace}
@@ -90,15 +99,18 @@ a{color:inherit}
 
 <section class="hero">
 <h1>SHARED<br>SPACES</h1>
-<p class="subtitle">A personally curated archive of free, cheap, and alternative venues across San Francisco — for artists who need somewhere to make, show, and share their work.</p>
+<div class="squiggle" aria-hidden="true"></div>
+<div class="hero-text"><p>We’re cultivating a way to connect artists who are excited to share their work with the neighborhood and neighbors who are interested in opening their spaces to those artists.</p>
+<p>That could look like a local café staying open a little later for a show, an unused basement that could use a refresh, a back patio or yard that becomes a pop-up open mic or art gallery, or a storefront that wants to host something creative for a night. It's a great way for us to get to know more people and places in the Bay! We’ll always leave things better than we found them (no better words to live by).</p>
+<p>For now we're focused on the culture circles (the artist network). We’ll build something more sophisticated for intake down the road. In the meantime, if you need a space, or if you have a space you’d like to share, email us to start a conversation.</p>
+<p>As always, this is extremely consent-based. And truly, it’s going to be beautiful watching art spill out into our neighborhoods when these connections start to grow.</p></div>
 </section>
-
 <div class="marquee"><div class="marquee-inner">✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp; ✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp;</div></div>
 
-<div class="intro">
-<p>Finding space in San Francisco is one of the biggest barriers artists face. The venues listed here aren't a database you search alone — they're a starting point for a conversation. Think of this as a matchmaking service: you tell us what you need, we help you find a fit.</p>
-<p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, <a href="/cdn-cgi/l/email-protection#600f0b0809150c150a20070d01090c4e030f0d" style="font-weight:700;text-decoration:underline">send it our way</a>.</p>
-</div>
+<section class="affordable-block">
+<p>Finding an affordable space is one of the biggest barriers artists face. As we buildout a hub of spaces, this is a sample to get us started.</p>
+<p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, send it our way (<a href="mailto:info@eachartist.org" style="font-weight:700;text-decoration:underline">info@eachartist.org</a>).</p>
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="how">
