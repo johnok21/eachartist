@@ -358,6 +358,25 @@
     color: var(--white);
   }
 
+  /* ── HERO JOIN BUTTON ── */
+  .hero-join-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    background: var(--green);
+    color: var(--black);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    position: relative;
+    z-index: 2;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-join-btn:hover {
+    background: var(--gold);
+    transform: scale(1.04);
+  }
+
   /* ── ANIMATIONS ── */
   .fade-up {
     opacity: 0;
@@ -405,12 +424,16 @@
   </video>
   <div class="hero-overlay"></div>
   <img src="each-logo-full.png" alt="Eager Arts & Culture Hub" class="hero-logo fade-up" />
-  <p class="hero-sub fade-up delay-1">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
+     target="_blank"
+     rel="noopener"
+     class="hero-join-btn bold-type fade-up delay-1">Join Us ↗</a>
+  <p class="hero-sub fade-up delay-2">
     A cooperative hub by-and-for Bay Area artists to practice 
     <strong>mutual care</strong>, <strong>shared economics</strong>, 
     and <strong>unabashed creativity</strong>.
   </p>
-  <span class="hero-tag fade-up delay-2">eachartist.org</span>
+  <span class="hero-tag fade-up delay-3">eachartist.org</span>
 </section>
 
 <!-- ═══ THE PITCH ═══ -->
@@ -493,13 +516,6 @@
 
 <!-- ═══ CONTACT ═══ -->
 <div class="contact-strip">
-  <p><a href="mailto:info@eachartist.org" style="color:var(--green);">info@eachartist.org</a></p>
+  <p><a href="/cdn-cgi/l/email-protection#95fcfbf3fad5f0f4f6fdf4e7e1fce6e1bbfae7f2" style="color:var(--green);"><span class="__cf_email__" data-cfemail="157c7b737a557074767d7467617c66613b7a6772">[email&#160;protected]</span></a></p>
   <p style="margin-top:.3rem;font-size:1.5rem;"><a href="contact.html" style="color:var(--black);">Contact &amp; Connect →</a></p>
-  <p class="contact-name"><a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno okhiulu</a> — founder</p>
-</div>
-
-<footer>
-  &copy; 2026 Eager Arts &amp; Culture Hub. This project is for EACH of us.
-</footer>
-</body>
-</html>
+  <p class="contact-name"><a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno okhiulu</a> 
