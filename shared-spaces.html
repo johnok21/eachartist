@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#efe6f5;color:var(--black);overflow-x:hidden}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#f6f0fb;color:var(--black);overflow-x:hidden;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.045) 1px, transparent 0);background-size:16px 16px}
 .floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
 .floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
 .site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
@@ -19,16 +19,17 @@
 a{color:inherit}
 
 /* HERO */
-.hero{min-height:68vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(180deg,#b895d1 0%,#a985c5 100%);position:relative;overflow:hidden}
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6.2rem 2rem 4rem;background:linear-gradient(180deg,#b895d1 0%,#a985c5 62%,#9466bc 100%);position:relative;overflow:hidden}
 .hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.5rem,11vw,9rem);line-height:.85;color:var(--black);text-transform:uppercase;letter-spacing:.02em}
 .hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:600px;margin-top:1.2rem;line-height:1.6}
 .hero::before{content:"";position:absolute;inset:0;opacity:.14;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.55) 1px, transparent 0);background-size:14px 14px;pointer-events:none}
 .hero::after{content:"";position:absolute;width:220px;height:220px;right:-40px;top:90px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.88;transform:rotate(10deg);pointer-events:none}
 .hero h1,.hero-text,.squiggle{position:relative;z-index:1}
-.hero-text{max-width:760px;margin:1.5rem auto 0;text-align:center;font-size:1rem;line-height:1.8;background:rgba(255,255,255,.16);border:2px solid rgba(0,0,0,.14);padding:1.4rem 1.3rem;border-radius:16px;backdrop-filter:blur(2px)}
+.hero-text{max-width:760px;margin:1.5rem auto 0;text-align:center;font-size:1rem;line-height:1.8;background:rgba(255,255,255,.18);border:2px solid rgba(0,0,0,.14);padding:1.5rem 1.4rem;border-radius:18px;backdrop-filter:blur(2px);box-shadow:10px 10px 0 rgba(0,0,0,.10)}
 .hero-text p + p{margin-top:1rem}
+.hero-text::before{content:"culture circles + neighbors";position:absolute;top:-14px;left:18px;background:var(--green);color:var(--black);padding:.22rem .7rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--black)}
 .squiggle{width:110px;height:14px;margin:1rem auto 0;background:radial-gradient(circle at 7px 7px, transparent 6px, var(--black) 6px, var(--black) 8px, transparent 8px) 0 0/22px 14px repeat-x}
-.affordable-block{max-width:760px;margin:2.5rem auto 4rem;padding:0 2rem;text-align:center}
+.affordable-block{max-width:760px;margin:2.8rem auto 4rem;padding:0 2rem;text-align:center}
 .affordable-block p{font-size:1.05rem;line-height:1.8}
 .affordable-block p + p{margin-top:1rem}
 
@@ -107,10 +108,10 @@ a{color:inherit}
 </section>
 <div class="marquee"><div class="marquee-inner">✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp; ✦ FREE VENUES &nbsp;&nbsp;&nbsp; ✦ CHEAP VENUES &nbsp;&nbsp;&nbsp; ✦ ALTERNATIVE SPACES &nbsp;&nbsp;&nbsp; ✦ BACKYARDS &nbsp;&nbsp;&nbsp; ✦ GARAGES &nbsp;&nbsp;&nbsp; ✦ STOREFRONTS &nbsp;&nbsp;&nbsp; ✦ PARKS &nbsp;&nbsp;&nbsp; ✦ COMMUNITY ROOMS &nbsp;&nbsp;&nbsp;</div></div>
 
-<section class="affordable-block">
+<section class="paper-note"><div class="affordable-block">
 <p>Finding an affordable space is one of the biggest barriers artists face. As we buildout a hub of spaces, this is a sample to get us started.</p>
 <p>Some of these are established community spaces with booking processes. Others are garages, backyards, storefronts, and church basements that open up when the right person asks. The archive grows as we build relationships. If you know a space, send it our way (<a href="mailto:info@eachartist.org" style="font-weight:700;text-decoration:underline">info@eachartist.org</a>).</p>
-</section>
+</div></section>
 
 <!-- HOW IT WORKS -->
 <section class="how">
