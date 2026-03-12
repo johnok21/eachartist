@@ -58,7 +58,7 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .callout-box .callout-label{position:absolute;top:-.6rem;left:1.2rem;padding:.12rem .6rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .callout-box blockquote{font-style:italic;font-size:1rem;line-height:1.6}.callout-box .callout-cite{font-size:.78rem;margin-top:.4rem;opacity:.65}
 .cta-strip{padding:1rem 2rem;font-size:.9rem;color:var(--black)}.cta-strip a{font-weight:700}
-.hub-footer{background:var(--green);color:var(--black);padding:2.5rem 2rem;text-align:center}.hub-footer a{color:var(--black);font-weight:700}
+.footer{background:var(--green);color:rgba(10,10,10,.92);padding:1.35rem 2rem 1.6rem;text-align:center;border-top:2px solid rgba(0,0,0,.12);font-size:.92rem}.footer a{color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px}.footer a:hover{color:var(--blue)}
 .no-results{padding:3rem 2rem;text-align:center;font-size:1.1rem;opacity:.7;display:none;color:var(--black)}
 .section-intro{padding:1.5rem 2rem .5rem;max-width:800px}.section-intro p{font-size:.95rem;line-height:1.6;opacity:.85}
 .hub-hero::before{content:"";position:absolute;inset:0;opacity:.13;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.48) 1px, transparent 0);background-size:15px 15px;pointer-events:none}
@@ -281,18 +281,13 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 <!-- BOTTOM DYK -->
 <div class="dyk-card"><div class="dyk-fact">Experiencing awe — a great performance, a mural that stops you cold — makes you measurably more generous and cooperative.</div><div class="dyk-context">Research by UC Berkeley's Dacher Keltner shows awe reduces self-focus and increases prosocial behavior.</div><div class="dyk-source">Source: Greater Good Science Center, UC Berkeley</div></div>
 
-<footer class="hub-footer">
-<p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
-<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:info@eachartist.org">info@eachartist.org</a> · <a href="contact.html">Contact & Connect</a></p>
-<p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
-<p style="font-size:.75rem;opacity:.5;margin-top:.8rem">© 2026 Eager Arts & Culture Hub. This project is for EACH of us.</p>
+<footer class="footer">
+  <p>
+    built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
+    powered by all of us ·
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join up</a> ·
+    <a href="mailto:info@eachartist.org">reach out</a>
+  </p>
 </footer>
-
-<script>
-function toggleSection(el){var c=el.nextElementSibling;el.classList.toggle('open');c.classList.toggle('open')}
-function filterCategory(cat,el){document.querySelectorAll('.filter-tab').forEach(function(t){t.classList.remove('active');t.style.background='transparent'});el.classList.add('active');el.style.background='var(--black)';el.style.color='var(--green)';document.querySelectorAll('.subsection').forEach(function(s){if(cat==='all'||s.dataset.category===cat){s.style.display=''}else{s.style.display='none'}});if(cat!=='all'){document.querySelectorAll('.subsection').forEach(function(s){if(s.dataset.category===cat){s.querySelector('.subsection-toggle').classList.add('open');s.querySelector('.subsection-content').classList.add('open')}})}}
-function filterResources(){var q=document.getElementById('searchInput').value.toLowerCase().trim();var cards=document.querySelectorAll('.resource-card');var any=false;if(!q){cards.forEach(function(c){c.classList.remove('hidden')});document.querySelectorAll('.subsection').forEach(function(s){s.style.display=''});document.getElementById('noResults').style.display='none';return}cards.forEach(function(c){var t=(c.dataset.search||'')+' '+(c.textContent||'');if(t.toLowerCase().indexOf(q)!==-1){c.classList.remove('hidden');any=true}else{c.classList.add('hidden')}});document.querySelectorAll('.subsection').forEach(function(s){s.style.display=''});document.querySelectorAll('.subsection-toggle').forEach(function(t){t.classList.add('open')});document.querySelectorAll('.subsection-content').forEach(function(c){c.classList.add('open')});document.getElementById('noResults').style.display=any?'none':'block'}
-function clearSearch(){document.getElementById('searchInput').value='';filterResources()}
-</script>
 </body>
 </html>
