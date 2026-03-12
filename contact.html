@@ -22,7 +22,7 @@ body{font-family:"DM Sans",sans-serif;background:var(--blue);color:var(--white);
 
 .floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(0,0,0,.3);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
 .floating-logo:hover{transform:scale(1.05)}
-.floating-logo svg{width:42px;height:42px}
+.floating-logo img{width:42px;height:auto;display:block}
 
 /* HERO */
 .hero{padding:8rem 2rem 3rem;text-align:center}
@@ -67,17 +67,12 @@ body{font-family:"DM Sans",sans-serif;background:var(--blue);color:var(--white);
 <body>
 
 <!-- NAV -->
-<a href="index.html" class="floating-logo">
-<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<text x="6" y="72" font-family="Anton,sans-serif" font-size="52" font-weight="900">
-<tspan fill="#00d4aa">E</tspan><tspan fill="#6dde5a">A</tspan><tspan fill="#c4a8d8">C</tspan><tspan fill="#ff8c2e">H</tspan>
-</text>
-<path d="M38 18 Q42 8 46 18 M48 18 Q52 8 56 18 M58 18 Q62 8 66 18" stroke="#f5c542" stroke-width="3" stroke-linecap="round"/>
-<path d="M15 82 Q30 88 50 82 Q70 76 85 82" stroke="#f5c542" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-</svg>
+<a href="index.html" class="floating-logo" aria-label="Eager Arts &amp; Culture Hub home">
+<img src="each-logo-small.png" alt="Eager Arts &amp; Culture Hub logo">
 </a>
 <nav class="site-nav">
 <a href="resource-hub.html">Resources</a>
+<a href="on-air.html">News</a>
 <a href="shared-spaces.html">Shared Spaces</a>
 <a href="contact.html" class="active">Contact</a>
 </nav>
@@ -124,6 +119,10 @@ body{font-family:"DM Sans",sans-serif;background:var(--blue);color:var(--white);
 <div class="way">
 <div class="way-title"><span>Know a Space?</span></div>
 <p>A garage that hosts shows, a church basement with a piano, a storefront between tenants — tell us about it.</p>
+</div>
+<div class="way">
+<div class="way-title"><span>Got News?</span></div>
+<p>An event, article, or artist we should feature? Send it our way.</p>
 </div>
 </section>
 
