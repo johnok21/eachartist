@@ -3,283 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News — EACH</title>
+<title>Page Moved — EACH</title>
 <link rel="icon" type="image/png" href="each-logo-small.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta http-equiv="refresh" content="0; url=index.html">
 <style>
-:root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#fff0e0;color:var(--black);overflow-x:hidden}
-.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.5);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
-.floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
-.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
-.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.5);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
-.site-nav a:hover,.site-nav a.active{background:var(--orange);color:var(--black);border-color:var(--orange)}
-a{color:inherit}
-
-/* HERO */
-.hero{min-height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:5rem 2rem 2.5rem;background:var(--orange);position:relative;overflow:hidden}
-.hero h1{font-family:"Anton",sans-serif;font-size:clamp(4rem,13vw,10rem);line-height:.85;color:var(--black);text-transform:uppercase;letter-spacing:.02em}
-.hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:550px;margin-top:1rem;line-height:1.6}
-.hero .update-note{font-family:"Space Mono",monospace;font-size:.75rem;color:rgba(0,0,0,.55);margin-top:1rem;text-transform:uppercase;letter-spacing:.08em}
-
-/* MARQUEE */
-.marquee{background:var(--black);color:var(--orange);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;border-top:3px solid var(--black);border-bottom:3px solid var(--black);font-family:"Space Mono",monospace}
-.marquee-inner{display:inline-block;animation:scroll 28s linear infinite}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* SECTIONS */
-.section{padding:2.5rem 2rem}
-.section-label{font-family:"Anton",sans-serif;font-size:clamp(1.8rem,5vw,3rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:1.2rem;line-height:1}
-
-/* FEATURED */
-.featured{background:#fff0e0;border-bottom:3px solid rgba(0,0,0,.06)}
-.featured-card{border:4px solid var(--red);padding:2rem;position:relative;max-width:800px;background:#fff}
-.featured-card::before{content:"✦ FEATURED";position:absolute;top:-.8rem;left:1.5rem;background:var(--red);color:#fff;padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
-.featured-card h2{font-size:1.3rem;line-height:1.3;margin-bottom:.6rem}
-.featured-card p{font-size:.95rem;line-height:1.6;opacity:.88;margin-bottom:.5rem}
-.featured-card .source{font-size:.75rem;opacity:.5;text-transform:uppercase;letter-spacing:.05em}
-.featured-card .source a{text-decoration:underline;opacity:1}
-
-/* EVENTS */
-.events{background:var(--blue);color:var(--white)}
-.events .section-label{color:var(--gold)}
-.event-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
-.event-card{border:2px solid rgba(0,0,0,.1);background:#fff;color:var(--black);padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
-.event-card:hover{border-color:var(--gold);transform:translateY(-2px)}
-.event-date{background:var(--gold);color:var(--black);padding:.35rem .8rem;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:inline-block}
-.event-body{padding:.7rem .8rem .8rem}
-.event-body h3{font-size:1rem;margin-bottom:.3rem;line-height:1.3}
-.event-body p{font-size:.85rem;line-height:1.5;opacity:.8}
-.event-body .event-meta{font-size:.72rem;margin-top:.4rem;opacity:.55;text-transform:uppercase;letter-spacing:.04em}
-.event-body .event-meta a{text-decoration:underline;opacity:1}
-.free-badge{display:inline-block;background:var(--green);color:var(--black);padding:.1rem .4rem;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-left:.3rem;vertical-align:middle}
-
-/* ARTICLES */
-.articles{background:#fff0e0;border-top:3px solid rgba(0,0,0,.06)}
-.articles .section-label{color:var(--lavender)}
-.article-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:1.2rem}
-.article-card{border-left:4px solid var(--lavender);padding:.8rem 1rem;background:#fff;transition:background .2s}
-.article-card:hover{background:rgba(0,0,0,.1)}
-.article-card h3{font-size:1rem;margin-bottom:.3rem;line-height:1.3}
-.article-card p{font-size:.85rem;line-height:1.5;opacity:.8}
-.article-card .source{font-size:.72rem;margin-top:.4rem;opacity:.5;text-transform:uppercase;letter-spacing:.04em}
-.article-card .source a{text-decoration:underline;opacity:1}
-
-/* FOLLOW */
-.follow{background:var(--green);color:var(--black);border-top:3px solid var(--black)}
-.follow .section-label{color:var(--black)}
-.follow-card{border:3px solid var(--black);padding:1.2rem;max-width:600px;background:#fff}
-.follow-card h3{font-size:1.1rem;margin-bottom:.3rem}.follow-card p{font-size:.9rem;line-height:1.5;opacity:.85}
-.follow-card .follow-links{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem}
-.follow-card .follow-links a{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;padding:.25rem .5rem;border:2px solid var(--black);text-decoration:none;font-weight:700;transition:all .2s}
-.follow-card .follow-links a:hover{background:var(--black);color:var(--green)}
-
-/* DYK */
-.dyk{border:4px solid var(--gold);padding:1.5rem;margin:0 auto;max-width:700px;position:relative;background:#fff}
-.dyk::before{content:"✦ DID YOU KNOW?";position:absolute;top:-.8rem;left:1.5rem;background:var(--gold);color:var(--black);padding:.2rem .8rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em}
-.dyk .fact{font-size:1.15rem;font-weight:700;line-height:1.4;color:var(--gold)}.dyk .context{font-size:.88rem;margin-top:.4rem;opacity:.75;line-height:1.5}
-.dyk .src{font-size:.68rem;margin-top:.5rem;opacity:.45;text-transform:uppercase;letter-spacing:.05em}
-
-/* CTA */
-.cta-section{background:#fff0e0;text-align:center;padding:3rem 2rem}
-.cta-section p{font-size:1rem;opacity:.7;max-width:500px;margin:0 auto;line-height:1.6}
-.cta-section a{color:var(--orange);font-weight:700}
-
-/* FOOTER */
-.footer{background:var(--orange);color:var(--black);padding:2.5rem 2rem;text-align:center}.footer a{color:var(--black);font-weight:700}
-
-@media(max-width:700px){.event-grid,.article-list{grid-template-columns:1fr}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}}
+  :root { --black:#0a0a0a; --white:#f5f5f0; --green:#6dde5a; --lavender:#c4a8d8; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2rem;
+    background:var(--black);
+    color:var(--white);
+    font-family:Arial, sans-serif;
+  }
+  .card {
+    max-width:560px;
+    border:2px solid var(--green);
+    padding:2rem;
+    text-align:center;
+    background:rgba(255,255,255,0.03);
+  }
+  h1 { margin:0 0 1rem; font-size:2rem; }
+  p { line-height:1.6; margin:0 0 1rem; }
+  a {
+    color:var(--black);
+    background:var(--green);
+    text-decoration:none;
+    padding:0.8rem 1.2rem;
+    display:inline-block;
+    font-weight:bold;
+  }
 </style>
 </head>
 <body>
-<a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="on-air.html" class="active">News</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
-
-<section class="hero">
-<h1>NEWS</h1>
-<p class="subtitle">A curated digest of Bay Area arts news, events, and voices worth following. Updated semi-monthly.</p>
-<p class="update-note">Last updated: February 26, 2026</p>
-</section>
-
-<div class="marquee"><div class="marquee-inner">✦ WHAT'S HAPPENING &nbsp;&nbsp;&nbsp; ✦ WHO'S MAKING THINGS &nbsp;&nbsp;&nbsp; ✦ WHERE TO SHOW UP &nbsp;&nbsp;&nbsp; ✦ WHAT TO READ &nbsp;&nbsp;&nbsp; ✦ WHAT'S HAPPENING &nbsp;&nbsp;&nbsp; ✦ WHO'S MAKING THINGS &nbsp;&nbsp;&nbsp; ✦ WHERE TO SHOW UP &nbsp;&nbsp;&nbsp; ✦ WHAT TO READ &nbsp;&nbsp;&nbsp;</div></div>
-
-<!-- FEATURED -->
-<section class="section featured">
-<div class="section-label" style="color:var(--red)">Featured</div>
-<div class="featured-card">
-<h2>"Nobody's Coming to Save SF Arts" — The Scene Must Save Itself</h2>
-<p>Five prominent galleries closed in Q4 2025. CCA announced it will cease operations after 2026-27 and sold both campuses to Vanderbilt. Mayor Lurie celebrated the Vanderbilt deal on Instagram — seated in front of a painting by a CCA alum. Max Blue's column lays out the full picture: public funding is shrinking, private capital is flowing to initiatives that don't support the community, and the art scene is on track to become culturally anemic by 2027 unless the people who make it step up.</p>
-<p style="margin-top:.6rem;font-weight:700;opacity:1">This is the context we're all working in. Read it.</p>
-<div class="source"><a href="https://www.sfexaminer.com/culture/visual-arts/why-san-francisco-art-scene-must-save-itself/article_fff9e67b-581c-4a30-9f3a-10867a184f7c.html" target="_blank">SF Examiner · Max Blue · February 2026</a></div>
-</div>
-</section>
-
-<!-- DYK -->
-<section class="section" style="padding:2rem">
-<div class="dyk" style="transform:rotate(-0.4deg)">
-<div class="fact">Add nightlife and entertainment to arts & culture, and that number jumps to 14% of California's economy.</div>
-<div class="context">The industry that the state depends on is the one it underfunds.</div>
-<div class="src">Source: California for the Arts / SF Music Week panel</div>
-</div>
-</section>
-
-<!-- EVENTS -->
-<section class="section events">
-<div class="section-label">Upcoming Events</div>
-<div class="event-grid">
-
-<div class="event-card">
-<span class="event-date">Feb 28 · Tomorrow</span>
-<div class="event-body">
-<h3>SF Music Week: Artist Development Day <span class="free-badge">Free</span></h3>
-<p>A full day built for independent artists — panels on the business of being an artist, small-group consultations with industry leaders, music production labs. If you're a working musician in the Bay, this is the one to clear your schedule for.</p>
-<div class="event-meta">10am–6pm · Public Works, 161 Erie St · <a href="https://sf-music-week.squarespace.com/artist-development-day" target="_blank">Register free</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Feb 28 – Mar 1</span>
-<div class="event-body">
-<h3>Noise Pop Festival — Final Weekend</h3>
-<p>160+ bands, 25+ venues, 33 years running. Saturday highlights include Illuminati Hotties, Jay Som, Beats Antique, and the Sun Ra Arkestra. Free happy hours at Bender's through Saturday.</p>
-<div class="event-meta">Various venues across SF · <a href="https://www.noisepopfest.com" target="_blank">noisepopfest.com</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Feb 28 & Mar 1</span>
-<div class="event-body">
-<h3>Sun Ra Arkestra at Noise Pop</h3>
-<p>The cosmic jazz institution, still transmitting. Two nights. If you've never seen them live, this might rearrange your understanding of what a band can be.</p>
-<div class="event-meta">KALW & folkYEAH! co-present · <a href="https://dothebay.com/noisepopfestival" target="_blank">Tickets</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Opens Mar 2</span>
-<div class="event-body">
-<h3>Bouquets to Art — 42nd Season <span class="free-badge">Free w/ museum</span></h3>
-<p>100 Bay Area floral designers create living arrangements inspired by the de Young's permanent collection. Evening hours added for the first time this year.</p>
-<div class="event-meta">de Young Museum, Golden Gate Park · <a href="https://famsf.org" target="_blank">famsf.org</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Through Mar 1</span>
-<div class="event-body">
-<h3>MoAD: "Unbound — Art, Blackness and the Universe"</h3>
-<p>Curatorial chief Key Jo Lee presents an African diaspora "unbound" from earthly and chronological conceptions — spanning three floors of the reopened museum.</p>
-<div class="event-meta">Museum of the African Diaspora, 685 Mission St · <a href="https://moadsf.org" target="_blank">moadsf.org</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Mar 5</span>
-<div class="event-body">
-<h3>Downtown First Thursdays <span class="free-badge">Free</span></h3>
-<p>Monthly street party — DJs, live performances, drag, food trucks, dancing. Returning monthly for the full year.</p>
-<div class="event-meta">Downtown SF · <a href="https://sf.funcheap.com" target="_blank">Details</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Mar 3 – 22</span>
-<div class="event-body">
-<h3>Monty Python's Spamalot</h3>
-<p>The Tony-winning musical at the Golden Gate Theatre. Good for a night where you need to laugh until something loosens.</p>
-<div class="event-meta">Golden Gate Theatre, 1 Taylor St · <a href="https://us.atgtickets.com" target="_blank">Tickets</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Mar 19 – 29</span>
-<div class="event-body">
-<h3>SF Ballet: Don Quixote</h3>
-<p>Drawing from Cervantes — a vibrant production of love, artistry, and joy. One of the season's signature productions.</p>
-<div class="event-meta">War Memorial Opera House · <a href="https://sfballet.org" target="_blank">sfballet.org</a></div>
-</div></div>
-
-<div class="event-card">
-<span class="event-date">Mar 21</span>
-<div class="event-body">
-<h3>SF Tulip Day 2026 <span class="free-badge">Free</span></h3>
-<p>80,000 bright tulips in a massive pop-up garden at Union Square. All for the taking.</p>
-<div class="event-meta">Union Square · <a href="https://visitunionsquaresf.com" target="_blank">visitunionsquaresf.com</a></div>
-</div></div>
-
-</div>
-</section>
-
-<!-- ARTICLES -->
-<section class="section articles">
-<div class="section-label">Worth Reading</div>
-<div class="article-list">
-
-<div class="article-card">
-<h3>The Manhattanization of San Francisco Stages</h3>
-<p>Sup. Bilal Mahmood proposes a "theatre arts district" on Market Street. 48 Hills' Charles Lewis III argues it's not about supporting local talent — it's about making SF indistinguishable from every other city. Where's the tax on tech for artist housing?</p>
-<div class="source"><a href="https://48hills.org/2026/02/drama-masks-the-manhattanization-of-san-francisco-stages/" target="_blank">48 Hills · February 26, 2026</a></div>
-</div>
-
-<div class="article-card">
-<h3>San Francisco Needs to Save Its Art Scene in 2026</h3>
-<p>The year-end state of the arts: five galleries closed, SFMOMA's worst show ever, the MoAD reopening, and the case for why the city must act — not just talk — if it wants to keep its creative class.</p>
-<div class="source"><a href="https://www.sfexaminer.com/culture/visual-arts/save-sf-art/article_11136292-d01e-4d35-9fff-1d8464d8ada6.html" target="_blank">SF Examiner · Max Blue · December 2025</a></div>
-</div>
-
-<div class="article-card">
-<h3>7 SF Music Week Events We're Looking Forward To</h3>
-<p>KALW's curated picks: the Mabuhay Gardens 50th anniversary punk celebration, the Industry Summit panel on saving space for the creative class, the music production pop-up lab, and the Sun Ra Arkestra.</p>
-<div class="source"><a href="https://www.kalw.org/2026-01-20/here-are-7-san-francisco-music-week-2026-events-were-looking-forward-to" target="_blank">KALW · January 2026</a></div>
-</div>
-
-<div class="article-card">
-<h3>The New Arts, Journalism & Media HQs on Top of The Warfield</h3>
-<p>A walkthrough of the Warfield Commons building — KALW's new "People's Studio," Psyched Radio, below-market leases for artists and cultural workers. What happens when creative infrastructure gets treated as essential.</p>
-<div class="source"><a href="https://brokeassstuart.com/2025/08/28/the-arts-journalism-media-hqs-on-top-of-the-warfield/" target="_blank">Broke-Ass Stuart · August 2025</a></div>
-</div>
-
-</div>
-</section>
-
-<!-- FOLLOW -->
-<section class="section follow">
-<div class="section-label">Follow</div>
-<p style="margin-bottom:1rem;font-size:.95rem;">Outlets and voices doing the work of covering Bay Area arts with depth and care.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
-
-<div class="follow-card">
-<h3>48 Hills</h3>
-<p>Independent SF news — consistently the sharpest arts and culture coverage in the city, including the performing arts column Drama Masks.</p>
-<div class="follow-links"><a href="https://48hills.org/category/culture/" target="_blank">Arts & Culture</a><a href="https://48hills.org" target="_blank">Home</a></div>
-</div>
-
-<div class="follow-card">
-<h3>KALW 91.7 FM</h3>
-<p>Bay Area public radio since 1941. Now anchoring the Warfield Commons. Local storytelling, emerging artists, community journalism.</p>
-<div class="follow-links"><a href="https://kalw.org" target="_blank">Listen</a></div>
-</div>
-
-<div class="follow-card">
-<h3>Max Blue — State of the Arts</h3>
-<p>Monthly column in the SF Examiner. The most unflinching assessment of what's actually happening to the art scene.</p>
-<div class="follow-links"><a href="https://www.sfexaminer.com/users/profile/Max%20Blue/" target="_blank">Read columns</a></div>
-</div>
-
-</div>
-</section>
-
-<!-- DYK -->
-<section class="section" style="padding:2rem">
-<div class="dyk" style="transform:rotate(0.3deg)">
-<div class="fact">The Mabuhay Gardens — aka The Fab Mab — just turned 50. Dead Kennedys, Blondie, Flipper all came through. It's reopening for SF Music Week.</div>
-<div class="context">The punk venue that helped define SF's underground is back on Broadway.</div>
-<div class="src">Source: KALW / Radio Valencia</div>
-</div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-<p>Got an event, article, or artist we should feature? Send it to jawno <a href="mailto:info@eachartist.org">info@eachartist.org</a></p>
-</section>
-
-<footer class="footer">
-<p style="font-size:.95rem;margin-bottom:.4rem"><strong>EACH</strong> — Eager Arts & Culture Hub</p>
-<p style="font-size:.85rem;margin-bottom:.3rem"><a href="https://linktr.ee/gardenradical" target="_blank">jawno okhiulu</a> — founder · <a href="mailto:info@eachartist.org">info@eachartist.org</a> · <a href="contact.html">Contact & Connect</a></p>
-<p style="font-size:.8rem;opacity:.7"><a href="index.html">← Back to eachartist.org</a></p>
-<p style="font-size:.75rem;opa
+  <div class="card">
+    <h1>News is offline for now</h1>
+    <p>The News / On-Air page has been removed from the current site build.</p>
+    <p>If you are not redirected automatically, head back to the homepage.</p>
+    <a href="index.html">Back to EACH</a>
+  </div>
+</body>
+</html>
