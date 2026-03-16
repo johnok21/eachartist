@@ -409,20 +409,24 @@
 
   .seam-collage {
     position: absolute;
-    /* sit right on the boundary: bottom of blue, top of orange */
     bottom: 50%;
-    right: 4vw;
-    width: clamp(280px, 38vw, 520px);
+    right: 3vw;
+    width: clamp(380px, 52vw, 680px);
     transform: translateY(50%) rotate(4deg);
     z-index: 10;
     pointer-events: none;
+  }
+
+  .img-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
   }
 
   .seam-img {
     display: block;
     width: 100%;
     height: auto;
-    /* rough torn-edge feel via clip-path */
     clip-path: polygon(
       2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
       60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
@@ -435,32 +439,37 @@
     transition: transform 0.1s linear;
   }
 
-  /* tape strips */
   .tape {
     position: absolute;
-    width: 90px;
-    height: 22px;
-    background: rgba(245, 197, 66, 0.72);
+    height: 24px;
+    background: rgba(245, 197, 66, 0.82);
     z-index: 11;
   }
   .tape-left {
-    top: 12%;
-    left: -18px;
-    transform: rotate(-38deg);
+    width: 100px;
+    top: -6px;
+    left: 18%;
+    transform: rotate(-42deg);
+    transform-origin: center center;
   }
   .tape-right {
-    bottom: 18%;
-    right: -14px;
-    transform: rotate(22deg);
-    background: rgba(196,168,216,0.80);
-    width: 70px;
+    width: 80px;
+    bottom: -6px;
+    right: 14%;
+    transform: rotate(20deg);
+    transform-origin: center center;
+    background: rgba(196,168,216,0.88);
   }
 
   @media (max-width: 860px) {
     .seam-collage {
-      right: 50%;
-      transform: translateY(50%) translateX(50%) rotate(3deg);
-      width: clamp(200px, 72vw, 380px);
+      position: relative;
+      bottom: auto;
+      right: auto;
+      transform: rotate(3deg);
+      margin: -80px auto -80px auto;
+      width: clamp(260px, 80vw, 480px);
+      display: block;
     }
   }
 
@@ -571,9 +580,11 @@
 
   <!-- tape + image glued over the seam -->
   <div class="seam-collage" aria-hidden="true">
-    <div class="tape tape-left"></div>
-    <div class="tape tape-right"></div>
-    <img src="Untitled_design.png" alt="" class="seam-img" id="seam-img" />
+    <div class="img-wrapper">
+      <div class="tape tape-left"></div>
+      <div class="tape tape-right"></div>
+      <img src="Untitled_design.png" alt="" class="seam-img" id="seam-img" />
+    </div>
   </div>
 
   <section class="block block-orange">
