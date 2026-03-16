@@ -436,7 +436,6 @@
       0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
     );
     filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
-    transition: transform 0.1s linear;
   }
 
   .tape {
@@ -631,24 +630,6 @@
     powered by all of us ·
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join up</a> ·
     <a href="/cdn-cgi/l/email-protection#3b52555d547b5e5a58535a494f52484f1554495c">reach
-<script>
-  const seamImg = document.getElementById('seam-img');
-  if (seamImg) {
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const seam = seamImg.closest('.collage-seam');
-          const rect = seam.getBoundingClientRect();
-          const progress = (window.innerHeight / 2 - rect.top) / window.innerHeight;
-          const drift = progress * 32;
-          seamImg.style.transform = `translateY(${-drift}px)`;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
-</script>
+
 </body>
 </html>
