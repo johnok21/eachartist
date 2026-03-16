@@ -402,6 +402,84 @@
   .delay-2 { animation-delay: 0.3s; }
   .delay-3 { animation-delay: 0.45s; }
 
+  /* ── COLLAGE SEAM ── */
+  .collage-seam {
+    position: relative;
+  }
+
+  .seam-collage {
+    position: absolute;
+    /* sit right on the boundary: bottom of blue, top of orange */
+    bottom: 50%;
+    right: 4vw;
+    width: clamp(280px, 38vw, 520px);
+    transform: translateY(50%) rotate(4deg);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .seam-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* rough torn-edge feel via clip-path */
+    clip-path: polygon(
+      2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
+      60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
+      99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
+      93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
+      22% 100%, 10% 98%, 2% 100%,
+      0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
+    );
+    filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
+    transition: transform 0.1s linear;
+  }
+
+  /* tape strips */
+  .tape {
+    position: absolute;
+    width: 90px;
+    height: 22px;
+    background: rgba(245, 197, 66, 0.72);
+    z-index: 11;
+  }
+  .tape-left {
+    top: 12%;
+    left: -18px;
+    transform: rotate(-38deg);
+  }
+  .tape-right {
+    bottom: 18%;
+    right: -14px;
+    transform: rotate(22deg);
+    background: rgba(196,168,216,0.80);
+    width: 70px;
+  }
+
+  @media (max-width: 860px) {
+    .seam-collage {
+      right: 50%;
+      transform: translateY(50%) translateX(50%) rotate(3deg);
+      width: clamp(200px, 72vw, 380px);
+    }
+  }
+
+  /* ── IMAGE BREAK ── */
+  .image-break {
+    background: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    overflow: hidden;
+  }
+  .image-break-img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .hero { padding: 1.5rem; }
@@ -422,7 +500,7 @@
 
 <nav class="site-nav">
   <a href="resource-hub.html">Resources</a>
-  <a href="on-air.html">News</a>
+  <a href="gatherings.html">Gatherings</a>
   <a href="shared-spaces.html">Shared Spaces</a>
   <a href="contact.html">Contact</a>
 </nav>
@@ -479,26 +557,41 @@
   </div>
 </div>
 
-<!-- ═══ THE MODEL ═══ -->
-<section class="block block-blue">
-  <h2 class="bold-type block-title">Culture Circles</h2>
-  <p class="block-body" style="color: var(--white);">
-    Our pilot program: small groups of local artists who meet regularly to build creative capacity and relationships over time. 
-    EACH coaches circle-keepers, connects articles to grants, fellowships, trainings, and residencies, distributes microgrants 
-    to circulate amongst artists, and handles the admin so artists can focus on the art and the relationships.
-  </p>
-</section>
+<!-- ═══ COLLAGE SEAM: CULTURE CIRCLES + SF NEEDS ITS ARTISTS ═══ -->
+<div class="collage-seam">
 
-<!-- ═══ IMPACT ═══ -->
-<section class="block block-orange">
-  <h2 class="bold-type block-title">San Francisco Needs Its Artists</h2>
-  <p class="block-body">
-    Imagine an artistic renaissance — garage doors rolling up after dark, sidewalks and backyards 
-    and balconies and storefronts opening to a wave of artists ready to share their work. Art pouring 
-    into the streets. Neighbors stopping to listen, to look, to feel something together. A more 
-    connected, awe-inspired city — because when artists are resourced and connected, there is more 
-    space for truth and play in public life. More beauty. More courage. More civic imagination.
-  </p>
+  <section class="block block-blue">
+    <h2 class="bold-type block-title">Culture Circles</h2>
+    <p class="block-body" style="color: var(--white);">
+      Our pilot program: small groups of local artists who meet regularly to build creative capacity and relationships over time. 
+      EACH coaches circle-keepers, connects artists to grants, fellowships, trainings, and residencies, distributes microgrants 
+      to circulate amongst artists, and handles the admin so artists can focus on the art and the relationships.
+    </p>
+  </section>
+
+  <!-- tape + image glued over the seam -->
+  <div class="seam-collage" aria-hidden="true">
+    <div class="tape tape-left"></div>
+    <div class="tape tape-right"></div>
+    <img src="Untitled_design.png" alt="" class="seam-img" id="seam-img" />
+  </div>
+
+  <section class="block block-orange">
+    <h2 class="bold-type block-title">San Francisco Needs Its Artists</h2>
+    <p class="block-body">
+      Imagine an artistic renaissance — garage doors rolling up after dark, sidewalks and backyards 
+      and balconies and storefronts opening to a wave of artists ready to share their work. Art pouring 
+      into the streets. Neighbors stopping to listen, to look, to feel something together. A more 
+      connected, awe-inspired city — because when artists are resourced and connected, there is more 
+      space for truth and play in public life. More beauty. More courage. More civic imagination.
+    </p>
+  </section>
+
+</div>
+
+<!-- ═══ IMAGE BREAK ═══ -->
+<section class="image-break">
+  <img src="Untitled_design.png" alt="Bay Area artists — collage" class="image-break-img" />
 </section>
 
 <!-- ═══ PLUG IN ═══ -->
@@ -531,8 +624,25 @@
     built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
     powered by all of us ·
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join up</a> ·
-    <a href="mailto:info@eachartist.org">reach out</a>
-  </p>
-</footer>
+    <a href="/cdn-cgi/l/email-protection#3b52555d547b5e5a58535a494f52484f1554495c">reach
+<script>
+  const seamImg = document.getElementById('seam-img');
+  if (seamImg) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const seam = seamImg.closest('.collage-seam');
+          const rect = seam.getBoundingClientRect();
+          const progress = (window.innerHeight / 2 - rect.top) / window.innerHeight;
+          const drift = progress * 32;
+          seamImg.style.transform = `translateY(${-drift}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+</script>
 </body>
 </html>
