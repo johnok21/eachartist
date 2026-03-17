@@ -410,11 +410,17 @@
   .seam-collage {
     position: absolute;
     bottom: 50%;
-    right: 3vw;
-    width: clamp(380px, 52vw, 680px);
+    right: 2vw;
+    width: clamp(340px, 46vw, 720px);
     transform: translateY(50%) rotate(4deg);
     z-index: 10;
     pointer-events: none;
+  }
+
+  /* blocks grow to always accommodate the image */
+  .collage-seam .block-blue,
+  .collage-seam .block-orange {
+    min-height: max(50vh, calc(clamp(340px, 46vw, 720px) * 0.38));
   }
 
   .img-wrapper {
@@ -465,6 +471,10 @@
       display: flex;
       flex-direction: column;
     }
+    .collage-seam .block-blue,
+    .collage-seam .block-orange {
+      min-height: 50vh;
+    }
     .seam-collage {
       position: relative;
       bottom: auto;
@@ -472,8 +482,11 @@
       transform: rotate(2deg);
       width: clamp(260px, 84vw, 480px);
       margin: 0 auto;
-      order: 2; /* sits between the two blocks */
+      order: 2;
     }
+    .collage-seam .block-blue  { order: 1; }
+    .collage-seam .block-orange { order: 3; }
+  }
     .collage-seam .block-blue  { order: 1; }
     .collage-seam .block-orange { order: 3; }
   }
