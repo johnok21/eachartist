@@ -461,15 +461,21 @@
   }
 
   @media (max-width: 860px) {
+    .collage-seam {
+      display: flex;
+      flex-direction: column;
+    }
     .seam-collage {
       position: relative;
       bottom: auto;
       right: auto;
-      transform: rotate(3deg);
-      margin: -80px auto -80px auto;
-      width: clamp(260px, 80vw, 480px);
-      display: block;
+      transform: rotate(2deg);
+      width: clamp(260px, 84vw, 480px);
+      margin: 0 auto;
+      order: 2; /* sits between the two blocks */
     }
+    .collage-seam .block-blue  { order: 1; }
+    .collage-seam .block-orange { order: 3; }
   }
 
   /* ── IMAGE BREAK ── */
