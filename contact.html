@@ -70,7 +70,13 @@ body{font-family:"DM Sans",sans-serif;background:#1d57a6;color:var(--white);over
 .email-block,.signup-section,.founder{position:relative}
 .email-block::before,.signup-section::before,.ways::before{content:"";display:block;width:76px;height:22px;background:rgba(245,197,66,.7);transform:rotate(-3deg);margin:0 auto 1rem}
 .ways h2::after,.signup-section h2::after{content:"";display:block;width:110px;height:14px;margin:.7rem auto 0;background:radial-gradient(circle at 7px 7px, transparent 6px, currentColor 6px, currentColor 8px, transparent 8px) 0 0/22px 14px repeat-x;opacity:.8}
-@media(max-width:700px){.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.hero p{padding:.9rem 1rem}.way{box-shadow:5px 5px 0 rgba(0,0,0,.08)}}
+@media(max-width:700px){.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}.hero p{padding:.9rem 1rem}.way{box-shadow:5px 5px 0 rgba(0,0,0,.08)}}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(0,0,0,.3);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--gold)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}
 </style>
 </head>
 <body>
@@ -80,10 +86,15 @@ body{font-family:"DM Sans",sans-serif;background:#1d57a6;color:var(--white);over
 <img src="each-logo-small.png" alt="Eager Arts &amp; Culture Hub logo">
 </a>
 <nav class="site-nav">
-<a href="resource-hub.html">Resources</a>
-<a href="gatherings.html">Gatherings</a>
-<a href="shared-spaces.html">Shared Spaces</a>
-<a href="contact.html" class="active">Contact</a>
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="resource-hub.html">Resources</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="shared-spaces.html">Shared Spaces</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
