@@ -94,12 +94,28 @@ a{color:inherit}
 .footer a{color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .footer a:hover{color:var(--blue)}
 
-@media(max-width:700px){.venue-grid,.type-grid,.how-steps{grid-template-columns:1fr}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.dyk{margin:1rem}}
+@media(max-width:700px){.venue-grid,.type-grid,.how-steps{grid-template-columns:1fr}.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}.dyk{margin:1rem}}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--green)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
 </style>
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="gatherings.html">Gatherings</a><a href="shared-spaces.html" class="active">Shared Spaces</a><a href="contact.html">Contact</a></nav>
+<nav class="site-nav">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="resource-hub.html">Resources</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="shared-spaces.html" class="active">Shared Spaces</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
 <section class="hero">
 <h1>SHARED<br>SPACES</h1>
