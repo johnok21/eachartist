@@ -73,12 +73,28 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .paper-card p{font-size:1.07rem;line-height:1.75}
 .paper-card p + p{margin-top:.9rem}
 .paper-card a{text-underline-offset:3px}
-@media(max-width:700px){.cards-grid{grid-template-columns:1fr;padding:.8rem 1rem;gap:1rem}.dyk-card,.callout-box{margin:1rem}.filter-bar{padding:0 1rem}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}.search-bar{margin:1.2rem 1rem 0}}
+@media(max-width:700px){.cards-grid{grid-template-columns:1fr;padding:.8rem 1rem;gap:1rem}.dyk-card,.callout-box{margin:1rem}.filter-bar{padding:0 1rem}.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}.search-bar{margin:1.2rem 1rem 0}}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--green)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
 </style>
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html" class="active">Resources</a><a href="gatherings.html">Gatherings</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
+<nav class="site-nav">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="resource-hub.html" class="active">Resources</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="shared-spaces.html">Shared Spaces</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
 <section class="hub-hero">
 <h1 class="bold-type big-title">RESOURCE<br>HUB</h1>
