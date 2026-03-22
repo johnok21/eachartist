@@ -90,12 +90,28 @@ a{color:inherit}
 /* FOOTER */
 .footer{background:var(--orange);color:var(--black);padding:2.5rem 2rem;text-align:center}.footer a{color:var(--black);font-weight:700}
 
-@media(max-width:700px){.event-grid,.article-list{grid-template-columns:1fr}.site-nav{gap:.2rem}.site-nav a{padding:.35rem .5rem;font-size:.65rem}}
+@media(max-width:700px){.event-grid,.article-list{grid-template-columns:1fr}.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(0,0,0,.12)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(255,255,255,.5);backdrop-filter:blur(8px);border:2px solid rgba(0,0,0,.25);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--black);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--orange)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.4rem}
 </style>
 </head>
 <body>
 <a href="index.html" class="floating-logo"><img src="each-logo-small.png" alt="EACH"></a>
-<nav class="site-nav"><a href="resource-hub.html">Resources</a><a href="gatherings.html" class="active">Gatherings</a><a href="shared-spaces.html">Shared Spaces</a><a href="contact.html">Contact</a></nav>
+<nav class="site-nav">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="resource-hub.html">Resources</a>
+    <a href="gatherings.html" class="active">Gatherings</a>
+    <a href="shared-spaces.html">Shared Spaces</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
 <section class="hero">
 <h1>NEWS</h1>
