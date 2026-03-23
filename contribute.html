@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contribute — EACH</title>
+<link rel="icon" type="image/png" href="each-logo-small.png">
+<link rel="apple-touch-icon" href="each-logo-small.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s,background .2s}
+.floating-logo:hover{transform:scale(1.06);background:rgba(10,10,10,.92)}
+.floating-logo img{width:44px;height:auto;display:block}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--gold)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:700px){.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}}
+
+/* HERO */
+.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end;padding:7rem 2rem 3.5rem;background:var(--gold);color:var(--black);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.06) 1px,transparent 0);background-size:14px 14px;pointer-events:none}
+.hero::after{content:"";position:absolute;right:-50px;bottom:-30px;width:340px;height:340px;border-radius:50%;background:var(--orange);opacity:.55;pointer-events:none}
+.hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.5rem,12vw,9rem);line-height:.88;text-transform:uppercase;max-width:16ch;position:relative;z-index:1}
+.hero-frame{display:inline-block;font-family:"Anton",sans-serif;font-size:clamp(1rem,2.5vw,1.4rem);text-transform:uppercase;letter-spacing:.06em;border:3px solid var(--black);padding:.4rem 1rem;margin-bottom:1.2rem;position:relative;z-index:1;background:rgba(255,255,255,.35)}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);max-width:640px;line-height:1.65;margin-top:1.2rem;opacity:.82;position:relative;z-index:1}
+
+/* INTRO STRIP */
+.intro-strip{background:var(--black);color:var(--white);padding:3rem 2rem;text-align:center}
+.intro-strip p{font-size:clamp(1.1rem,2.5vw,1.5rem);max-width:720px;margin:0 auto;line-height:1.7;opacity:.9}
+.intro-strip strong{color:var(--gold)}
+
+/* PATHWAY BLOCKS */
+.pathway{padding:3.5rem 2rem;min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.pathway-label{display:inline-block;font-family:"Anton",sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;border:2px solid currentColor;padding:.3rem .8rem;margin-bottom:1rem;opacity:.7}
+.pathway h2{font-family:"Anton",sans-serif;font-size:clamp(2.8rem,8vw,6rem);line-height:.88;text-transform:uppercase;max-width:14ch;margin-bottom:1rem}
+.pathway p{font-size:clamp(1rem,1.8vw,1.15rem);max-width:600px;line-height:1.7;opacity:.88}
+.pathway-cta{display:inline-block;margin-top:1.8rem;padding:.8rem 2rem;font-family:"Anton",sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:3px solid currentColor;transition:all .2s}
+.pathway-cta:hover{opacity:.75;transform:translateY(-2px)}
+
+.p-give{background:var(--green);color:var(--black)}
+.p-space{background:var(--orange);color:var(--black)}
+.p-fund{background:var(--blue);color:var(--white)}
+.p-fund .pathway-label,.p-fund .pathway-cta{color:var(--gold)}
+.p-fund h2{color:var(--gold)}
+.p-expertise{background:var(--lavender);color:var(--black)}
+.p-codirect{background:var(--red);color:var(--white)}
+.p-connect{background:var(--cyan);color:var(--black)}
+
+/* DECORATIVE ACCENT */
+.pathway::before{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.08);pointer-events:none}
+
+/* CLOSING */
+.closing{background:var(--black);color:var(--white);padding:4rem 2rem;text-align:center;position:relative}
+.closing::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(109,222,90,.1),transparent 65%);pointer-events:none}
+.closing h2{font-family:"Anton",sans-serif;font-size:clamp(2rem,7vw,5rem);text-transform:uppercase;color:var(--green);position:relative;z-index:1;line-height:.92}
+.closing p{font-size:clamp(1rem,2vw,1.2rem);max-width:560px;margin:1.2rem auto 2rem;opacity:.8;line-height:1.7;position:relative;z-index:1}
+.closing-btn{display:inline-block;padding:.9rem 2.8rem;background:transparent;border:3px solid var(--green);color:var(--green);font-family:"Anton",sans-serif;font-size:1.2rem;text-transform:uppercase;text-decoration:none;letter-spacing:.05em;position:relative;z-index:1;transition:all .2s}
+.closing-btn:hover{background:var(--green);color:var(--black);transform:translateY(-2px)}
+
+/* FOOTER */
+.footer{padding:1.35rem 2rem 1.6rem;text-align:center;font-size:.92rem;background:var(--black);color:rgba(245,245,240,.88);border-top:1px solid rgba(255,255,255,.1)}
+.footer a{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.footer a:hover{color:var(--gold)}
+
+@media(max-width:600px){.pathway{min-height:auto;padding:2.5rem 1.5rem}.hero{padding:5rem 1.5rem 2.5rem}}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="floating-logo" aria-label="Eager Arts &amp; Culture Hub home">
+  <img src="each-logo-small.png" alt="Eager Arts &amp; Culture Hub logo">
+</a>
+
+<nav class="site-nav">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="resource-hub.html">Resources</a>
+    <a href="gatherings.html">Gatherings</a>
+    <a href="shared-spaces.html">Shared Spaces</a>
+    <a href="contribute.html" class="active">Contribute</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-frame">Creative Community Fabric · Bay Area</div>
+  <h1>Everybody Has a Part to Play</h1>
+  <p class="hero-sub">
+    This is not a one-way street. EACH works because artists and their communities show up for each other —
+    with money, spaces, time, expertise, and relationships. Here is where you come in.
+  </p>
+</section>
+
+<!-- INTRO -->
+<section class="intro-strip">
+  <p>We are weaving <strong>creative community fabric</strong> across the Bay.
+  Every thread matters — the artist who makes, the neighbor who shows up, the business that opens a door,
+  the funder who bets on people. Whatever you have to offer, there is a place for it here.</p>
+</section>
+
+<!-- ── PATHWAY 1: GIVE ── -->
+<section class="pathway p-give">
+  <div class="pathway-label">For Everyone</div>
+  <h2>Give What You Can</h2>
+  <p>
+    Every dollar that comes into EACH circulates directly back to neighborhood artists — microgrants,
+    shared resources, and real offsets for the cost of Bay Area living. No overhead theater.
+    No corporate middleman. Just money moving toward people making things that matter.
+    Any amount. No donation too small or too large.
+  </p>
+  <a href="https://fundraising.fracturedatlas.org/eager-arts-and-culture-hub" target="_blank" rel="noopener" class="pathway-cta">
+    Make a Tax-Deductible Donation ↗
+  </a>
+</section>
+
+<!-- ── PATHWAY 2: SPACE ── -->
+<section class="pathway p-space">
+  <div class="pathway-label">For Neighbors &amp; Businesses</div>
+  <h2>Open Your Space</h2>
+  <p>
+    A café that stays open late on a Thursday. A church basement with good acoustics. A corporate lobby
+    between 5 and 9. A backyard with a view and a few folding chairs.
+    Space is one of the scarcest things artists face in this region — and one of the most generous gifts
+    a neighbor or business can offer. You don't need a stage. You need a door that opens.
+    We handle the matchmaking. You get to be part of something that makes your neighborhood more alive.
+  </p>
+  <a href="mailto:info@eachartist.org?subject=I have a space to share" class="pathway-cta">
+    Tell Us About Your Space
+  </a>
+</section>
+
+<!-- ── PATHWAY 3: INVEST IN THE FABRIC ── -->
+<section class="pathway p-fund">
+  <div class="pathway-label">For Funders &amp; Philanthropists</div>
+  <h2>Invest in the Fabric</h2>
+  <p>
+    We are building creative community fabric across the Bay — artists making, neighbors gathering,
+    spaces opening, relationships forming. This work needs philanthropic partnership.
+    Not a grant recipient justifying itself to a funder, but a living community with a clear vision
+    and a real invitation. If you believe that artists being rooted, connected, and resourced
+    makes the whole Bay better — for everyone — we'd love to know you.
+    Let's talk about what's possible when we build it together.
+  </p>
+  <a href="mailto:info@eachartist.org?subject=Interested in funding EACH" class="pathway-cta">
+    Start a Conversation
+  </a>
+</section>
+
+<!-- ── PATHWAY 4: EXPERTISE ── -->
+<section class="pathway p-expertise">
+  <div class="pathway-label">For Advisors &amp; Coaches</div>
+  <h2>Lend Your Expertise</h2>
+  <p>
+    Artists are incredible at making things. They are often less supported in navigating the systems
+    built around them. We need people who know things: tax strategy for freelancers, legal structure
+    for cooperatives, financial coaching, city permitting, conflict facilitation, grant writing,
+    cooperative governance, ecological design.
+    If you have knowledge you're willing to share in service of artist stability and collective power,
+    there is a real place for you here. This is not volunteerism — it is relationship and mutual investment.
+  </p>
+  <a href="mailto:info@eachartist.org?subject=I'd like to offer expertise" class="pathway-cta">
+    Reach Out
+  </a>
+</section>
+
+<!-- ── PATHWAY 5: CO-DIRECT ── -->
+<section class="pathway p-codirect">
+  <div class="pathway-label">For Co-Stewards</div>
+  <h2>Help Hold the Hub</h2>
+  <p>
+    We are building this cooperatively. That means we are looking for people ready to co-direct —
+    not as employees, but as stewards. Program design, community partnerships, finance, operations,
+    outreach. This is a real invitation to share the load and share the work.
+    We are keeping it lean and scrappy. We are not looking for résumés — we are looking for people
+    who believe in this and are ready to show up consistently for it.
+  </p>
+  <a href="mailto:info@eachartist.org?subject=Interested in co-directing" class="pathway-cta">
+    Let's Talk
+  </a>
+</section>
+
+<!-- ── PATHWAY 6: CONNECT ── -->
+<section class="pathway p-connect">
+  <div class="pathway-label">For Connectors</div>
+  <h2>Make an Introduction</h2>
+  <p>
+    You know someone. An artist who needs a community. A building owner who'd love to open their doors
+    on a Friday night. A funder who's quietly looking for something more honest. A business that wants
+    to be a real neighbor. A neighbor who misses feeling connected to where they live.
+    An introduction from you could be the thing that makes this work.
+    You don't need time or money — just the willingness to say: "these people should know each other."
+  </p>
+  <a href="mailto:info@eachartist.org?subject=I'd like to make an introduction" class="pathway-cta">
+    Send Us a Connection
+  </a>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <h2>The Bay's Story<br>Belongs to All of Us</h2>
+  <p>
+    Art is how communities think together. When artists are resourced, connected, and rooted —
+    whole neighborhoods come alive. Join the fabric.
+  </p>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener" class="closing-btn">
+    Join the Mailing List
+  </a>
+</section>
+
+<footer class="footer">
+  <p>
+    built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
+    powered by all of us ·
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join up</a> ·
+    <a href="mailto:info@eachartist.org">reach out</a>
+    <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/eager-arts-and-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
+  </p>
+</footer>
+
+</body>
+</html>
