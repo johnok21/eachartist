@@ -293,7 +293,7 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 <div class="resource-card" data-cat="practices" data-search="darraj trying write terrible world sumud steadfast presence palestinian erasure"><span class="card-badge badge-essay">Essay</span><div class="card-body"><h3>Trying to Write in a Terrible World — Susan Muaddi Darraj</h3><p>Darraj explores the Palestinian value of sumud — steadfast presence, refusing erasure — and what it means to write while bearing witness. An invitation to every artist navigating their practice in a world that gives many reasons to put down the pen.</p><a class="card-source" href="https://theconsciouscitizens.org" target="_blank">The Conscious Citizens</a></div></div>
 
 </div>
-<div class="cta-strip">Know a practice or tool that should live here? Send it to us <a href="mailto:info@eachartist.org">info@eachartist.org</a></div>
+<div class="cta-strip">Know a practice or tool that should live here? Send it to us <a href="/cdn-cgi/l/email-protection#0a63646c654a6f6b69626b787e63797e2465786d"><span class="__cf_email__" data-cfemail="e28b8c848da28783818a8390968b9196cc8d9085">[email&#160;protected]</span></a></div>
 </div></div>
 
 <!-- BOTTOM DYK -->
@@ -304,9 +304,69 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
     built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
     powered by all of us ·
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join up</a> ·
-    <a href="mailto:info@eachartist.org">reach out</a>
-    <br>fiscally sponsored by <a href="https://fracturedatlas.org" target="_blank" rel="noopener">Fractured Atlas</a>
-  </p>
-</footer>
-</body>
-</html>
+    <a href="/cdn-cgi/l/email-protection#7f161119103f1a1e1c171e0d0b160c
+<script>
+function toggleSection(el){
+  el.classList.toggle('open');
+  var content = el.nextElementSibling;
+  if(content && content.classList.contains('subsection-content')){
+    content.classList.toggle('open');
+  }
+}
+
+function filterCategory(cat, tabEl){
+  // update active tab
+  document.querySelectorAll('.filter-tab').forEach(function(t){
+    t.classList.remove('active');
+    var c = t.getAttribute('data-color') || 'var(--black)';
+    t.style.background = '';
+    t.style.color = c;
+  });
+  tabEl.classList.add('active');
+  var activeColor = tabEl.getAttribute('data-color') || 'var(--black)';
+  tabEl.style.background = activeColor;
+  tabEl.style.color = 'var(--green)';
+
+  // show/hide subsections
+  document.querySelectorAll('.subsection').forEach(function(sec){
+    if(cat === 'all' || sec.getAttribute('data-category') === cat){
+      sec.style.display = '';
+    } else {
+      sec.style.display = 'none';
+    }
+  });
+  // re-apply search if any
+  filterResources();
+}
+
+function filterResources(){
+  var q = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+  document.querySelectorAll('.resource-card').forEach(function(card){
+    if(!q){ card.classList.remove('hidden'); return; }
+    var hay = (card.getAttribute('data-search') || '') + ' ' + card.textContent.toLowerCase();
+    if(hay.toLowerCase().indexOf(q) !== -1){
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+  // auto-open sections that have visible matches when searching
+  if(q){
+    document.querySelectorAll('.subsection').forEach(function(sec){
+      var hasMatch = sec.querySelector('.resource-card:not(.hidden)');
+      var toggle = sec.querySelector('.subsection-toggle');
+      var content = sec.querySelector('.subsection-content');
+      if(hasMatch && toggle && content){
+        toggle.classList.add('open');
+        content.classList.add('open');
+      }
+    });
+  }
+}
+
+function clearSearch(){
+  var input = document.getElementById('searchInput');
+  if(input){ input.value = ''; }
+  filterResources();
+}
+</script>
