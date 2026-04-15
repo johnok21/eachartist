@@ -554,6 +554,15 @@
     display: block;
   }
 
+  /* ── MEMPHIS DECORATIONS ── */
+  .memphis {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.12;
+  }
+  .memphis-section { position: relative; overflow: hidden; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .hero { padding: 1.5rem; }
@@ -562,6 +571,7 @@
     .signup-form { flex-direction: column; }
     .signup-form input[type="email"],
     .signup-form button { width: 100%; }
+    .memphis { display: none; }
   }
 </style>
 </head>
@@ -611,7 +621,9 @@
 </section>
 
 <!-- ═══ THE PITCH ═══ -->
-<section class="block block-green">
+<section class="block block-green memphis-section">
+  <img src="8.png" class="memphis" alt="" style="width:180px;top:-30px;right:2vw;opacity:0.15;transform:rotate(-15deg);">
+  <img src="11.png" class="memphis" alt="" style="width:300px;bottom:-40px;left:-60px;opacity:0.08;">
   <h2 class="bold-type block-title">Artistic & Economic Freedom</h2>
   <p class="block-body">
     Artists are the imaginary and nervous systems of our communities. Art is how we process together — how we grieve, celebrate, question, and imagine what's next. In the Bay Area, too many artists are isolated, burned out, and getting pushed out. And too many neighbors are disconnected from the art and artists who could help them make sense of what they're moving through.
@@ -621,8 +633,13 @@
   </p>
 </section>
 
+<!-- ═══ ZIGZAG DIVIDER ═══ -->
+<div style="background:var(--black);text-align:center;padding:0.5rem 0;overflow:hidden;">
+  <img src="13.png" alt="" style="width:100%;max-width:800px;height:40px;object-fit:cover;opacity:0.25;">
+</div>
+
 <!-- ═══ WHAT WE'RE BUILDING ═══ -->
-<section class="block block-black" style="min-height:auto;padding-bottom:0;">
+<section class="block block-black memphis-section" style="min-height:auto;padding-bottom:0;">
   <h2 class="bold-type block-title" style="color:var(--gold);">What We're Building</h2>
 </section>
 <div class="what-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
@@ -644,7 +661,9 @@
 </div>
 
 <!-- ═══ THE BAY NEEDS ITS ARTISTS ═══ -->
-<section class="block block-orange">
+<section class="block block-orange memphis-section">
+  <img src="5.png" class="memphis" alt="" style="width:100px;top:20px;right:3vw;opacity:0.2;transform:rotate(12deg);">
+  <img src="7.png" class="memphis" alt="" style="width:200px;bottom:-20px;left:-40px;opacity:0.12;">
   <h2 class="bold-type block-title">The Bay Needs Its Artists</h2>
   <p class="block-body">
     Imagine a Bay Area where garage doors roll up after dark, where sidewalks and backyards and storefronts open to artists sharing their work. Neighbors stopping to listen, to look, to feel something together. A more connected, awe-inspired Bay — because when artists are resourced and connected, and when neighbors can find their way to the artists who see them, there is more space for truth and play in public life. More beauty. More courage. More civic imagination.
@@ -652,7 +671,9 @@
 </section>
 
 <!-- ═══ HOW YOU CAN PLUG IN ═══ -->
-<section class="block block-black">
+<section class="block block-black memphis-section">
+  <img src="4.png" class="memphis" alt="" style="width:80px;top:0;left:0;height:100%;object-fit:cover;opacity:0.06;">
+  <img src="5.png" class="memphis" alt="" style="width:80px;bottom:40px;right:2vw;opacity:0.1;transform:rotate(8deg);">
   <h2 class="bold-type block-title" style="color: var(--green);">How You Can Plug In</h2>
   <p class="block-body">
     <strong style="color:var(--gold);">Artist</strong> — Join the community. Let us know if you're interested in the CAN pilot, or tell us about a culture circle you're already part of. <a href="mailto:info@eachartist.org" style="color:var(--gold);">Get in touch →</a><br><br>
