@@ -461,6 +461,68 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Memphis Decorations */
+    .memphis-striped-circle {
+      position: absolute;
+      top: 2rem;
+      right: 3rem;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 2;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--lavender) 0px,
+        var(--lavender) 8px,
+        rgba(10, 10, 10, 0.3) 8px,
+        rgba(10, 10, 10, 0.3) 16px
+      );
+    }
+
+    .memphis-half-circle {
+      position: absolute;
+      width: 160px;
+      height: 80px;
+      border-radius: 160px 160px 0 0;
+      background: var(--red);
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cards-grid {
+      position: relative;
+    }
+
+    .cards-grid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle, var(--black) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 12px;
+    }
+
+    .cards-grid .card {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 700px) {
+      .memphis-striped-circle,
+      .memphis-half-circle {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -484,6 +546,7 @@
   </nav>
 
   <section class="hero">
+    <div class="memphis-striped-circle"></div>
     <h1>Culture Circles</h1>
     <p class="subhead">Learning from the circles that already hold us.</p>
     <p>Across the Bay, small groups of artists already gather to support one another's lives and work. Collectives, affinity groups, dance schools, cultural organizations, crews — these intimate formations nourish creative expression, belonging, mutual care, and shared economics. Some have been at it for decades.</p>
@@ -491,6 +554,7 @@
   </section>
 
   <section class="section what-were-doing">
+    <div class="memphis-half-circle" style="left: 10%; top: -40px;"></div>
     <h2>What We're Doing</h2>
     <p class="lead-in">This is a shared community offering from start to finish. Findings return to participants first, then to the wider field. The goal is to:</p>
     <div class="cards-grid">

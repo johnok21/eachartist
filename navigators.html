@@ -283,6 +283,28 @@
     .what-section {
       padding: 5rem 3rem;
       background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .what-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle, var(--black) 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .what-section h2,
+    .what-section .cards-grid {
+      position: relative;
+      z-index: 1;
     }
 
     .what-section h2 {
@@ -605,6 +627,50 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Memphis Decorations */
+    .memphis-star {
+      position: absolute;
+      top: 2rem;
+      right: 3rem;
+      width: 80px;
+      height: 80px;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .memphis-dots {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle, currentColor 1.5px, transparent 1.5px);
+      background-size: 18px 18px;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .zigzag-divider {
+      height: 20px;
+      background: linear-gradient(135deg, var(--blue) 25%, transparent 25%) -10px 0,
+                  linear-gradient(225deg, var(--blue) 25%, transparent 25%) -10px 0,
+                  linear-gradient(315deg, var(--blue) 25%, transparent 25%),
+                  linear-gradient(45deg, var(--blue) 25%, transparent 25%);
+      background-size: 20px 20px;
+      background-color: var(--black);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    @media (max-width: 700px) {
+      .memphis-star,
+      .memphis-dots,
+      .zigzag-divider {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -628,6 +694,7 @@
   </nav>
 
   <section class="hero">
+    <img src="5.png" class="memphis-star" alt="" aria-hidden="true">
     <div class="hero-content">
       <h1>Community Arts Navigators</h1>
       <p class="subhead">Artists supporting artists. Artists helping neighbors find the art that speaks to what they're carrying.</p>
@@ -669,6 +736,8 @@
     <h2>Where We Are</h2>
     <p>We're in pilot mode. As we gather resources, we're also gathering interest from artists who see themselves in this role.</p>
   </section>
+
+  <div class="zigzag-divider"></div>
 
   <section class="cta-section">
     <h2>Get Involved</h2>

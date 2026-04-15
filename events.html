@@ -69,15 +69,26 @@
     }
 
     .floating-logo {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      background: rgba(10,10,10,.7);
+      backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
-      flex-shrink: 0;
+      transition: transform .2s, background .2s;
     }
+    .floating-logo:hover { transform: scale(1.06); background: rgba(10,10,10,.92); }
 
     .floating-logo img {
-      height: 40px;
-      width: auto;
+      width: 44px;
+      height: auto;
     }
 
     .site-nav {
@@ -400,6 +411,20 @@
     .footer a:hover {
       color: var(--orange);
     }
+
+    /* MEMPHIS DECORATIONS */
+    .zigzag-divider {
+      height: 16px;
+      background: linear-gradient(135deg, var(--orange) 25%, transparent 25%) -8px 0,
+                  linear-gradient(225deg, var(--orange) 25%, transparent 25%) -8px 0,
+                  linear-gradient(315deg, var(--orange) 25%, transparent 25%),
+                  linear-gradient(45deg, var(--orange) 25%, transparent 25%);
+      background-size: 16px 16px;
+      background-color: var(--black);
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    @media (max-width: 700px) { .zigzag-divider { display: none; } }
   </style>
 </head>
 <body>
@@ -455,6 +480,8 @@
         </div>
       </div>
     </section>
+
+    <div class="zigzag-divider" aria-hidden="true"></div>
 
     <section class="cta-section">
       <div class="cta-content">
