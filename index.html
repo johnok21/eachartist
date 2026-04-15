@@ -559,9 +559,73 @@
     position: absolute;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.12;
   }
   .memphis-section { position: relative; overflow: hidden; }
+
+  /* ── COLLAGE BREAK ── */
+  .collage-break {
+    background: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .collage-break .img-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 680px;
+    width: 90%;
+    transform: rotate(2deg);
+  }
+  .collage-break .seam-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    clip-path: polygon(
+      2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
+      60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
+      99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
+      93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
+      22% 100%, 10% 98%, 2% 100%,
+      0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
+    );
+    filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
+  }
+  .collage-break .tape {
+    position: absolute;
+    height: 24px;
+    z-index: 11;
+  }
+  .collage-break .tape-left {
+    width: 100px;
+    top: -6px;
+    left: 18%;
+    transform: rotate(-42deg);
+    background: rgba(245, 197, 66, 0.82);
+  }
+  .collage-break .tape-right {
+    width: 80px;
+    bottom: -6px;
+    right: 14%;
+    transform: rotate(20deg);
+    background: rgba(196,168,216,0.88);
+  }
+
+  /* ── ZIGZAG DIVIDER ── */
+  .zigzag-strip {
+    text-align: center;
+    padding: 0.3rem 0;
+    overflow: hidden;
+  }
+  .zigzag-strip img {
+    width: 100%;
+    max-width: 900px;
+    height: 35px;
+    object-fit: cover;
+    opacity: 0.3;
+  }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
@@ -572,6 +636,7 @@
     .signup-form input[type="email"],
     .signup-form button { width: 100%; }
     .memphis { display: none; }
+    .collage-break .img-wrapper { width: 95%; transform: rotate(1deg); }
   }
 </style>
 </head>
@@ -622,8 +687,9 @@
 
 <!-- ═══ THE PITCH ═══ -->
 <section class="block block-green memphis-section">
-  <img src="8.png" class="memphis" alt="" style="width:180px;top:-30px;right:2vw;opacity:0.15;transform:rotate(-15deg);">
-  <img src="11.png" class="memphis" alt="" style="width:300px;bottom:-40px;left:-60px;opacity:0.08;">
+  <img src="10.png" class="memphis" alt="" style="width:220px;bottom:-30px;right:-40px;opacity:0.12;transform:rotate(10deg);">
+  <img src="4.png" class="memphis" alt="" style="width:120px;top:-20px;left:-30px;opacity:0.08;transform:rotate(-5deg);">
+  <img src="5.png" class="memphis" alt="" style="width:60px;top:30px;right:15vw;opacity:0.15;">
   <h2 class="bold-type block-title">Artistic & Economic Freedom</h2>
   <p class="block-body">
     Artists are the imaginary and nervous systems of our communities. Art is how we process together — how we grieve, celebrate, question, and imagine what's next. In the Bay Area, too many artists are isolated, burned out, and getting pushed out. And too many neighbors are disconnected from the art and artists who could help them make sense of what they're moving through.
@@ -634,12 +700,14 @@
 </section>
 
 <!-- ═══ ZIGZAG DIVIDER ═══ -->
-<div style="background:var(--black);text-align:center;padding:0.5rem 0;overflow:hidden;">
-  <img src="13.png" alt="" style="width:100%;max-width:800px;height:40px;object-fit:cover;opacity:0.25;">
+<div class="zigzag-strip" style="background:var(--black);">
+  <img src="13.png" alt="" aria-hidden="true">
 </div>
 
 <!-- ═══ WHAT WE'RE BUILDING ═══ -->
 <section class="block block-black memphis-section" style="min-height:auto;padding-bottom:0;">
+  <img src="12.png" class="memphis" alt="" style="width:350px;top:-20px;right:-60px;opacity:0.04;">
+  <img src="22.png" class="memphis" alt="" style="width:100px;bottom:10px;left:3vw;opacity:0.08;">
   <h2 class="bold-type block-title" style="color:var(--gold);">What We're Building</h2>
 </section>
 <div class="what-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
@@ -660,10 +728,27 @@
   </div>
 </div>
 
+<!-- ═══ COLLAGE BREAK ═══ -->
+<div class="collage-break">
+  <img src="9.png" class="memphis" alt="" style="width:140px;top:-20px;left:3vw;opacity:0.1;transform:rotate(-8deg);">
+  <img src="16.png" class="memphis" alt="" style="width:120px;bottom:-10px;right:5vw;opacity:0.1;transform:scaleX(-1);">
+  <div class="img-wrapper">
+    <div class="tape tape-left"></div>
+    <div class="tape tape-right"></div>
+    <img src="Untitled_design.png" alt="Bay Area artists collage" class="seam-img">
+  </div>
+</div>
+
+<!-- ═══ GOLD ZIGZAG ═══ -->
+<div class="zigzag-strip" style="background:var(--black);">
+  <img src="14.png" alt="" aria-hidden="true">
+</div>
+
 <!-- ═══ THE BAY NEEDS ITS ARTISTS ═══ -->
 <section class="block block-orange memphis-section">
-  <img src="5.png" class="memphis" alt="" style="width:100px;top:20px;right:3vw;opacity:0.2;transform:rotate(12deg);">
-  <img src="7.png" class="memphis" alt="" style="width:200px;bottom:-20px;left:-40px;opacity:0.12;">
+  <img src="6.png" class="memphis" alt="" style="width:110px;top:20px;right:3vw;opacity:0.15;transform:rotate(12deg);">
+  <img src="7.png" class="memphis" alt="" style="width:220px;bottom:-30px;left:-50px;opacity:0.1;">
+  <img src="18.png" class="memphis" alt="" style="width:100px;top:50%;right:-20px;opacity:0.08;transform:rotate(-15deg);">
   <h2 class="bold-type block-title">The Bay Needs Its Artists</h2>
   <p class="block-body">
     Imagine a Bay Area where garage doors roll up after dark, where sidewalks and backyards and storefronts open to artists sharing their work. Neighbors stopping to listen, to look, to feel something together. A more connected, awe-inspired Bay — because when artists are resourced and connected, and when neighbors can find their way to the artists who see them, there is more space for truth and play in public life. More beauty. More courage. More civic imagination.
@@ -672,8 +757,10 @@
 
 <!-- ═══ HOW YOU CAN PLUG IN ═══ -->
 <section class="block block-black memphis-section">
-  <img src="4.png" class="memphis" alt="" style="width:80px;top:0;left:0;height:100%;object-fit:cover;opacity:0.06;">
-  <img src="5.png" class="memphis" alt="" style="width:80px;bottom:40px;right:2vw;opacity:0.1;transform:rotate(8deg);">
+  <img src="4.png" class="memphis" alt="" style="width:100px;top:0;left:-20px;opacity:0.05;">
+  <img src="12.png" class="memphis" alt="" style="width:400px;bottom:-40px;right:-80px;opacity:0.03;">
+  <img src="16.png" class="memphis" alt="" style="width:100px;bottom:60px;right:2vw;opacity:0.07;transform:rotate(-20deg);">
+  <img src="5.png" class="memphis" alt="" style="width:50px;top:40px;right:12vw;opacity:0.1;">
   <h2 class="bold-type block-title" style="color: var(--green);">How You Can Plug In</h2>
   <p class="block-body">
     <strong style="color:var(--gold);">Artist</strong> — Join the community. Let us know if you're interested in the CAN pilot, or tell us about a culture circle you're already part of. <a href="mailto:info@eachartist.org" style="color:var(--gold);">Get in touch →</a><br><br>
@@ -685,8 +772,15 @@
   </p>
 </section>
 
+<!-- ═══ GREEN ZIGZAG ═══ -->
+<div class="zigzag-strip" style="background:var(--black);">
+  <img src="15.png" alt="" aria-hidden="true">
+</div>
+
 <!-- ═══ EMAIL SIGNUP ═══ -->
-<section class="cta-section" id="signup">
+<section class="cta-section memphis-section" id="signup">
+  <img src="22.png" class="memphis" alt="" style="width:120px;top:20px;right:5vw;opacity:0.08;">
+  <img src="9.png" class="memphis" alt="" style="width:100px;bottom:20px;left:3vw;opacity:0.06;transform:rotate(15deg);">
   <h2 class="bold-type cta-headline">Stay<br>Connected</h2>
   <p class="cta-sub">
     Join the EACH mailing list. We'll share updates on the Community Arts Navigator pilot,
