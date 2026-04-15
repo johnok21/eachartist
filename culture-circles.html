@@ -206,6 +206,24 @@
       overflow: hidden;
     }
 
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.6);
+      z-index: 1;
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -222,8 +240,16 @@
 
     .hero > * {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 800px;
+    }
+
+    .hero-text-block {
+      background: rgba(10, 10, 10, 0.7);
+      padding: 2rem;
+      border-radius: 8px;
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 {
@@ -467,10 +493,10 @@
       position: absolute;
       top: 2rem;
       right: 3rem;
-      width: 140px;
-      height: 140px;
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
-      opacity: 0.12;
+      opacity: 0.28;
       pointer-events: none;
       z-index: 2;
       background: repeating-linear-gradient(
@@ -484,11 +510,11 @@
 
     .memphis-half-circle {
       position: absolute;
-      width: 160px;
-      height: 80px;
-      border-radius: 160px 160px 0 0;
+      width: 280px;
+      height: 140px;
+      border-radius: 280px 280px 0 0;
       background: var(--red);
-      opacity: 0.12;
+      opacity: 0.28;
       pointer-events: none;
       z-index: 1;
     }
@@ -546,20 +572,26 @@
   </nav>
 
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="static-video-2.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="memphis-striped-circle"></div>
-    <img src="5.png" class="memphis" style="position:absolute; pointer-events:none; z-index:2; width:70px; top:20px; right:50px; opacity:0.12;" alt="" aria-hidden="true">
-    <h1>Culture Circles</h1>
-    <p class="subhead">Learning from the circles that already hold us.</p>
-    <p>Across the Bay, small groups of artists already gather to support one another's lives and work. Collectives, affinity groups, dance schools, cultural organizations, crews — these intimate formations nourish creative expression, belonging, mutual care, and shared economics. Some have been at it for decades.</p>
-    <p>EACH is conducting a community-engaged research project to learn what makes these circles work — the practices and values that sustain strong ties, what makes creative and cultural activation land, where circles get stuck, and what kind of support they wish they had.</p>
+    <img src="5.png" class="memphis" style="position:absolute; pointer-events:none; z-index:2; width:140px; top:20px; right:50px; opacity:0.28;" alt="" aria-hidden="true">
+    <div class="hero-text-block">
+      <h1>Culture Circles</h1>
+      <p class="subhead">Learning from the circles that already hold us.</p>
+      <p>Across the Bay, small groups of artists already gather to support one another's lives and work. Collectives, affinity groups, dance schools, cultural organizations, crews — these intimate formations nourish creative expression, belonging, mutual care, and shared economics. Some have been at it for decades.</p>
+      <p>EACH is conducting a community-engaged research project to learn what makes these circles work — the practices and values that sustain strong ties, what makes creative and cultural activation land, where circles get stuck, and what kind of support they wish they had.</p>
+    </div>
   </section>
 
   <section class="section what-were-doing" style="position:relative; overflow:hidden;">
     <div class="memphis-half-circle" style="left: 10%; top: -40px;"></div>
-    <img src="9.png" class="memphis" style="position:absolute; pointer-events:none; z-index:2; width:130px; top:80px; right:40px; opacity:0.1; transform:rotate(20deg);" alt="" aria-hidden="true">
+    <img src="9.png" class="memphis" style="position:absolute; pointer-events:none; z-index:2; width:210px; top:80px; right:40px; opacity:0.24; transform:rotate(20deg);" alt="" aria-hidden="true">
     <h2>What We're Doing</h2>
     <p class="lead-in">This is a shared community offering from start to finish. Findings return to participants first, then to the wider field. The goal is to:</p>
-    <img src="7.png" class="memphis" style="position:absolute; pointer-events:none; z-index:1; width:180px; bottom:-40px; left:20px; opacity:0.08; overflow:hidden;" alt="" aria-hidden="true">
+    <img src="7.png" class="memphis" style="position:absolute; pointer-events:none; z-index:1; width:300px; bottom:-40px; left:20px; opacity:0.25; overflow:hidden;" alt="" aria-hidden="true">
     <div class="cards-grid">
       <div class="card">
         <p>Honor what already works — surface and celebrate the best practices already sustaining artist circles across the Bay</p>
@@ -582,7 +614,7 @@
   </section>
 
   <section class="cta-section" style="position:relative; overflow:hidden;">
-    <img src="14.png" class="memphis" style="position:absolute; pointer-events:none; z-index:0; width:100%; height:30px; top:0; left:0; opacity:0.25; object-fit:cover;" alt="" aria-hidden="true">
+    <img src="14.png" class="memphis" style="position:absolute; pointer-events:none; z-index:0; width:100%; height:30px; top:0; left:0; opacity:0.35; object-fit:cover;" alt="" aria-hidden="true">
     <div class="cta-grid">
       <div class="cta-block">
         <p>Join the mailing list to keep up with findings or share your perspective.</p>
