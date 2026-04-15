@@ -47,142 +47,28 @@
     }
 
     /* Navigation */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(10, 10, 10, 0.1);
-    }
+    /* header class kept for compat but not used */
 
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 70px;
-    }
+    .floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s,background .2s}
+    .floating-logo:hover{transform:scale(1.06);background:rgba(10,10,10,.92)}
+    .floating-logo img{width:44px;height:auto;display:block}
 
-    .floating-logo {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 1000;
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      background: rgba(10,10,10,.7);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform .2s, background .2s;
-    }
-    .floating-logo:hover { transform: scale(1.06); background: rgba(10,10,10,.92); }
+    .site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}
 
-    .floating-logo img {
-      width: 44px;
-      height: auto;
-    }
+    .site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(255,255,255,.3);color:var(--white);background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+    .site-nav a:hover,.site-nav a.active{background:var(--orange);color:var(--black);border-color:var(--orange)}
 
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+    .hamburger:hover{background:var(--orange)}.hamburger:hover span{background:var(--black)}
+    .nav-links{display:flex;gap:.35rem;flex-wrap:wrap;justify-content:flex-end}
 
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 8px;
-    }
-
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background-color: var(--black);
-      transition: all 0.3s ease;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      padding: 8px 16px;
-      text-decoration: none;
-      color: var(--black);
-      font-size: 14px;
-      font-weight: 500;
-      border: 1px solid transparent;
-      border-radius: 20px;
-      transition: all 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      background-color: rgba(10, 10, 10, 0.05);
-      border-color: var(--black);
-    }
-
-    .nav-links a.active {
-      background-color: var(--orange);
-      color: var(--black);
-      border-color: var(--orange);
-    }
-
-    @media (max-width: 700px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        gap: 0;
-        border-bottom: 1px solid rgba(10, 10, 10, 0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-
-      .nav-links.open {
-        max-height: 500px;
-      }
-
-      .nav-links a {
-        width: 100%;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid rgba(10, 10, 10, 0.05);
-      }
-
-      .nav-links a:hover {
-        background-color: rgba(10, 10, 10, 0.05);
-        border: none;
-      }
-
-      .nav-links a.active {
-        background-color: var(--orange);
-      }
+    @media(max-width:700px){
+      .hamburger{display:flex}
+      .site-nav{flex-direction:column;align-items:flex-end;gap:0}
+      .nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}
+      .nav-links.open{display:flex}
+      .site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}
     }
 
     /* Main content */
@@ -428,27 +314,23 @@
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="nav-container">
-      <a href="index.html" class="floating-logo" aria-label="Each Artist Cultural Hub home">
-        <img src="each-logo-small.png" alt="Each Artist Cultural Hub logo">
-      </a>
-      <nav class="site-nav">
-        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-          <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links">
-          <a href="navigators.html">Navigators</a>
-          <a href="culture-circles.html">Culture Circles</a>
-          <a href="shared-spaces.html">Shared Spaces</a>
-          <a href="resource-hub.html">Resources</a>
-          <a href="events.html" class="active">Events</a>
-          <a href="contribute.html">Contribute</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </nav>
+  <a href="index.html" class="floating-logo" aria-label="Each Artist Cultural Hub home">
+    <img src="each-logo-small.png" alt="Each Artist Cultural Hub logo">
+  </a>
+  <nav class="site-nav">
+    <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="navigators.html">Navigators</a>
+      <a href="culture-circles.html">Culture Circles</a>
+      <a href="shared-spaces.html">Shared Spaces</a>
+      <a href="resource-hub.html">Resources</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="contribute.html">Contribute</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </header>
+  </nav>
 
   <main>
     <section class="hero">
