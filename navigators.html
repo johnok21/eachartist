@@ -190,6 +190,24 @@
       overflow: hidden;
     }
 
+    .hero-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.6);
+      z-index: 1;
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -205,7 +223,10 @@
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      background: rgba(10, 10, 10, 0.7);
+      padding: 2rem;
+      border-radius: 8px;
     }
 
     .hero h1 {
@@ -245,6 +266,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(10, 10, 10, 0.7);
+      padding: 2rem;
+      border-radius: 8px;
     }
 
     .hero-image img {
@@ -633,9 +657,9 @@
       position: absolute;
       top: 2rem;
       right: 3rem;
-      width: 80px;
-      height: 80px;
-      opacity: 0.15;
+      width: 140px;
+      height: 140px;
+      opacity: 0.3;
       pointer-events: none;
       z-index: 3;
     }
@@ -694,7 +718,12 @@
   </nav>
 
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="static-video-1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <img src="5.png" class="memphis-star" alt="" aria-hidden="true">
+    <img src="10.png" class="memphis" style="position:absolute; pointer-events:none; z-index:0; width:280px; bottom:-40px; right:-20px; opacity:0.45; overflow:hidden;" alt="" aria-hidden="true">
     <div class="hero-content">
       <h1>Community Arts Navigators</h1>
       <p class="subhead">Artists supporting artists. Artists helping neighbors find the art that speaks to what they're carrying.</p>
@@ -709,6 +738,7 @@
   </section>
 
   <section class="what-section">
+    <img src="4.png" class="memphis" style="position:absolute; pointer-events:none; z-index:0; width:230px; bottom:20px; left:30px; opacity:0.2; transform:rotate(-15deg);" alt="" aria-hidden="true">
     <h2>What a CAN Does</h2>
     <div class="cards-grid">
       <div class="card">
@@ -739,7 +769,8 @@
 
   <div class="zigzag-divider"></div>
 
-  <section class="cta-section">
+  <section class="cta-section" style="position:relative; overflow:hidden;">
+    <img src="9.png" class="memphis" style="position:absolute; pointer-events:none; z-index:0; width:170px; top:40px; right:60px; opacity:0.45; transform:rotate(25deg);" alt="" aria-hidden="true">
     <h2>Get Involved</h2>
     <div class="cta-grid">
       <div class="cta-card">
@@ -766,7 +797,7 @@
       powered by all of us ·
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join the list</a> ·
       <a href="mailto:info@eachartist.org">reach out</a>
-      <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/eager-arts-and-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
+      <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/each-each-artist-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
       <br>© 2026 Each Artist Cultural Hub. This project is for EACH of us.
     </p>
   </footer>
