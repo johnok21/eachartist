@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — EACH</title>
+  <meta name="description" content="EACH events — where we show up. Gatherings, tabling events, and creative activations across the Bay.">
+  <meta property="og:title" content="Events — EACH">
+  <meta property="og:description" content="Each Artist Cultural Hub — a by-artist, for-artist hub building peer support pathways and shared resources toward a more connected creative community in the Bay Area.">
+  <meta property="og:site_name" content="Each Artist Cultural Hub">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f5f0;
+      --green: #6dde5a;
+      --lavender: #c4a8d8;
+      --red: #ff3b30;
+      --gold: #f5c542;
+      --orange: #ff8c2e;
+      --blue: #1a5fb4;
+      --cyan: #00d4aa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .floating-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .floating-logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background-color: var(--black);
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 8px 16px;
+      text-decoration: none;
+      color: var(--black);
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: rgba(10, 10, 10, 0.05);
+      border-color: var(--black);
+    }
+
+    .nav-links a.active {
+      background-color: var(--orange);
+      color: var(--black);
+      border-color: var(--orange);
+    }
+
+    @media (max-width: 700px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid rgba(10, 10, 10, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 500px;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(10, 10, 10, 0.05);
+      }
+
+      .nav-links a:hover {
+        background-color: rgba(10, 10, 10, 0.05);
+        border: none;
+      }
+
+      .nav-links a.active {
+        background-color: var(--orange);
+      }
+    }
+
+    /* Main content */
+    main {
+      padding-top: 70px;
+    }
+
+    /* Hero section */
+    .hero {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background-color: var(--white);
+      text-align: center;
+      border-bottom: 3px solid var(--orange);
+    }
+
+    .hero-content h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 72px;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: 10px;
+      color: var(--black);
+      line-height: 1.1;
+    }
+
+    .hero-content .subhead {
+      font-family: 'Anton', sans-serif;
+      font-size: 28px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .hero-content .intro {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--black);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .hero-content h1 {
+        font-size: 48px;
+      }
+
+      .hero-content .subhead {
+        font-size: 20px;
+      }
+
+      .hero-content .intro {
+        font-size: 16px;
+      }
+    }
+
+    /* Events section */
+    .events-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .events-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      color: var(--black);
+      font-weight: bold;
+    }
+
+    .events-feed {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .event-card {
+      border: 2px solid var(--black);
+      padding: 25px;
+      background-color: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+      border-color: var(--orange);
+      box-shadow: 5px 5px 0px rgba(255, 140, 46, 0.1);
+    }
+
+    .event-date {
+      font-family: 'Anton', sans-serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: bold;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .event-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 8px;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .event-location {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .event-description {
+      font-size: 16px;
+      color: var(--black);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .events-section {
+        padding: 40px 20px;
+      }
+
+      .events-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      .event-name {
+        font-size: 20px;
+      }
+
+      .event-card {
+        padding: 20px;
+        gap: 15px;
+      }
+    }
+
+    /* CTA section */
+    .cta-section {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--orange);
+      color: var(--black);
+      padding: 14px 32px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      border: 2px solid var(--orange);
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .cta-button:hover {
+      background-color: var(--black);
+      color: var(--orange);
+      border-color: var(--orange);
+    }
+
+    @media (max-width: 700px) {
+      .cta-section {
+        padding: 40px 20px;
+      }
+
+      .cta-section p {
+        font-size: 16px;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--white);
+      border-top: 1px solid rgba(10, 10, 10, 0.1);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--black);
+    }
+
+    .footer p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .footer a {
+      color: var(--black);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+      color: var(--orange);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="floating-logo" aria-label="Each Artist Cultural Hub home">
+        <img src="each-logo-small.png" alt="Each Artist Cultural Hub logo">
+      </a>
+      <nav class="site-nav">
+        <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+          <a href="navigators.html">Navigators</a>
+          <a href="culture-circles.html">Culture Circles</a>
+          <a href="shared-spaces.html">Shared Spaces</a>
+          <a href="resource-hub.html">Resources</a>
+          <a href="events.html" class="active">Events</a>
+          <a href="contribute.html">Contribute</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Events</h1>
+        <p class="subhead">Where we show up.</p>
+        <p class="intro">Events we're hosting, participating in, or think you should know about. Come through.</p>
+      </div>
+    </section>
+
+    <section class="events-section">
+      <h2 class="events-title">Upcoming</h2>
+
+      <div class="events-feed">
+        <!-- Event 1 -->
+        <div class="event-card">
+          <div class="event-date">April 17, 2026</div>
+          <h3 class="event-name">Artists Live Here Session 2</h3>
+          <div class="event-location">SOMArts</div>
+          <p class="event-description">EACH is tabling. Come find us.</p>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card">
+          <div class="event-date">Summer 2026</div>
+          <h3 class="event-name">Community Gathering</h3>
+          <div class="event-location">Details Coming</div>
+          <p class="event-description">A multigenerational, cross-medium gathering rooted in care, cultural power, and the future of artists and their communities across the Bay.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-content">
+        <p>Want to know when we're gathering? Join the mailing list.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener" class="cta-button">Join the List</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
+      powered by all of us ·
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join the list</a> ·
+      <a href="mailto:info@eachartist.org">reach out</a>
+      <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/eager-arts-and-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
+      <br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
+    </p>
+  </footer>
+</body>
+</html>
