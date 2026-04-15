@@ -299,6 +299,77 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 <!-- BOTTOM DYK -->
 <div class="dyk-card"><div class="dyk-fact">Experiencing awe — a great performance, a mural that stops you cold — makes you measurably more generous and cooperative.</div><div class="dyk-context">Research by UC Berkeley's Dacher Keltner shows awe reduces self-focus and increases prosocial behavior.</div><div class="dyk-source">Source: Greater Good Science Center, UC Berkeley</div></div>
 
+<script>
+  // ── SECTION TOGGLE ──
+  function toggleSection(el) {
+    const content = el.nextElementSibling;
+    const isOpen = el.classList.contains('open');
+    el.classList.toggle('open', !isOpen);
+    content.style.display = isOpen ? 'none' : 'block';
+  }
+
+  // Open all sections on load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.subsection-toggle').forEach(function(toggle) {
+      toggle.classList.add('open');
+      const content = toggle.nextElementSibling;
+      if (content) content.style.display = 'block';
+    });
+  });
+
+  // ── CATEGORY FILTER ──
+  var activeCategory = 'all';
+
+  function filterCategory(cat, tabEl) {
+    activeCategory = cat;
+    // Update active tab styling
+    document.querySelectorAll('.filter-tab').forEach(function(t) {
+      t.classList.remove('active');
+      t.style.color = t.dataset.color || '';
+      t.style.background = '';
+    });
+    tabEl.classList.add('active');
+    tabEl.style.background = tabEl.dataset.color || '';
+    tabEl.style.color = 'var(--green)';
+
+    applyFilters();
+  }
+
+  // ── SEARCH ──
+  function filterResources() {
+    applyFilters();
+  }
+
+  function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    applyFilters();
+  }
+
+  // ── COMBINED FILTER LOGIC ──
+  function applyFilters() {
+    var query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+    document.querySelectorAll('.resource-card').forEach(function(card) {
+      var catMatch = (activeCategory === 'all') || (card.dataset.cat === activeCategory);
+      var searchMatch = !query || (card.dataset.search || '').toLowerCase().includes(query)
+                        || card.innerText.toLowerCase().includes(query);
+      card.style.display = (catMatch && searchMatch) ? '' : 'none';
+    });
+
+    // Show/hide subsection headers if all their cards are hidden
+    document.querySelectorAll('.subsection-content').forEach(function(section) {
+      var visible = section.querySelectorAll('.resource-card:not([style*="display: none"])').length;
+      var toggle = section.previousElementSibling;
+      if (toggle) toggle.style.display = visible === 0 ? 'none' : '';
+    });
+
+    // Show no-results message
+    var anyVisible = document.querySelectorAll('.resource-card:not([style*="display: none"])').length;
+    var noResults = document.getElementById('no-results');
+    if (noResults) noResults.style.display = anyVisible === 0 ? 'block' : 'none';
+  }
+</script>
+
 <footer class="footer">
   <p>
     built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
