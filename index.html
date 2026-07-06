@@ -646,6 +646,23 @@
     .memphis { display: none; }
     .collage-break .img-wrapper { width: 95%; transform: rotate(1deg); }
   }
+
+  /* ── MOBILE OVERLAP FIXES ── */
+  @media (max-width: 640px) {
+    /* Decorative graphics below are bare <img> tags with inline
+       position:absolute but no .memphis class, so the existing
+       ".memphis { display:none }" rule never hid them and they
+       overlapped headings/body text. Hide them on small screens. */
+    .block-green  > img[src*="10.png"],
+    .block-orange > img[src*="6.png"],
+    .block-black  > img[src*="5.png"] { display: none; }
+
+    /* Keep the fixed corner logo/nav from obscuring body text:
+       smaller footprint and fully opaque so nothing bleeds through. */
+    .floating-logo { width: 46px; height: 46px; }
+    .floating-logo img { width: 34px; }
+    .floating-logo, .site-nav a, .hamburger { background: rgba(10,10,10,0.92); }
+  }
 </style>
 </head>
 <body>
