@@ -663,6 +663,15 @@
     .floating-logo img { width: 34px; }
     .floating-logo, .site-nav a, .hamburger { background: rgba(10,10,10,0.92); }
   }
+
+  /* ── EVENT RSVP POPUP ── */
+  #event-popup{position:fixed;right:20px;bottom:20px;z-index:2000;width:260px;max-width:42vw;opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:opacity .4s ease, transform .4s ease;}
+  #event-popup.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+  #event-popup .popup-link{display:block;line-height:0;}
+  #event-popup img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));}
+  #event-popup .popup-close{position:absolute;top:2px;right:2px;width:30px;height:30px;border-radius:50%;background:var(--black,#0a0a0a);color:#fff;border:2px solid #fff;font:700 18px/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;z-index:2;}
+  #event-popup .popup-close:hover{background:var(--orange,#ff8c2e);color:#000;}
+  @media (max-width:640px){#event-popup{width:170px;right:12px;bottom:12px;}}
 </style>
 </head>
 <body>
@@ -802,5 +811,34 @@
     <br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
   </p>
 </footer>
+
+<!-- Event RSVP popup -->
+<div id="event-popup" aria-hidden="true">
+  <button type="button" class="popup-close" aria-label="Close">×</button>
+  <a class="popup-link" href="events.html" aria-label="RSVP to our next event">
+    <img src="popupbubble.png" alt="RSVP to our next event!">
+  </a>
+</div>
+<script>
+  (function () {
+    var popup = document.getElementById('event-popup');
+    if (!popup) return;
+    var dismissed = false;
+    try { dismissed = !!sessionStorage.getItem('eachPopupDismissed'); } catch (e) {}
+    if (!dismissed) {
+      setTimeout(function () {
+        popup.classList.add('show');
+        popup.setAttribute('aria-hidden', 'false');
+      }, 2000);
+    }
+    popup.querySelector('.popup-close').addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      popup.classList.remove('show');
+      popup.setAttribute('aria-hidden', 'true');
+      try { sessionStorage.setItem('eachPopupDismissed', '1'); } catch (err) {}
+    });
+  })();
+</script>
 </body>
 </html>
