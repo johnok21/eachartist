@@ -9,836 +9,981 @@
 <meta property="og:title" content="EACH — Each Artist Cultural Hub">
 <meta property="og:description" content="Each Artist Cultural Hub — a by-artist, for-artist hub building peer support pathways and shared resources toward a more connected creative and conscious community in the Bay Area.">
 <meta property="og:site_name" content="Each Artist Cultural Hub">
-<link rel="icon" type="image/png" href="each-logo-small.png">
-<link rel="apple-touch-icon" href="each-logo-small.png">
+<link rel="icon" type="image/gif" href="favicon.gif">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=M+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #0a0a0a;
-    --white: #f5f5f0;
-    --green: #6dde5a;
-    --lavender: #c4a8d8;
-    --red: #ff3b30;
-    --gold: #f5c542;
-    --orange: #ff8c2e;
-    --blue: #1a5fb4;
-    --cyan: #00d4aa;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  /* ── SITE NAV ── */
-  .site-nav {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
-    display: flex;
-    gap: 0.4rem;
-  }
-  .site-nav a {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.3);
-    color: var(--white);
-    background: rgba(10,10,10,0.7);
-    backdrop-filter: blur(8px);
-    border-radius: 6px;
-    transition: all 0.2s;
-  }
-  .site-nav a:hover {
-    background: var(--green);
-    color: var(--black);
-    border-color: var(--green);
-  }
-  /* -- HAMBURGER -- */
-  .hamburger {
-    display: none;
-    background: rgba(10,10,10,0.7);
-    backdrop-filter: blur(8px);
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 6px;
-    padding: 0.5rem 0.6rem;
-    cursor: pointer;
-    z-index: 1001;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-    justify-content: center;
-  }
-  .hamburger span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: var(--white);
-    border-radius: 2px;
-    transition: all 0.3s;
-  }
-  .hamburger:hover { background: var(--green); }
-  .hamburger:hover span { background: var(--black); }
-
-  @media (max-width: 600px) {
-    .hamburger { display: flex; }
-    .site-nav {
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0;
-    }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      gap: 0.3rem;
-      margin-top: 0.4rem;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      border-radius: 8px;
-      padding: 0.6rem;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-    .nav-links.open { display: flex; }
-    .site-nav a { padding: 0.5rem 1rem; font-size: 0.8rem; text-align: right; }
-  }
-
-  /* ── FLOATING HOME BUTTON ── */
-  .floating-logo {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1000;
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, background 0.2s;
-    text-decoration: none;
-  }
-
-  .floating-logo:hover {
-    transform: scale(1.08);
-    background: rgba(10, 10, 10, 0.9);
-  }
-
-  .floating-logo img {
-    width: 44px;
-    height: auto;
-  }
-
-  /* ── HERO LOGO ── */
-  .hero-logo {
-    max-width: 600px;
-    width: 80%;
-    height: auto;
-    position: relative;
-    z-index: 2;
-  }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--black);
-    color: var(--white);
-    overflow-x: hidden;
-  }
-
-  .bold-type {
-    font-family: 'Anton', sans-serif;
-    text-transform: uppercase;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 10, 10, 0.55);
-    z-index: 1;
-  }
-
-  .hero-headline,
-  .hero-sub,
-  .hero-tag {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, var(--green) 0%, transparent 70%);
-    opacity: 0.15;
-    pointer-events: none;
-  }
-
-  .hero-headline {
-    font-size: clamp(3rem, 12vw, 9rem);
-    max-width: 900px;
-  }
-
-  .hero-headline .highlight-green { color: var(--green); }
-  .hero-headline .highlight-gold { color: var(--gold); }
-  .hero-headline .highlight-lavender { color: var(--lavender); }
-
-  .hero-sub {
-    margin-top: 1.5rem;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    max-width: 600px;
-    line-height: 1.5;
-    opacity: 0.85;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.5rem 1.2rem;
-    border: 2px solid var(--green);
-    color: var(--green);
-    font-family: 'Anton', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* ── COLOR BLOCKS (flyer-style) ── */
-  .block {
-    padding: 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 50vh;
-  }
-
-  .block-green {
-    background: var(--green);
-    color: var(--black);
-  }
-
-  .block-lavender {
-    background: var(--lavender);
-    color: var(--black);
-  }
-
-  .block-red {
-    background: var(--red);
-    color: var(--black);
-  }
-
-  .block-gold {
-    background: var(--gold);
-    color: var(--black);
-  }
-
-  .block-orange {
-    background: var(--orange);
-    color: var(--black);
-  }
-
-  .block-blue {
-    background: var(--blue);
-    color: var(--gold);
-  }
-
-  .block-black {
-    background: var(--black);
-    color: var(--white);
-  }
-
-  .block-title {
-    font-size: clamp(2.5rem, 10vw, 7rem);
-    max-width: 800px;
-  }
-
-  .block-body {
-    margin-top: 1rem;
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
-  /* ── WHAT WE DO grid ── */
-  .what-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0;
-  }
-
-  .what-card {
-    padding: 2.5rem 2rem;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  .what-card-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 0.5rem;
-  }
-
-  .what-card-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    max-width: 400px;
-  }
-
-  /* ── CTA / EMAIL SIGNUP ── */
-  .cta-section {
-    padding: 4rem 2rem;
-    text-align: center;
-    background: var(--black);
-    color: var(--white);
-    position: relative;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80vw;
-    height: 80vw;
-    background: radial-gradient(circle, var(--lavender) 0%, transparent 60%);
-    opacity: 0.08;
-    pointer-events: none;
-  }
-
-  .cta-headline {
-    font-size: clamp(2.5rem, 8vw, 6rem);
-    margin-bottom: 1rem;
-  }
-
-  .cta-sub {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 1.1rem 3rem;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background: var(--green);
-    color: var(--black);
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-
-  .cta-button:hover {
-    background: var(--gold);
-    transform: scale(1.03);
-  }
-
-  .form-note {
-    font-size: 0.85rem;
-    opacity: 0.5;
-    margin-top: 0.5rem;
-  }
-
-  /* ── CONTACT ── */
-  .contact-strip {
-    padding: 2rem;
-    background: var(--green);
-    color: var(--black);
-    text-align: center;
-  }
-
-  .contact-strip a {
-    color: var(--black);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .contact-name {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-weight: 700;
-  }
-
-  /* ── FOOTER ── */
-  .footer{padding:1.35rem 2rem 1.6rem;text-align:center;font-size:.92rem;opacity:1;background:var(--black);color:rgba(245,245,240,.88);border-top:1px solid rgba(255,255,255,.1)}
-  .footer a{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-  .footer a:hover{color:var(--gold)}
-
-  /* ── HERO JOIN BUTTON ── */
-  .hero-join-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.5rem;
-    padding: 0.9rem 2.5rem;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    background: transparent;
-    border: 2px solid var(--green);
-    color: var(--green);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    position: relative;
-    z-index: 2;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-    width: 100%;
-    max-width: 100%;
-  }
-  .hero-join-btn:hover {
-    background: var(--green);
-    color: var(--black);
-    transform: scale(1.02);
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
-
-  /* ── COLLAGE SEAM ── */
-  .collage-seam {
-    position: relative;
-  }
-
-  .seam-collage {
-    position: absolute;
-    bottom: 50%;
-    right: 2vw;
-    width: clamp(340px, 46vw, 720px);
-    transform: translateY(50%) rotate(4deg);
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  /* blocks grow to always accommodate the image */
-  .collage-seam .block-blue,
-  .collage-seam .block-orange {
-    min-height: max(50vh, calc(clamp(340px, 46vw, 720px) * 0.38));
-  }
-
-  .img-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-  }
-
-  .seam-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    clip-path: polygon(
-      2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
-      60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
-      99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
-      93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
-      22% 100%, 10% 98%, 2% 100%,
-      0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
-    );
-    filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
-  }
-
-  .tape {
-    position: absolute;
-    height: 24px;
-    background: rgba(245, 197, 66, 0.82);
-    z-index: 11;
-  }
-  .tape-left {
-    width: 100px;
-    top: -6px;
-    left: 18%;
-    transform: rotate(-42deg);
-    transform-origin: center center;
-  }
-  .tape-right {
-    width: 80px;
-    bottom: -6px;
-    right: 14%;
-    transform: rotate(20deg);
-    transform-origin: center center;
-    background: rgba(196,168,216,0.88);
-  }
-
-  @media (max-width: 860px) {
-    .collage-seam {
-      display: flex;
-      flex-direction: column;
-    }
-    .collage-seam .block-blue,
-    .collage-seam .block-orange {
-      min-height: 50vh;
-    }
-    .seam-collage {
-      position: relative;
-      bottom: auto;
-      right: auto;
-      transform: rotate(2deg);
-      width: clamp(260px, 84vw, 480px);
-      margin: 0 auto;
-      order: 2;
-    }
-    .collage-seam .block-blue  { order: 1; }
-    .collage-seam .block-orange { order: 3; }
-  }
-    .collage-seam .block-blue  { order: 1; }
-    .collage-seam .block-orange { order: 3; }
-  }
-
-  /* ── IMAGE BREAK ── */
-  .image-break {
-    background: var(--black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 2rem;
-    overflow: hidden;
-  }
-  .image-break-img {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    display: block;
-  }
-
-  /* ── MEMPHIS DECORATIONS ── */
-  .memphis {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-  }
-  .memphis-section { position: relative; overflow: hidden; }
-
-  /* ── ZIGZAG DIVIDER ── */
-  .zigzag-strip {
-    text-align: center;
-    padding: 0;
-    overflow: hidden;
-    line-height: 0;
-  }
-  .zigzag-strip img {
-    width: 100%;
-    max-width: 1000px;
-    height: 55px;
-    object-fit: cover;
-    opacity: 0.5;
-  }
-
-  /* collage-break zigzag-strip rules moved above */
-
-  /* ── COLLAGE BREAK ── */
-  .collage-break {
-    background: var(--black);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .collage-break .img-wrapper {
-    position: relative;
-    display: inline-block;
-    max-width: 680px;
-    width: 90%;
-    transform: rotate(2deg);
-  }
-  .collage-break .seam-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    clip-path: polygon(
-      2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
-      60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
-      99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
-      93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
-      22% 100%, 10% 98%, 2% 100%,
-      0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
-    );
-    filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
-  }
-  .collage-break .tape {
-    position: absolute;
-    height: 24px;
-    z-index: 11;
-  }
-  .collage-break .tape-left {
-    width: 100px;
-    top: -6px;
-    left: 18%;
-    transform: rotate(-42deg);
-    background: rgba(245, 197, 66, 0.82);
-  }
-  .collage-break .tape-right {
-    width: 80px;
-    bottom: -6px;
-    right: 14%;
-    transform: rotate(20deg);
-    background: rgba(196,168,216,0.88);
-  }
-
-  /* (duplicate zigzag removed — primary rules above) */
-  .zigzag-strip-old-removed {
-    display: none; /* placeholder to avoid empty block */
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .hero { padding: 1.5rem; }
-    .block { padding: 2.5rem 1.5rem; }
-    .what-card { min-height: 220px; padding: 2rem 1.5rem; }
-    .signup-form { flex-direction: column; }
-    .signup-form input[type="email"],
-    .signup-form button { width: 100%; }
-    .memphis { display: none; }
-    .collage-break .img-wrapper { width: 95%; transform: rotate(1deg); }
-  }
-
-  /* ── MOBILE OVERLAP FIXES ── */
-  @media (max-width: 640px) {
-    /* Decorative graphics below are bare <img> tags with inline
-       position:absolute but no .memphis class, so the existing
-       ".memphis { display:none }" rule never hid them and they
-       overlapped headings/body text. Hide them on small screens. */
-    .block-green  > img[src*="10.png"],
-    .block-orange > img[src*="6.png"],
-    .block-black  > img[src*="5.png"] { display: none; }
-
-    /* Keep the fixed corner logo/nav from obscuring body text:
-       smaller footprint and fully opaque so nothing bleeds through. */
-    .floating-logo { width: 46px; height: 46px; }
-    .floating-logo img { width: 34px; }
-    .floating-logo, .site-nav a, .hamburger { background: rgba(10,10,10,0.92); }
-  }
-
-  /* ── EVENT RSVP POPUP ── */
-  #event-popup{position:fixed;right:20px;bottom:20px;z-index:2000;width:260px;max-width:42vw;opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:opacity .4s ease, transform .4s ease;}
-  #event-popup.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
-  #event-popup .popup-link{display:block;line-height:0;}
-  #event-popup img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));}
-  #event-popup .popup-close{position:absolute;top:2px;right:2px;width:30px;height:30px;border-radius:50%;background:var(--black,#0a0a0a);color:#fff;border:2px solid #fff;font:700 18px/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;z-index:2;}
-  #event-popup .popup-close:hover{background:var(--orange,#ff8c2e);color:#000;}
-  @media (max-width:640px){#event-popup{width:170px;right:12px;bottom:12px;}}
+:root {
+--black: #0a0a0a;
+--white: #f5f5f0;
+--green: #6dde5a;
+--lavender: #c4a8d8;
+--red: #ff3b30;
+--gold: #f5c542;
+--orange: #ff8c2e;
+--blue: #1a5fb4;
+--cyan: #00d4aa;
+--bar-h: 48px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* ── EVENT ANNOUNCEMENT BAR ── */
+.event-bar {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+height: var(--bar-h);
+z-index: 1200;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.9rem;
+padding: 0 1rem;
+background: var(--green);
+color: var(--black);
+text-decoration: none;
+font-family: 'Anton', sans-serif;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+font-size: 1rem;
+border-bottom: 3px solid var(--black);
+transition: background 0.2s;
+}
+.event-bar:hover { background: var(--gold); }
+.event-bar-tag {
+background: var(--black);
+color: var(--green);
+padding: 0.22rem 0.6rem;
+border-radius: 3px;
+font-size: 0.8rem;
+white-space: nowrap;
+}
+.event-bar-when { white-space: nowrap; }
+.event-bar-cta {
+text-decoration: underline;
+text-underline-offset: 4px;
+white-space: nowrap;
+}
+@media (max-width: 780px) {
+:root { --bar-h: 44px; }
+.event-bar { font-size: 0.82rem; gap: 0.55rem; }
+.event-bar-tag { display: none; }
+}
+@media (max-width: 420px) {
+.event-bar { font-size: 0.72rem; letter-spacing: 0; }
+}
+
+/* ── SITE NAV ── */
+.site-nav {
+position: fixed;
+top: calc(var(--bar-h) + 0.75rem);
+right: 1rem;
+z-index: 1000;
+display: flex;
+gap: 0.4rem;
+}
+.site-nav a {
+padding: 0.45rem 0.9rem;
+font-size: 0.75rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+text-decoration: none;
+border: 2px solid rgba(255,255,255,0.3);
+color: var(--white);
+background: rgba(10,10,10,0.7);
+backdrop-filter: blur(8px);
+border-radius: 6px;
+transition: all 0.2s;
+}
+.site-nav a:hover {
+background: var(--green);
+color: var(--black);
+border-color: var(--green);
+}
+/* -- HAMBURGER -- */
+.hamburger {
+display: none;
+background: rgba(10,10,10,0.7);
+backdrop-filter: blur(8px);
+border: 2px solid rgba(255,255,255,0.3);
+border-radius: 6px;
+padding: 0.5rem 0.6rem;
+cursor: pointer;
+z-index: 1001;
+flex-direction: column;
+gap: 4px;
+align-items: center;
+justify-content: center;
+}
+.hamburger span {
+display: block;
+width: 20px;
+height: 2px;
+background: var(--white);
+border-radius: 2px;
+transition: all 0.3s;
+}
+.hamburger:hover { background: var(--green); }
+.hamburger:hover span { background: var(--black); }
+
+@media (max-width: 600px) {
+.hamburger { display: flex; }
+.site-nav {
+flex-direction: column;
+align-items: flex-end;
+gap: 0;
+}
+.nav-links {
+display: none;
+flex-direction: column;
+gap: 0.3rem;
+margin-top: 0.4rem;
+background: rgba(10,10,10,0.85);
+backdrop-filter: blur(12px);
+border-radius: 8px;
+padding: 0.6rem;
+border: 1px solid rgba(255,255,255,0.15);
+}
+.nav-links.open { display: flex; }
+.site-nav a { padding: 0.5rem 1rem; font-size: 0.8rem; text-align: right; }
+}
+
+/* ── FLOATING HOME BUTTON ── */
+.floating-logo {
+position: fixed;
+top: calc(var(--bar-h) + 0.75rem);
+left: 1rem;
+z-index: 1000;
+width: 60px;
+height: 60px;
+border-radius: 12px;
+background: rgba(10, 10, 10, 0.7);
+backdrop-filter: blur(8px);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: transform 0.2s, background 0.2s;
+text-decoration: none;
+}
+
+.floating-logo:hover {
+transform: scale(1.08);
+background: rgba(10, 10, 10, 0.9);
+}
+
+.floating-logo img {
+width: 44px;
+height: auto;
+}
+
+
+/* ── ANIMATED MARK (hover) ── */
+.floating-logo img { width: 46px; height: auto; display: block; }
+.floating-logo .logo-move {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+opacity: 0;
+transition: opacity 0.18s ease;
+}
+.floating-logo:hover .logo-still { opacity: 0; }
+.floating-logo:hover .logo-move { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+.floating-logo .logo-move { display: none; }
+.floating-logo:hover .logo-still { opacity: 1; }
+}
+.hero picture { display: contents; }
+
+/* ── HERO LOGO ── */
+.hero-logo {
+max-width: 520px;
+width: 80%;
+height: auto;
+margin-top: 2.6rem;
+position: relative;
+z-index: 2;
+}
+
+body {
+font-family: 'DM Sans', sans-serif;
+background: var(--black);
+color: var(--white);
+overflow-x: hidden;
+padding-top: var(--bar-h);
+}
+
+.bold-type {
+font-family: 'Anton', sans-serif;
+text-transform: uppercase;
+line-height: 0.95;
+letter-spacing: -0.02em;
+}
+
+/* ── HERO ── */
+.hero {
+min-height: calc(100vh - var(--bar-h));
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 2rem;
+position: relative;
+overflow: hidden;
+}
+
+.hero-video {
+position: absolute;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+transform: translate(-50%, -50%);
+object-fit: cover;
+z-index: 0;
+}
+
+.hero-overlay {
+position: absolute;
+inset: 0;
+background: rgba(10, 10, 10, 0.55);
+z-index: 1;
+}
+
+.hero-headline,
+.hero-sub,
+.hero-tag {
+position: relative;
+z-index: 2;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: -20%;
+right: -10%;
+width: 60vw;
+height: 60vw;
+background: radial-gradient(circle, var(--green) 0%, transparent 70%);
+opacity: 0.15;
+pointer-events: none;
+}
+
+.hero-headline {
+font-size: clamp(3rem, 12vw, 9rem);
+max-width: 900px;
+}
+
+.hero-headline .highlight-green { color: var(--green); }
+.hero-headline .highlight-gold { color: var(--gold); }
+.hero-headline .highlight-lavender { color: var(--lavender); }
+
+.hero-sub {
+margin-top: 1.5rem;
+font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+max-width: 600px;
+line-height: 1.5;
+opacity: 0.85;
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+max-width: 600px;
+}
+
+.hero-tag {
+display: inline-block;
+margin-top: 2rem;
+padding: 0.5rem 1.2rem;
+border: 2px solid var(--green);
+color: var(--green);
+font-family: 'Anton', sans-serif;
+font-size: 1rem;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+width: 100%;
+max-width: 100%;
+}
+
+/* ── HERO EVENT CARD ── */
+.hero-event {
+position: relative;
+z-index: 2;
+display: block;
+margin-top: 1.25rem;
+padding: 1.1rem 1.3rem;
+background: var(--gold);
+color: var(--black);
+border: 3px solid var(--black);
+box-shadow: 7px 7px 0 var(--black);
+text-decoration: none;
+}
+.hero-event-eyebrow {
+display: block;
+font-family: 'Anton', sans-serif;
+text-transform: uppercase;
+font-size: 0.8rem;
+letter-spacing: 0.12em;
+opacity: 0.75;
+}
+.hero-event-title {
+display: block;
+font-family: 'Anton', sans-serif;
+text-transform: uppercase;
+font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+line-height: 1;
+margin: 0.25rem 0 0.4rem;
+}
+.hero-event-when {
+display: block;
+font-size: 1rem;
+font-weight: 700;
+line-height: 1.45;
+}
+.hero-event-cta {
+display: inline-block;
+margin-top: 0.7rem;
+font-family: 'Anton', sans-serif;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+background: var(--black);
+color: var(--gold);
+padding: 0.55rem 1.3rem;
+text-decoration: none;
+}
+.hero-event-cta:hover { background: #333; }
+.hero-event-give {
+display: inline-block;
+margin-top: 0.7rem;
+margin-left: 1rem;
+color: var(--black);
+font-weight: 700;
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+/* ── COLOR BLOCKS (flyer-style) ── */
+.block {
+padding: 3rem 2rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+min-height: 50vh;
+}
+
+.block-green {
+background: var(--green);
+color: var(--black);
+}
+
+.block-lavender {
+background: var(--lavender);
+color: var(--black);
+}
+
+.block-red {
+background: var(--red);
+color: var(--black);
+}
+
+.block-gold {
+background: var(--gold);
+color: var(--black);
+}
+
+.block-orange {
+background: var(--orange);
+color: var(--black);
+}
+
+.block-blue {
+background: var(--blue);
+color: var(--gold);
+}
+
+.block-black {
+background: var(--black);
+color: var(--white);
+}
+
+.block-title {
+font-size: clamp(2.5rem, 10vw, 7rem);
+max-width: 800px;
+}
+
+.block-body {
+margin-top: 1rem;
+font-size: clamp(1rem, 2vw, 1.3rem);
+max-width: 600px;
+line-height: 1.6;
+}
+
+/* ── WHAT WE DO grid ── */
+.what-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 0;
+}
+
+.what-card {
+padding: 2.5rem 2rem;
+min-height: 300px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+}
+
+.what-card-title {
+font-size: clamp(2rem, 5vw, 3.5rem);
+margin-bottom: 0.5rem;
+}
+
+.what-card-text {
+font-size: 1rem;
+line-height: 1.5;
+max-width: 400px;
+}
+
+/* ── CTA / EMAIL SIGNUP ── */
+.cta-section {
+padding: 4rem 2rem;
+text-align: center;
+background: var(--black);
+color: var(--white);
+position: relative;
+}
+
+.cta-section::before {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 80vw;
+height: 80vw;
+background: radial-gradient(circle, var(--lavender) 0%, transparent 60%);
+opacity: 0.08;
+pointer-events: none;
+}
+
+.cta-headline {
+font-size: clamp(2.5rem, 8vw, 6rem);
+margin-bottom: 1rem;
+}
+
+.cta-sub {
+font-size: clamp(1rem, 2vw, 1.3rem);
+margin-bottom: 2.5rem;
+opacity: 0.8;
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.5;
+}
+
+.cta-button {
+display: inline-block;
+padding: 1.1rem 3rem;
+font-size: 1.3rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+background: var(--green);
+color: var(--black);
+text-decoration: none;
+transition: background 0.2s, transform 0.15s;
+}
+
+.cta-button:hover {
+background: var(--gold);
+transform: scale(1.03);
+}
+
+.form-note {
+font-size: 0.85rem;
+opacity: 0.5;
+margin-top: 0.5rem;
+}
+
+/* ── CONTACT ── */
+.contact-strip {
+padding: 2rem;
+background: var(--green);
+color: var(--black);
+text-align: center;
+}
+
+.contact-strip a {
+color: var(--black);
+text-decoration: underline;
+text-underline-offset: 3px;
+}
+
+.contact-name {
+font-size: clamp(1.2rem, 3vw, 1.5rem);
+font-weight: 700;
+}
+
+/* ── FOOTER ── */
+.footer{padding:1.35rem 2rem 1.6rem;text-align:center;font-size:.92rem;opacity:1;background:var(--black);color:rgba(245,245,240,.88);border-top:1px solid rgba(255,255,255,.1)}
+.footer a{color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.footer a:hover{color:var(--gold)}
+
+/* ── HERO JOIN BUTTON ── */
+.hero-join-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+margin-top: 1.5rem;
+padding: 0.9rem 2.5rem;
+font-size: clamp(1rem, 2.5vw, 1.25rem);
+background: transparent;
+border: 2px solid var(--green);
+color: var(--green);
+text-decoration: none;
+letter-spacing: 0.06em;
+position: relative;
+z-index: 2;
+transition: background 0.2s, color 0.2s, transform 0.15s;
+width: 100%;
+max-width: 100%;
+}
+.hero-join-btn:hover {
+background: var(--green);
+color: var(--black);
+transform: scale(1.02);
+}
+
+/* ── ANIMATIONS ── */
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+to { opacity: 1; transform: translateY(0); }
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+/* ── COLLAGE SEAM ── */
+.collage-seam {
+position: relative;
+}
+
+.seam-collage {
+position: absolute;
+bottom: 50%;
+right: 2vw;
+width: clamp(340px, 46vw, 720px);
+transform: translateY(50%) rotate(4deg);
+z-index: 10;
+pointer-events: none;
+}
+
+/* blocks grow to always accommodate the image */
+.collage-seam .block-blue,
+.collage-seam .block-orange {
+min-height: max(50vh, calc(clamp(340px, 46vw, 720px) * 0.38));
+}
+
+.img-wrapper {
+position: relative;
+display: inline-block;
+width: 100%;
+}
+
+.seam-img {
+display: block;
+width: 100%;
+height: auto;
+clip-path: polygon(
+2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
+60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
+99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
+93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
+22% 100%, 10% 98%, 2% 100%,
+0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
+);
+filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
+}
+
+.tape {
+position: absolute;
+height: 24px;
+background: rgba(245, 197, 66, 0.82);
+z-index: 11;
+}
+.tape-left {
+width: 100px;
+top: -6px;
+left: 18%;
+transform: rotate(-42deg);
+transform-origin: center center;
+}
+.tape-right {
+width: 80px;
+bottom: -6px;
+right: 14%;
+transform: rotate(20deg);
+transform-origin: center center;
+background: rgba(196,168,216,0.88);
+}
+
+@media (max-width: 860px) {
+.collage-seam {
+display: flex;
+flex-direction: column;
+}
+.collage-seam .block-blue,
+.collage-seam .block-orange {
+min-height: 50vh;
+}
+.seam-collage {
+position: relative;
+bottom: auto;
+right: auto;
+transform: rotate(2deg);
+width: clamp(260px, 84vw, 480px);
+margin: 0 auto;
+order: 2;
+}
+.collage-seam .block-blue { order: 1; }
+.collage-seam .block-orange { order: 3; }
+}
+
+/* ── IMAGE BREAK ── */
+.image-break {
+background: var(--black);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 3rem 2rem;
+overflow: hidden;
+}
+.image-break-img {
+width: 100%;
+max-width: 900px;
+height: auto;
+display: block;
+}
+
+/* ── MEMPHIS DECORATIONS ── */
+.memphis {
+position: absolute;
+pointer-events: none;
+z-index: 0;
+}
+.memphis-section { position: relative; overflow: hidden; }
+
+/* ── ZIGZAG DIVIDER ── */
+.zigzag-strip {
+text-align: center;
+padding: 0;
+overflow: hidden;
+line-height: 0;
+}
+.zigzag-strip img {
+width: 100%;
+max-width: 1000px;
+height: 55px;
+object-fit: cover;
+opacity: 0.5;
+}
+
+/* collage-break zigzag-strip rules moved above */
+
+/* ── COLLAGE BREAK ── */
+.collage-break {
+background: var(--black);
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2rem;
+position: relative;
+overflow: hidden;
+}
+.collage-break .img-wrapper {
+position: relative;
+display: inline-block;
+max-width: 680px;
+width: 90%;
+transform: rotate(2deg);
+}
+.collage-break .seam-img {
+display: block;
+width: 100%;
+height: auto;
+clip-path: polygon(
+2% 3%, 7% 0%, 15% 2%, 23% 0%, 31% 3%, 40% 1%, 50% 3%,
+60% 0%, 70% 2%, 80% 0%, 90% 2%, 98% 0%, 100% 4%,
+99% 15%, 100% 30%, 98% 50%, 100% 70%, 99% 85%, 100% 97%,
+93% 100%, 82% 98%, 70% 100%, 58% 97%, 46% 100%, 34% 98%,
+22% 100%, 10% 98%, 2% 100%,
+0% 90%, 1% 70%, 0% 50%, 2% 30%, 0% 10%
+);
+filter: drop-shadow(6px 8px 0px rgba(0,0,0,0.55));
+}
+.collage-break .tape {
+position: absolute;
+height: 24px;
+z-index: 11;
+}
+.collage-break .tape-left {
+width: 100px;
+top: -6px;
+left: 18%;
+transform: rotate(-42deg);
+background: rgba(245, 197, 66, 0.82);
+}
+.collage-break .tape-right {
+width: 80px;
+bottom: -6px;
+right: 14%;
+transform: rotate(20deg);
+background: rgba(196,168,216,0.88);
+}
+
+/* (duplicate zigzag removed — primary rules above) */
+.zigzag-strip-old-removed {
+display: none; /* placeholder to avoid empty block */
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+.hero { padding: 1.5rem; }
+.hero-logo { margin-top: 3.4rem; }
+.block { padding: 2.5rem 1.5rem; }
+.what-card { min-height: 220px; padding: 2rem 1.5rem; }
+.signup-form { flex-direction: column; }
+.signup-form input[type="email"],
+.signup-form button { width: 100%; }
+.memphis { display: none; }
+.collage-break .img-wrapper { width: 95%; transform: rotate(1deg); }
+}
+
+/* ── MOBILE OVERLAP FIXES ── */
+@media (max-width: 640px) {
+/* Decorative graphics below are bare <img> tags with inline
+position:absolute but no .memphis class, so the existing
+".memphis { display:none }" rule never hid them and they
+overlapped headings/body text. Hide them on small screens. */
+.block-green > img[src*="10.png"],
+.block-orange > img[src*="6.png"],
+.block-black > img[src*="5.png"] { display: none; }
+
+/* Keep the fixed corner logo/nav from obscuring body text:
+smaller footprint and fully opaque so nothing bleeds through. */
+.floating-logo { width: 46px; height: 46px; }
+.floating-logo img { width: 34px; }
+.floating-logo, .site-nav a, .hamburger { background: rgba(10,10,10,0.92); }
+}
+
+/* ── EVENT RSVP POPUP ── */
+#event-popup{position:fixed;right:20px;bottom:20px;z-index:2000;width:260px;max-width:42vw;opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:opacity .4s ease, transform .4s ease;}
+#event-popup.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+#event-popup .popup-link{display:block;line-height:0;}
+#event-popup img{display:block;width:100%;height:auto;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));}
+#event-popup .popup-close{position:absolute;top:2px;right:2px;width:30px;height:30px;border-radius:50%;background:var(--black,#0a0a0a);color:#fff;border:2px solid #fff;font:700 18px/1 sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;z-index:2;}
+#event-popup .popup-close:hover{background:var(--orange,#ff8c2e);color:#000;}
+@media (max-width:640px){#event-popup{width:170px;right:12px;bottom:12px;}}
 </style>
 </head>
 <body>
 
+<!-- ═══ EVENT ANNOUNCEMENT BAR ═══ -->
+<a class="event-bar" href="https://luma.com/vftffrr3" target="_blank" rel="noopener" data-umami-event="event-bar-rsvp" data-luma-action="checkout" data-luma-event-id="evt-K4P4DxCGbGz1Vmx">
+<span class="event-bar-tag">First Artist Meetup</span>
+<span class="event-bar-when">Sun Aug 23 · 3–5PM · The Nook SF</span>
+<span class="event-bar-cta">RSVP →</span>
+</a>
+
 <!-- ═══ FLOATING HOME BUTTON ═══ -->
-<a href="https://eachartist.org" class="floating-logo">
-  <img src="each-logo-small.png" alt="EACH" />
+<a href="https://eachartist.org" class="floating-logo" aria-label="EACH home">
+<img class="logo-still" src="each-logo-small.png" alt="EACH" />
+<img class="logo-move" src="each-mark.gif" alt="" aria-hidden="true" />
 </a>
 
 <nav class="site-nav">
-  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="navigators.html">Navigators</a>
-    <a href="shared-spaces.html">Shared Spaces</a>
-    <a href="resource-hub.html">Resources</a>
-    <a href="events.html">Events</a>
-    <a href="contribute.html">Contribute</a>
-    <a href="contact.html">Contact</a>
-  </div>
+<button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+<span></span><span></span><span></span>
+</button>
+<div class="nav-links">
+<a href="navigators.html">Navigators</a>
+<a href="shared-spaces.html">Shared Spaces</a>
+<a href="resource-hub.html">Resources</a>
+<a href="events.html">Events</a>
+<a href="contribute.html">Contribute</a>
+<a href="contact.html">Contact</a>
+</div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline>
-    <source src="hero-video.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <img src="each-logo-full.png" alt="Each Artist Cultural Hub" class="hero-logo fade-up" />
-  <div class="hero-content">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
-       target="_blank"
-       rel="noopener"
-       class="hero-join-btn bold-type fade-up delay-1">Join Us ↗</a>
-    <p class="hero-sub fade-up delay-2">
-      A Bay Area artist-led hub building peer support pathways and shared resources
-      toward a more connected, conscious, and vibrant community.
-    </p>
-    <p class="hero-sub fade-up delay-2" style="margin-top:1rem;font-size:clamp(1.3rem,3vw,1.8rem);opacity:1;font-weight:700;color:var(--gold);">
-      We're walking together toward a Bay Renaissance.
-    </p>
-    <span class="hero-tag fade-up delay-3">eachartist.org</span>
-  </div>
+<video class="hero-video" autoplay muted loop playsinline>
+<source src="hero-video.mp4" type="video/mp4">
+</video>
+<div class="hero-overlay"></div>
+<picture>
+<source media="(prefers-reduced-motion: reduce)" srcset="each-logo-full-still.png">
+<source type="image/webp" srcset="each-logo-full.webp">
+<img src="each-logo-full-still.png" alt="Each Artist Cultural Hub" class="hero-logo fade-up" />
+</picture>
+<div class="hero-content">
+<div class="hero-event fade-up delay-1">
+<span class="hero-event-eyebrow">Next up · Sunday, August 23</span>
+<span class="hero-event-title">First EACH Artist Meetup</span>
+<span class="hero-event-when">3–5 PM · The Nook SF · 1242 Market St, Floor 2<br>Free with RSVP. Contributions toward space rental and snacks are welcome, never required.</span>
+<a class="hero-event-cta" href="https://luma.com/vftffrr3" target="_blank" rel="noopener" data-umami-event="hero-event-rsvp" data-luma-action="checkout" data-luma-event-id="evt-K4P4DxCGbGz1Vmx">RSVP on Luma →</a>
+<a class="hero-event-give" href="https://fundraising.fracturedatlas.org/each-each-artist-culture-hub" target="_blank" rel="noopener" data-umami-event="hero-event-contribute">Chip in for space &amp; snacks →</a>
+</div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
+target="_blank"
+rel="noopener"
+class="hero-join-btn bold-type fade-up delay-1">Join Us ↗</a>
+<p class="hero-sub fade-up delay-2">
+A Bay Area artist-led hub building peer support pathways and shared resources
+toward a more connected, conscious, and vibrant community.
+</p>
+<p class="hero-sub fade-up delay-2" style="margin-top:1rem;font-size:clamp(1.3rem,3vw,1.8rem);opacity:1;font-weight:700;color:var(--gold);">
+We're walking together toward a Bay Renaissance.
+</p>
+<span class="hero-tag fade-up delay-3">eachartist.org</span>
+</div>
 </section>
 
 <!-- ═══ THE PITCH ═══ -->
 <section class="block block-green" style="position:relative;overflow:hidden;">
-  <img src="10.png" alt="" style="position:absolute;pointer-events:none;width:400px;bottom:-50px;right:-80px;opacity:0.9;transform:rotate(8deg);">
-  <h2 class="bold-type block-title">Artistic & Economic Freedom</h2>
-  <p class="block-body" style="font-weight:700;">
-    EACH is a community-artist-led organization piloting solutions at the intersection of the arts and community health — addressing loneliness and social isolation, strengthening belonging and mental wellbeing, and building a solidarity economy that gives Bay Area artists a sustainable livelihood.
-  </p>
-  <p class="block-body" style="margin-top:1.5rem;">
-    Artists are the imaginary and nervous systems of our communities. Art is how we process together — how we grieve, celebrate, question, and imagine what's next. In the Bay Area, too many artists are isolated, burned out, and getting pushed out. And too many neighbors are disconnected from the art and artists who could help them make sense of what they're moving through.
-  </p>
-  <p class="block-body" style="margin-top:1rem;">
-    EACH exists because artists — and the communities that ground them — deserve connective tissue.
-  </p>
+<img src="10.png" alt="" style="position:absolute;pointer-events:none;width:400px;bottom:-50px;right:-80px;opacity:0.9;transform:rotate(8deg);">
+<h2 class="bold-type block-title">Artistic & Economic Freedom</h2>
+<p class="block-body" style="font-weight:700;">
+EACH is a community-artist-led organization piloting solutions at the intersection of the arts and community health — addressing loneliness and social isolation, strengthening belonging and mental wellbeing, and building a solidarity economy that gives Bay Area artists a sustainable livelihood.
+</p>
+<p class="block-body" style="margin-top:1.5rem;">
+Artists are the imaginary and nervous systems of our communities. Art is how we process together — how we grieve, celebrate, question, and imagine what's next. In the Bay Area, too many artists are isolated, burned out, and getting pushed out. And too many neighbors are disconnected from the art and artists who could help them make sense of what they're moving through.
+</p>
+<p class="block-body" style="margin-top:1rem;">
+EACH exists because artists — and the communities that ground them — deserve connective tissue.
+</p>
 </section>
 
 <!-- ═══ WHAT WE'RE BUILDING ═══ -->
 <section class="block block-black" style="min-height:auto;padding-bottom:0;position:relative;overflow:hidden;">
-  <h2 class="bold-type block-title" style="color:var(--gold);">What We're Building</h2>
+<h2 class="bold-type block-title" style="color:var(--gold);">What We're Building</h2>
 </section>
 <div class="what-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
-  <div class="what-card block-gold" style="min-height:320px;">
-    <h3 class="bold-type what-card-title">Community Arts Navigators</h3>
-    <p class="what-card-text">Artists supporting artists. Artists helping neighbors find the art that speaks to them. A relational social infrastructure program based on the community health worker model.</p>
-    <a href="navigators.html" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Learn more →</a>
-  </div>
-  <div class="what-card block-lavender" style="min-height:320px;">
-    <h3 class="bold-type what-card-title">Artist Meetups</h3>
-    <p class="what-card-text">A regular place for artists to gather freely to play, workshop, rest, and hold one another up. These are co-created spaces where we tend to our inner creatives and honor the value of our work in our communities.</p>
-    <a href="events.html" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Find a meetup →</a>
-  </div>
-  <div class="what-card block-green" style="min-height:320px;">
-    <h3 class="bold-type what-card-title">Shared Spaces</h3>
-    <p class="what-card-text">Connecting artists who need room with neighbors who have it. A backyard, a café, a garage, a storefront — more spaces for art to bloom and inspire.</p>
-    <a href="shared-spaces.html" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Learn more →</a>
-  </div>
+<div class="what-card block-gold" style="min-height:320px;">
+<h3 class="bold-type what-card-title">Community Arts Navigators</h3>
+<p class="what-card-text">Artists supporting artists. Artists helping neighbors find the art that speaks to them. A relational social infrastructure program based on the community health worker model.</p>
+<a href="navigators.html" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Learn more →</a>
+</div>
+<div class="what-card block-lavender" style="min-height:320px;">
+<h3 class="bold-type what-card-title">Artist Meetups</h3>
+<p class="what-card-text">A regular place for artists to gather freely to play, workshop, rest, and hold one another up. These are co-created spaces where we tend to our inner creatives and honor the value of our work in our communities.</p>
+<a href="https://luma.com/vftffrr3" target="_blank" rel="noopener" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;" data-luma-action="checkout" data-luma-event-id="evt-K4P4DxCGbGz1Vmx">RSVP for Aug 23 →</a>
+<a href="events.html" style="margin-top:0.4rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">All events →</a>
+</div>
+<div class="what-card block-green" style="min-height:320px;">
+<h3 class="bold-type what-card-title">Shared Spaces</h3>
+<p class="what-card-text">Connecting artists who need room with neighbors who have it. A backyard, a café, a garage, a storefront — more spaces for art to bloom and inspire.</p>
+<a href="shared-spaces.html" style="margin-top:1rem;color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Learn more →</a>
+</div>
 </div>
 
 <!-- ═══ COLLAGE BREAK ═══ -->
 <div class="collage-break">
-  <div class="img-wrapper">
-    <div class="tape tape-left"></div>
-    <div class="tape tape-right"></div>
-    <img src="Untitled_design.png" alt="Bay Area artists collage" class="seam-img">
-  </div>
+<div class="img-wrapper">
+<div class="tape tape-left"></div>
+<div class="tape tape-right"></div>
+<img src="Untitled_design.png" alt="Bay Area artists collage" class="seam-img">
+</div>
 </div>
 
 <!-- ═══ THE BAY NEEDS ITS ARTISTS ═══ -->
 <section class="block block-orange" style="position:relative;overflow:hidden;">
-  <img src="6.png" alt="" style="position:absolute;pointer-events:none;width:180px;top:1rem;right:2vw;opacity:0.9;transform:rotate(10deg);">
-  <h2 class="bold-type block-title">The Bay Needs Its Artists</h2>
-  <p class="block-body">
-    Imagine a Bay Area where garage doors roll up after dark, where sidewalks and backyards and storefronts open to artists sharing their work. Neighbors stopping to listen, to look, to feel something together. A more connected, awe-inspired Bay — because when artists are resourced and connected, and when neighbors can find their way to the artists who see them, there is more space for truth and play in public life. More beauty. More courage. More civic imagination.
-  </p>
+<img src="6.png" alt="" style="position:absolute;pointer-events:none;width:180px;top:1rem;right:2vw;opacity:0.9;transform:rotate(10deg);">
+<h2 class="bold-type block-title">The Bay Needs Its Artists</h2>
+<p class="block-body">
+Imagine a Bay Area where garage doors roll up after dark, where sidewalks and backyards and storefronts open to artists sharing their work. Neighbors stopping to listen, to look, to feel something together. A more connected, awe-inspired Bay — because when artists are resourced and connected, and when neighbors can find their way to the artists who see them, there is more space for truth and play in public life. More beauty. More courage. More civic imagination.
+</p>
 </section>
 
 <!-- ═══ HOW YOU CAN PLUG IN ═══ -->
 <section class="block block-black" style="position:relative;overflow:hidden;">
-  <img src="5.png" alt="" style="position:absolute;pointer-events:none;width:120px;top:2rem;right:5vw;opacity:0.9;">
-  <h2 class="bold-type block-title" style="color: var(--green);">How You Can Plug In</h2>
-  <p class="block-body">
-    <strong style="color:var(--gold);">Artist</strong> — Join the community. Let us know if you're interested in the CAN pilot, or come find us at an Artist Meetup. <a href="mailto:info@eachartist.org" style="color:var(--gold);">Get in touch →</a><br><br>
-    <strong style="color:var(--cyan);">Neighbor</strong> — You don't have to be an artist to be part of this. Looking for art that speaks to what you're carrying? Tell us what you're searching for. <a href="mailto:info@eachartist.org" style="color:var(--cyan);">Reach out →</a><br><br>
-    <strong style="color:var(--orange);">Space-Holder</strong> — Wanna be part of the Bay Renaissance? List your patio, garage, backyard, storefront, or rehearsal room through our shared spaces intake. <a href="shared-spaces.html" style="color:var(--orange);">Open your door →</a><br><br>
-    <strong style="color:var(--green);">Funder</strong> — We're gathering funds for the CAN pilot right now. We're looking for partners who want to resource the joyful, social infrastructure it takes to have a thriving, interconnected, and resilient community in the Bay. <a href="mailto:info@eachartist.org?subject=Interested in funding EACH" style="color:var(--green);">Start a conversation →</a><br><br>
-    <strong style="color:var(--lavender);">Advisor</strong> — Our advisory circle meets quarterly and we're rounding it out. Lend your expertise across arts, philanthropy, local government, finance, or community organizing. <a href="mailto:info@eachartist.org?subject=Advisory" style="color:var(--lavender);">Step on up →</a><br><br>
-    <strong style="color:var(--red);">Connector</strong> — Know someone who should know us? A warm introduction goes a long way. <a href="mailto:info@eachartist.org?subject=Introduction" style="color:var(--red);">Send a connection →</a>
-  </p>
+<img src="5.png" alt="" style="position:absolute;pointer-events:none;width:120px;top:2rem;right:5vw;opacity:0.9;">
+<h2 class="bold-type block-title" style="color: var(--green);">How You Can Plug In</h2>
+<p class="block-body">
+<strong style="color:var(--gold);">Artist</strong> — Join the community. Let us know if you're interested in the CAN pilot, or come find us at an Artist Meetup. <a href="mailto:info@eachartist.org" style="color:var(--gold);">Get in touch →</a><br><br>
+<strong style="color:var(--cyan);">Neighbor</strong> — You don't have to be an artist to be part of this. Looking for art that speaks to what you're carrying? Tell us what you're searching for. <a href="mailto:info@eachartist.org" style="color:var(--cyan);">Reach out →</a><br><br>
+<strong style="color:var(--orange);">Space-Holder</strong> — Wanna be part of the Bay Renaissance? List your patio, garage, backyard, storefront, or rehearsal room through our shared spaces intake. <a href="shared-spaces.html" style="color:var(--orange);">Open your door →</a><br><br>
+<strong style="color:var(--green);">Funder</strong> — We're gathering funds for the CAN pilot right now. We're looking for partners who want to resource the joyful, social infrastructure it takes to have a thriving, interconnected, and resilient community in the Bay. <a href="mailto:info@eachartist.org?subject=Interested in funding EACH" style="color:var(--green);">Start a conversation →</a><br><br>
+<strong style="color:var(--lavender);">Advisor</strong> — Our advisory circle meets quarterly and we're rounding it out. Lend your expertise across arts, philanthropy, local government, finance, or community organizing. <a href="mailto:info@eachartist.org?subject=Advisory" style="color:var(--lavender);">Step on up →</a><br><br>
+<strong style="color:var(--red);">Connector</strong> — Know someone who should know us? A warm introduction goes a long way. <a href="mailto:info@eachartist.org?subject=Introduction" style="color:var(--red);">Send a connection →</a>
+</p>
 </section>
 
 <!-- ═══ EMAIL SIGNUP ═══ -->
 <section class="cta-section" style="position:relative;overflow:hidden;" id="signup">
-  <h2 class="bold-type cta-headline">Stay<br>Connected</h2>
-  <p class="cta-sub">
-    Join the EACH mailing list. We'll share updates on the Community Arts Navigator pilot,
-    artist meetups, shared spaces, events, and ways to plug in.
-  </p>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" 
-     target="_blank" 
-     rel="noopener" 
-     class="cta-button bold-type">Join Us</a>
-  <p class="form-note">No spam. Just art and community.</p>
+<h2 class="bold-type cta-headline">Stay<br>Connected</h2>
+<p class="cta-sub">
+Join the EACH mailing list. We'll share updates on the Community Arts Navigator pilot,
+artist meetups, shared spaces, events, and ways to plug in.
+</p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor"
+target="_blank"
+rel="noopener"
+class="cta-button bold-type">Join Us</a>
+<p class="form-note">No spam. Just art and community.</p>
 </section>
 
 <footer class="footer">
-  <p>
-    built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
-    powered by all of us ·
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join the list</a> ·
-    <a href="/cdn-cgi/l/email-protection#3b52555d547b5e5a58535a494f52484f1554495c">reach out</a> · <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">@eachartistbayarea</a>
-    <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/each-each-artist-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
-    <br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
-  </p>
+<p>
+built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
+powered by all of us ·
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join the list</a> ·
+<a href="/cdn-cgi/l/email-protection#3b52555d547b5e5a58535a494f52484f1554495c">reach out</a> · <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">@eachartistbayarea</a>
+<br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/each-each-artist-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
+<br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
+</p>
 </footer>
 
 <!-- Event RSVP popup -->
 <div id="event-popup" aria-hidden="true">
-  <button type="button" class="popup-close" aria-label="Close">×</button>
-  <a class="popup-link" href="events.html" aria-label="RSVP to our next event">
-    <img src="popupbubble.png" alt="RSVP to our next event!">
-  </a>
+<button type="button" class="popup-close" aria-label="Close">×</button>
+<a class="popup-link" href="https://luma.com/vftffrr3" target="_blank" rel="noopener" aria-label="RSVP on Luma for the August 23 EACH Artist Meetup" data-umami-event="popup-rsvp" data-luma-action="checkout" data-luma-event-id="evt-K4P4DxCGbGz1Vmx">
+<img src="popupbubble.png" alt="RSVP to our next event!">
+</a>
 </div>
 <script>
-  (function () {
-    var popup = document.getElementById('event-popup');
-    if (!popup) return;
-    var dismissed = false;
-    try { dismissed = !!sessionStorage.getItem('eachPopupDismissed'); } catch (e) {}
-    if (!dismissed) {
-      setTimeout(function () {
-        popup.classList.add('show');
-        popup.setAttribute('aria-hidden', 'false');
-      }, 2000);
-    }
-    popup.querySelector('.popup-close').addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      popup.classList.remove('show');
-      popup.setAttribute('aria-hidden', 'true');
-      try { sessionStorage.setItem('eachPopupDismissed', '1'); } catch (err) {}
-    });
-  })();
+(function () {
+var popup = document.getElementById('event-popup');
+if (!popup) return;
+var dismissed = false;
+try { dismissed = !!sessionStorage.getItem('eachPopupDismissed'); } catch (e) {}
+if (!dismissed) {
+setTimeout(function () {
+popup.classList.add('show');
+popup.setAttribute('aria-hidden', 'false');
+}, 2000);
+}
+popup.querySelector('.popup-close').addEventListener('click', function (e) {
+e.preventDefault();
+e.stopPropagation();
+popup.classList.remove('show');
+popup.setAttribute('aria-hidden', 'true');
+try { sessionStorage.setItem('eachPopupDismissed', '1'); } catch (err) {}
+});
+})();
 </script>
+<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
 </body>
 </html>
