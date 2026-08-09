@@ -9,6 +9,243 @@
 <meta property="og:description" content="Each Artist Cultural Hub — a by-artist, for-artist hub building peer support pathways and shared resources toward a more connected creative community in the Bay Area.">
 <meta property="og:site_name" content="Each Artist Cultural Hub">
 <title>Shared Spaces — EACH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:"DM Sans",sans-serif;background:#f6f0fb;color:var(--black);overflow-x:hidden;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.045) 1px, transparent 0);background-size:16px 16px}
+.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform .2s}
+.floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
+.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
+.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.45);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
+.site-nav a:hover,.site-nav a.active{background:var(--lavender);color:var(--black);border-color:var(--lavender)}
+a{color:inherit}
+
+/* HERO */
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6.2rem 2rem 4rem;background:linear-gradient(180deg,#b895d1 0%,#a985c5 62%,#9466bc 100%);position:relative;overflow:hidden}
+.hero h1{font-family:"Anton",sans-serif;font-size:clamp(3.5rem,11vw,9rem);line-height:.85;color:var(--black);text-transform:uppercase;letter-spacing:.02em}
+.hero .subtitle{font-size:clamp(.95rem,2.2vw,1.15rem);color:var(--black);max-width:600px;margin-top:1.2rem;line-height:1.6}
+.hero::before{content:"";position:absolute;inset:0;opacity:.14;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.55) 1px, transparent 0);background-size:14px 14px;pointer-events:none}
+.hero::after{content:"";position:absolute;width:220px;height:220px;right:-40px;top:90px;background:var(--gold);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);opacity:.88;transform:rotate(10deg);pointer-events:none}
+.hero h1,.hero-text,.squiggle{position:relative;z-index:1}
+.hero-text{max-width:760px;margin:1.5rem auto 0;text-align:center;font-size:1rem;line-height:1.8;background:rgba(255,255,255,.18);border:2px solid rgba(0,0,0,.14);padding:1.5rem 1.4rem;border-radius:18px;backdrop-filter:blur(2px);box-shadow:10px 10px 0 rgba(0,0,0,.10)}
+.hero-text p + p{margin-top:1rem}
+.squiggle{width:110px;height:14px;margin:1rem auto 0;background:radial-gradient(circle at 7px 7px, transparent 6px, var(--black) 6px, var(--black) 8px, transparent 8px) 0 0/22px 14px repeat-x}
+
+/* INTRO */
+.intro{max-width:760px;padding:2.5rem 2rem 1.5rem;margin:0 auto}
+.intro p{font-size:1rem;line-height:1.7;opacity:.85}
+.intro p+p{margin-top:.8rem}
+
+/* FORMS SECTION */
+.forms-section{padding:2.5rem 2rem;background:#f6f0fb}
+.forms-container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.form-card{background:#fff;border:2px solid rgba(0,0,0,.08);border-radius:16px;padding:2rem;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.form-card h3{font-family:"Anton",sans-serif;font-size:clamp(1.2rem,3vw,1.5rem);text-transform:uppercase;color:var(--black);margin-bottom:.8rem;letter-spacing:.02em}
+.form-card .form-note{font-size:.95rem;line-height:1.6;color:rgba(0,0,0,.75);margin-bottom:1.5rem}
+.form-card iframe{border-radius:8px}
+
+/* VENUE PREVIEW SECTION */
+.preview{padding:2.5rem 2rem;border-top:3px solid rgba(0,0,0,.06);background:#efe6f5}
+.preview h2{font-family:"Anton",sans-serif;font-size:clamp(1.5rem,4vw,2.2rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:.6rem;color:var(--lavender)}
+.preview .note{font-size:.9rem;opacity:.65;margin-bottom:1.5rem;max-width:850px;line-height:1.5}
+.venue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem}
+.venue-card{border:2px solid rgba(0,0,0,.1);background:#fff;padding:0;overflow:hidden;transition:border-color .2s,transform .2s}
+.venue-card:hover{border-color:var(--lavender);transform:translateY(-2px)}
+.venue-tag{display:inline-block;padding:.2rem .6rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:.7rem .7rem 0}
+.venue-body{padding:.5rem .7rem .8rem}
+.venue-body h3{font-size:1rem;margin-bottom:.2rem;line-height:1.3}
+.venue-body p{font-size:.84rem;line-height:1.5;opacity:.8}
+.venue-body .venue-meta{font-size:.72rem;margin-top:.4rem;opacity:.5;text-transform:uppercase;letter-spacing:.03em}
+.venue-body .venue-meta a{text-decoration:underline;opacity:1}
+.tag-free{background:var(--green);color:var(--black)}.tag-cheap{background:var(--gold);color:var(--black)}.tag-alt{background:var(--lavender);color:var(--black)}.tag-outdoor{background:var(--cyan);color:var(--black)}.tag-community{background:var(--orange);color:var(--black)}
+
+/* FOOTER */
+.footer{background:var(--lavender);color:rgba(10,10,10,.92);padding:1.35rem 2rem 1.6rem;text-align:center;border-top:3px solid rgba(0,0,0,.1);font-size:.92rem}
+.footer a{color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.footer a:hover{color:var(--blue)}
+
+@media(max-width:860px){.forms-container{grid-template-columns:1fr}.hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}}
+@media(max-width:700px){.venue-grid{grid-template-columns:1fr}}
+
+/* HAMBURGER */
+.hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.hamburger:hover{background:var(--green)}.hamburger:hover span{background:var(--black)}
+.nav-links{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
+
+/* MEMPHIS DECORATIONS */
+.memphis-star{position:absolute;top:2rem;right:3rem;width:130px;height:130px;opacity:.3;pointer-events:none;z-index:3}
+.dot-grid-overlay{position:absolute;top:0;left:0;right:0;width:100%;height:100%;background-image:radial-gradient(circle at 1px 1px,rgba(0,0,0,.04) 1px,transparent 0);background-size:24px 24px;pointer-events:none;opacity:.6}
+@media(max-width:700px){.memphis-star{display:none}.dot-grid-overlay{display:none}}
+
+/* animated EACH mark on hover */
+.floating-logo img{width:46px;height:auto;display:block}
+.floating-logo .logo-move{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .18s ease}
+.floating-logo:hover .logo-still{opacity:0}
+.floating-logo:hover .logo-move{opacity:1}
+@media (prefers-reduced-motion: reduce){.floating-logo .logo-move{display:none}.floating-logo:hover .logo-still{opacity:1}}
+</style>
+<link rel="icon" type="image/gif" href="favicon.gif">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<a href="index.html" class="floating-logo" aria-label="Each Artist Cultural Hub home">
+<img class="logo-still" src="each-logo-small.png" alt="EACH">
+<img class="logo-move" src="each-mark.gif" alt="" aria-hidden="true">
+</a>
+<nav class="site-nav">
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links">
+    <a href="navigators.html">Navigators</a>
+    <a href="culture-circles.html">Culture Circles</a>
+    <a href="shared-spaces.html" class="active">Shared Spaces</a>
+    <a href="resource-hub.html">Resources</a>
+    <a href="events.html">Events</a>
+    <a href="contribute.html">Contribute</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+<img src="5.png" class="memphis-star" style="opacity:0.9;" alt="" aria-hidden="true">
+<h1>SHARED<br>SPACES</h1>
+<div class="squiggle" aria-hidden="true"></div>
+<p class="subtitle">A Renaissance needs open doors.</p>
+</section>
+
+<section class="intro">
+<p>Artists need affordable spaces to share their work across the Bay. Neighbors deserve deeper connections with the artists in their community — people who can help us explore the questions on our hearts, tend to our visions, carry our histories, hold our grief. Artists help us make sense of our world.</p>
+<p>This space-sharing intake is one way we're stitching the Bay Area creative economy back together, one relationship at a time. Our Community Arts Navigators will use this resource to connect artists to spaces and connect community members to artists exploring the ideas that resonate most with them.</p>
+<p>This is a relationship-building tool, not a marketplace. We'll review responses and do our best to make thoughtful connections by hand.</p>
+</section>
+
+<section class="forms-section" style="position:relative; overflow:hidden;">
+<img src="18.png" class="memphis" style="position:absolute; pointer-events:none; z-index:1; width:350px; top:120px; left:-80px; opacity:1.0;" alt="" aria-hidden="true">
+<div class="forms-container">
+<div class="form-card">
+<h3>I Need a Space</h3>
+<p class="form-note">For artists, groups, and collectives looking for space to create, gather, rehearse, perform, realize.</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSds5sdNosxg2Bhrjh8m0_4i0BJmP1_ytyq0L_LDZmglt3R1wA/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="max-width:100%;border-radius:8px;">Loading…</iframe>
+</div>
+
+<div class="form-card">
+<h3>I Have Space to Share</h3>
+<p class="form-note">For people, businesses, organizations, or venues willing to share space with artists in an affordable fashion. A café, a backyard, a garage, a storefront, a basement with good acoustics — whatever you've got, we'll reimagine it!</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1Ywr6NNGgMJvOQtuemA_MrvIBzMrn6FqS-gh5_XDHnqeGow/viewform?embedded=true" width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="max-width:100%;border-radius:8px;">Loading…</iframe>
+</div>
+</div>
+</section>
+
+<!-- VENUE DIRECTORY -->
+<section class="preview" style="position:relative; overflow:hidden;">
+<h2>Spaces We're Tracking</h2>
+<p class="note">Below are some of the venues we're actively tracking and developing relationships with. This archive grows as we build.</p>
+
+<img src="22.png" class="memphis" style="position:absolute; pointer-events:none; z-index:1; width:160px; bottom:40px; right:20px; opacity:0.9;" alt="" aria-hidden="true">
+<div class="venue-grid">
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Mission</span>
+<div class="venue-body">
+<h3>Red Poppy Art House</h3>
+<p>Artist-run, community-governed. 150+ events/year in a 650 sq ft storefront — music, visual art, workshops, residencies. MAPP (Mission Arts & Performance Project) hub. Intimate, unpretentious, essential.</p>
+<div class="venue-meta">2698 Folsom St · <a href="https://redpoppyarthouse.org" target="_blank">redpoppyarthouse.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-free">Free · Citywide</span>
+<div class="venue-body">
+<h3>SF Public Library — Community Meeting Rooms</h3>
+<p>Free meeting and event rooms at library branches across the city. Projectors, seating, accessible locations. Book through the library system — first come, first served.</p>
+<div class="venue-meta">Multiple locations · <a href="https://sfpl.org/locations/meeting-rooms" target="_blank">sfpl.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-cheap">Low Cost · Multiple</span>
+<div class="venue-body">
+<h3>SF Rec & Park — Community Rooms</h3>
+<p>Rec centers across the city rent rooms at below-market rates for community events. Some have stages, kitchens, outdoor adjacent space. Permit process is straightforward.</p>
+<div class="venue-meta">Citywide · <a href="https://sfrecpark.org/facilities/rental" target="_blank">sfrecpark.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-alt">Alternative · SOMA</span>
+<div class="venue-body">
+<h3>Public Works</h3>
+<p>Music venue, community space, and cultural hub. Artist-friendly booking, multi-room layout, outdoor patio. Hosted SF Music Week's Artist Development Day. A venue that acts like a partner, not a landlord.</p>
+<div class="venue-meta">161 Erie St · <a href="https://publicsf.com" target="_blank">publicsf.com</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Western Addition</span>
+<div class="venue-body">
+<h3>Community Music Center</h3>
+<p>Sliding-scale music education and performance space since 1921. Recital hall, classrooms, and a deep commitment to accessibility. One of SF's oldest continuously operating community arts spaces.</p>
+<div class="venue-meta">544 Capp St · <a href="https://sfcmc.org" target="_blank">sfcmc.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-outdoor">Outdoor · Multiple</span>
+<div class="venue-body">
+<h3>SF Parks — Permitted Performances</h3>
+<p>Golden Gate Park, Dolores Park, McLaren Park, and neighborhood parks all allow permitted performances and gatherings. Amplified sound permits available through Rec & Park.</p>
+<div class="venue-meta">Citywide · <a href="https://sfrecpark.org/permits" target="_blank">sfrecpark.org/permits</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Marina</span>
+<div class="venue-body">
+<h3>Fort Mason Center for Arts & Culture</h3>
+<p>A campus of arts organizations, galleries, and event spaces on the waterfront. Hosts BATS Improv, galleries, and major fairs. Some spaces available for community rates.</p>
+<div class="venue-meta">2 Marina Blvd · <a href="https://fortmason.org" target="_blank">fortmason.org</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-free">Free · Mid-Market</span>
+<div class="venue-body">
+<h3>Warfield Commons</h3>
+<p>The new 9-floor arts, media, and journalism hub at 988 Market. KALW anchor tenant. Below-market creative workspace. Still onboarding tenants — worth tracking for rehearsal, recording, and event space.</p>
+<div class="venue-meta">988 Market St · <a href="https://warfieldcommons.com" target="_blank">warfieldcommons.com</a></div>
+</div></div>
+
+<div class="venue-card">
+<span class="venue-tag tag-community">Community · Bayview</span>
+<div class="venue-body">
+<h3>Bayview Opera House / Ruth Williams Memorial Theatre</h3>
+<p>One of SF's oldest community performance venues, deeply rooted in the Bayview. Hosts concerts, theatre, community events, and SF Music Week programming. A neighborhood anchor.</p>
+<div class="venue-meta">4705 3rd St · <a href="https://bfrrt.org" target="_blank">bfrrt.org</a></div>
+</div></div>
+
+</div>
+</section>
+
+<footer class="footer">
+  <p>
+    built by <a href="https://linktr.ee/gardenradical" target="_blank" rel="noopener">jawno</a> ·
+    powered by all of us ·
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiaBFpkN7OFLwV0Z3MnRRADBd66dSEWJBr_-aNEnII7sfQZg/viewform?usp=publish-editor" target="_blank" rel="noopener">join the list</a> ·
+    <a href="mailto:info@eachartist.org">reach out</a> · <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">@eachartistbayarea</a>
+    <br>fiscally sponsored by <a href="https://fundraising.fracturedatlas.org/each-each-artist-culture-hub" target="_blank" rel="noopener">Fractured Atlas</a>
+    <br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
+  </p>
+</footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shared Spaces — connecting artists who need room with neighbors who have it across the Bay Area.">
+<meta property="og:title" content="Shared Spaces — EACH">
+<meta property="og:description" content="Each Artist Cultural Hub — a by-artist, for-artist hub building peer support pathways and shared resources toward a more connected creative community in the Bay Area.">
+<meta property="og:site_name" content="Each Artist Cultural Hub">
+<title>Shared Spaces — EACH</title>
 <link rel="icon" type="image/png" href="each-logo-small.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
