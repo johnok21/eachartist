@@ -338,7 +338,8 @@ function oppCard(o){
     +'</div>';
 }
 function renderOpps(){
-  var live=OPPS.filter(function(o){ if((o.status||"live").toLowerCase()!=="live") return false; var d=parseDate(o.deadline); return !(d && daysUntil(d)<0); });
+  var live=OPPS.filter(function(o){ if((o.status||"live").toLowerCase()!=="live") return false; var d=parseDate(o.deadline); if(d && daysUntil(d)<0){ if(o.recurring){ o=Object.assign({},o,{deadline:""}); } else return false; } return true; })
+    .map(function(o){ var d=parseDate(o.deadline); return (d && daysUntil(d)<0 && o.recurring) ? Object.assign({},o,{deadline:""}) : o; });
   var html="";
   SECTIONS.forEach(function(s){
     var items=live.filter(function(o){return (o.section||"").toLowerCase()===s.id;});
