@@ -326,11 +326,11 @@
   "description": "The canonical text on the relationship between liberation movements and institutional funding. Foundation money has a gravitational pull that can redirect organizations away from their most radical work. Not a reason not to seek funding — a reason to seek it with your eyes open.",
   "links": [
    {
-    "url": "https://theforge.press/will-the-revolution-be-funded",
-    "label": "The Forge · theforge.press"
+    "url": "https://forgeorganizing.org/article/will-revolution-be-funded/",
+    "label": "The Forge · forgeorganizing.org"
    }
   ],
-  "status": "check"
+  "status": "live"
  },
  {
   "category": "reports",
@@ -342,10 +342,10 @@
   "links": [
    {
     "url": "https://www.giarts.org/sites/default/files/solidarity-not-charity.pdf",
-    "label": "Grantmakers in the Arts · giarts.org · PDF"
+    "label": "Grantmakers in the Arts · PDF"
    }
   ],
-  "status": "check"
+  "status": "live"
  },
  {
   "category": "practices",
@@ -356,11 +356,15 @@
   "description": "Free, virtual group sessions where participants share money experiences, learn together, and build real financial skills in a non-judgmental community. Facilitated by Lin Shi. Check the site for the next cohort.",
   "links": [
    {
-    "url": "https://www.moneyhealthcollective.com",
-    "label": "Money Health Collective · moneyhealthcollective.com"
+    "url": "https://moneyhealthcollective.org/",
+    "label": "Money Health Collective"
+   },
+   {
+    "url": "https://luma.com/mhc",
+    "label": "Upcoming sessions · Luma"
    }
   ],
-  "status": "check"
+  "status": "live"
  },
  {
   "category": "practices",
@@ -446,11 +450,11 @@
   "description": "Free, self-paced personal finance covering budgeting, credit, saving, and insurance. Zero jargon.",
   "links": [
    {
-    "url": "https://khanacademy.org/college-careers-more/personal-finance",
-    "label": "Khan Academy · khanacademy.org"
+    "url": "https://www.khanacademy.org/college-careers-more/personal-finance",
+    "label": "Khan Academy"
    }
   ],
-  "status": "check"
+  "status": "live"
  },
  {
   "category": "practices",

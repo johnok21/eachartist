@@ -207,7 +207,7 @@
   "url": "https://hospitalityhouse.org/community-arts",
   "link_label": "Community Arts Program",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "space",
@@ -221,7 +221,7 @@
   "url": "https://www.harveymilkphotocenter.org/?p=76",
   "link_label": "Memberships & darkroom",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "space",
@@ -235,7 +235,7 @@
   "url": "https://oaklandlibrary.org/otll/lending/",
   "link_label": "Tool Lending Library",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "show",
@@ -249,7 +249,7 @@
   "url": "https://somarts.org/rampgallery/",
   "link_label": "Ramp Gallery",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "show",
@@ -263,7 +263,7 @@
   "url": "https://counterpulse.org/open-calls",
   "link_label": "Open calls",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "show",
@@ -277,7 +277,7 @@
   "url": "https://www.sf.gov/art-vendor-programs",
   "link_label": "Art vendor program",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "learn",
@@ -291,7 +291,7 @@
   "url": "https://creative-capital.org/opportunities/creative-capital-artist-lab",
   "link_label": "Artist Lab",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "learn",
@@ -305,7 +305,7 @@
   "url": "https://www.sf.gov/free-small-business-counseling-office-small-business",
   "link_label": "Office of Small Business",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "help",
@@ -319,7 +319,7 @@
   "url": "https://www.coveredca.com/enrollment/open-enrollment",
   "link_label": "Covered California",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "help",
@@ -333,7 +333,7 @@
   "url": "https://healthysanfrancisco.org/visitors/are-you-eligible",
   "link_label": "Am I eligible?",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "help",
@@ -347,7 +347,7 @@
   "url": "https://www.artistsfellowship.org/financial-aid",
   "link_label": "Emergency aid",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
  },
  {
   "section": "help",
@@ -361,6 +361,90 @@
   "url": "https://www.sf.gov/artist-housing-certification",
   "link_label": "Artist housing certification",
   "verified_on": "2026-10-27",
-  "status": "proposed"
+  "status": "live"
+ },
+ {
+  "section": "money",
+  "title": "Intersection for the Arts fiscal sponsorship",
+  "who": "Bay Area artists and project directors who need a nonprofit umbrella to receive grants and tax-deductible gifts",
+  "what": "Rolling applications, reviewed and onboarded in cohorts. Basic: $100 a year plus 9% of funds raised. Comprehensive: $150 a year plus 11%. The page lists the next cohort deadline as Jan 31, 2027, with applications reopening Dec 1, 2026; email fiscalsponsorship@theintersection.org to confirm timing.",
+  "cost": "$100–$150/yr plus 9–11% of funds raised",
+  "deadline": "",
+  "recurring": "Rolling, cohort-based",
+  "location": "Bay Area",
+  "url": "https://theintersection.org/fiscal",
+  "link_label": "Fiscal sponsorship",
+  "verified_on": "2026-10-27",
+  "status": "live"
+ },
+ {
+  "title": "SF Arts Commission individual artist grants (FY2028)",
+  "who": "SF artists",
+  "what": "The city says FY2028 grant programs are not yet available and details are expected later this fall (2026). Past cycles offered up to $50,000 for individual artists.",
+  "url": "https://www.sf.gov/grants",
+  "link_label": "sf.gov/grants",
+  "recurring": "Expected fall 2026",
+  "location": "San Francisco",
+  "section": "watch",
+  "cost": "",
+  "deadline": "",
+  "verified_on": "2026-10-27",
+  "status": "live"
+ },
+ {
+  "title": "City of Berkeley Individual Artist Projects grant",
+  "who": "Berkeley residents",
+  "what": "$5,000 project grants in past rounds. The city anticipates the next application window Jan–Mar 2027.",
+  "url": "https://berkeleyca.gov/community-recreation/civic-arts/civic-arts-grants",
+  "link_label": "Berkeley Civic Arts",
+  "recurring": "Expected Jan–Mar 2027",
+  "location": "East Bay",
+  "section": "watch",
+  "cost": "",
+  "deadline": "",
+  "verified_on": "2026-10-27",
+  "status": "live"
+ },
+ {
+  "title": "Headlands Center for the Arts residencies (2028)",
+  "who": "Artists in all disciplines",
+  "what": "The 2027 cycle is closed; the 2028 application opens April 2027.",
+  "url": "https://www.headlands.org/programs/",
+  "link_label": "Headlands programs",
+  "recurring": "Opens April 2027",
+  "location": "Marin",
+  "section": "watch",
+  "cost": "",
+  "deadline": "",
+  "verified_on": "2026-10-27",
+  "status": "live"
+ },
+ {
+  "title": "SFFILM Sloan Science in Cinema fund",
+  "who": "Filmmakers",
+  "what": "SFFILM's other funds (Rainin, Documentary, Cedar Road) are closed for 2026; the Sloan fund opens in 2027.",
+  "url": "https://sffilm.org/artist-development/fund-your-film/",
+  "link_label": "Fund Your Film",
+  "recurring": "Opens 2027",
+  "location": "Bay Area",
+  "section": "watch",
+  "cost": "",
+  "deadline": "",
+  "verified_on": "2026-10-27",
+  "status": "live"
+ },
+ {
+  "title": "Free tax help (VITA partner sites)",
+  "who": "SF residents with household income up to $67,000",
+  "what": "Free tax preparation through city partners. The page still shows the 2025-return season; the next season's dates aren't posted yet.",
+  "url": "https://www.sfhsa.org/services/jobs-money/free-tax-help/how-file-your-taxes-free",
+  "link_label": "Free tax help",
+  "recurring": "Next season not yet posted",
+  "location": "San Francisco",
+  "section": "watch",
+  "cost": "",
+  "deadline": "",
+  "verified_on": "2026-10-27",
+  "status": "live"
  }
 ]

@@ -48,13 +48,15 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .soon{margin:2rem 2rem 0;border:3px solid var(--black);background:#fff;box-shadow:10px 10px 0 rgba(0,0,0,.08);position:relative;padding:1.4rem 1.4rem 1rem}
 .soon::before{content:"✦ CLOSING SOON";position:absolute;top:-.85rem;left:1.2rem;background:var(--red);color:#fff;padding:.22rem .7rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--black)}
 .soon ul{list-style:none;display:grid;gap:.5rem}
-.soon li{display:grid;grid-template-columns:7.5rem 1fr;gap:.8rem;align-items:baseline;font-size:.95rem;border-bottom:1px dashed rgba(0,0,0,.15);padding-bottom:.5rem}
+.soon li{display:grid;grid-template-columns:9.5rem 1fr;gap:.8rem;align-items:baseline;font-size:.95rem;border-bottom:1px dashed rgba(0,0,0,.15);padding-bottom:.5rem}
 .soon li:last-child{border-bottom:none}
 .soon .date{font-family:"Space Mono",monospace;font-weight:700;font-size:.8rem;text-transform:uppercase}
 .soon .date.urgent{color:var(--red)}
 .soon a{font-weight:700;text-underline-offset:3px}
 .soon .meta{font-size:.82rem;opacity:.7}
 .soon.empty{display:none}
+.soon.watch{margin-top:2.6rem}.soon.watch::before{content:"✦ COMING BACK AROUND";background:var(--lavender);color:var(--black)}
+.soon.watch .date{color:var(--blue)}.watch-intro{font-size:.9rem;opacity:.75;margin-bottom:.9rem;max-width:720px}
 
 /* sections */
 .sec{margin-top:2.6rem;scroll-margin-top:4.2rem}
@@ -213,6 +215,8 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 
 <div id="sections"></div>
 
+<div class="soon watch empty" id="comingBack"><p class="watch-intro">Closed for now, back later. Listed so you can get materials ready. Timing is what each program's own page says; confirm before you plan around it.</p><ul id="comingBackList"></ul></div>
+
 <div class="submit-strip" id="submit">
   <div>
     <h3 class="bold-type">Know something that belongs here?</h3>
@@ -349,6 +353,10 @@ function renderOpps(){
   var box=document.getElementById("closingSoon");
   if(soon.length){ box.classList.remove("empty"); document.getElementById("closingSoonList").innerHTML=soon.map(function(o){var d=parseDate(o.deadline),n=daysUntil(d);return '<li><span class="date'+(n<=7?' urgent':'')+'">'+(n===0?'Today':fmtDate(d))+'</span><span><a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a> <span class="meta">· '+esc(o.who)+'</span></span></li>';}).join(""); }
   else box.classList.add("empty");
+  var watch=OPPS.filter(function(o){return (o.status||"live").toLowerCase()==="live" && (o.section||"").toLowerCase()==="watch";});
+  var wb=document.getElementById("comingBack");
+  if(watch.length){ wb.classList.remove("empty"); document.getElementById("comingBackList").innerHTML=watch.map(function(o){return '<li><span class="date">'+esc(o.recurring||"TBD")+'</span><span><a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a> <span class="meta">· '+esc(o.who)+(o.what?' · '+esc(o.what):'')+'</span></span></li>';}).join(""); }
+  else wb.classList.add("empty");
 }
 function readingCard(r){
   var hay=[r.title,r.description,r.badge,r.subsection].join(" ").toLowerCase();
