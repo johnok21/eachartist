@@ -214,7 +214,7 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 
 <div id="sections"></div>
 
-<div class="soon watch empty" id="comingBack"><p class="watch-intro">Closed for now, back later. Listed so you can get materials ready. Timing is what each program's own page says; confirm before you plan around it.</p><ul id="comingBackList"></ul></div>
+<div class="soon watch empty" id="comingBack"><p class="watch-intro">Closed for now. Listed so you can get materials ready for the next round. Timing is what each program's own page says; confirm before you plan around it.</p><ul id="comingBackList"></ul></div>
 
 <div class="submit-strip" id="submit">
   <div>
@@ -338,8 +338,13 @@ function oppCard(o){
     +'</div>';
 }
 function renderOpps(){
-  var live=OPPS.filter(function(o){ if((o.status||"live").toLowerCase()!=="live") return false; var d=parseDate(o.deadline); if(d && daysUntil(d)<0){ if(o.recurring){ o=Object.assign({},o,{deadline:""}); } else return false; } return true; })
-    .map(function(o){ var d=parseDate(o.deadline); return (d && daysUntil(d)<0 && o.recurring) ? Object.assign({},o,{deadline:""}) : o; });
+  /* expired + recurring: keep, drop the date. expired + one-off: move to "Coming back around". */
+  var expired=[];
+  var live=OPPS.filter(function(o){return (o.status||"live").toLowerCase()==="live";}).map(function(o){
+    var d=parseDate(o.deadline); if(!d || daysUntil(d)>=0) return o;
+    if(o.recurring) return Object.assign({},o,{deadline:""});
+    expired.push(Object.assign({},o,{section:"watch",recurring:"Closed "+fmtDate(d),_expired:true})); return null;
+  }).filter(Boolean);
   var html="";
   SECTIONS.forEach(function(s){
     var items=live.filter(function(o){return (o.section||"").toLowerCase()===s.id;});
@@ -353,7 +358,7 @@ function renderOpps(){
   var box=document.getElementById("closingSoon");
   if(soon.length){ box.classList.remove("empty"); document.getElementById("closingSoonList").innerHTML=soon.map(function(o){var d=parseDate(o.deadline),n=daysUntil(d);return '<li><span class="date'+(n<=7?' urgent':'')+'">'+(n===0?'Today':fmtDate(d))+'</span><span><a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a> <span class="meta">· '+esc(o.who)+'</span></span></li>';}).join(""); }
   else box.classList.add("empty");
-  var watch=OPPS.filter(function(o){return (o.status||"live").toLowerCase()==="live" && (o.section||"").toLowerCase()==="watch";});
+  var watch=live.filter(function(o){return (o.section||"").toLowerCase()==="watch";}).concat(expired);
   var wb=document.getElementById("comingBack");
   if(watch.length){ wb.classList.remove("empty"); document.getElementById("comingBackList").innerHTML=watch.map(function(o){return '<li><span class="date">'+esc(o.recurring||"TBD")+'</span><span><a href="'+esc(o.url)+'" target="_blank" rel="noopener">'+esc(o.title)+'</a> <span class="meta">· '+esc(o.who)+(o.what?' · '+esc(o.what):'')+'</span></span></li>';}).join(""); }
   else wb.classList.add("empty");
