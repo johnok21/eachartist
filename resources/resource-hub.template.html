@@ -80,7 +80,6 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .card-foot .cost,.card-foot .loc{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;opacity:.65}
 .card-foot .go{margin-left:auto;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.35rem .7rem;border:2px solid var(--black);background:var(--black);color:var(--green);text-decoration:none;transition:all .15s}
 .card-foot .go:hover{background:var(--green);color:var(--black)}
-.card .verified{font-family:"Space Mono",monospace;font-size:.62rem;opacity:.45;padding:0 .9rem .6rem}
 .sec-empty{padding:1rem 2rem;font-size:.9rem;opacity:.6;display:none}
 
 /* section colors */
@@ -328,14 +327,13 @@ function oppCard(o){
   else { pill='<span class="pill ongoing">Ongoing</span>'; }
   if(d && o.recurring){ pill+=' <span class="pill recurring">'+esc(o.recurring)+'</span>'; }
   var hay=[o.title,o.who,o.what,o.cost,o.location,o.section].join(" ").toLowerCase();
-  return '<div class="card" data-hay="'+esc(hay)+'">'
+  return '<div class="card" data-hay="'+esc(hay)+'" data-verified="'+esc(o.verified_on||"")+'">'
     +'<div class="card-top">'+pill+'</div>'
     +'<div class="card-body"><h3>'+esc(o.title)+'</h3>'
     +(o.who?'<div class="who">For: '+esc(o.who)+'</div>':'')
     +'<p class="what">'+esc(o.what)+'</p>'
     +'<div class="card-foot">'+(o.cost?'<span class="cost">'+esc(o.cost)+'</span>':'')+(o.location?'<span class="loc">· '+esc(o.location)+'</span>':'')
     +'<a class="go" href="'+esc(o.url)+'" target="_blank" rel="noopener" data-umami-event="resource-click" data-umami-event-title="'+esc(o.title)+'">'+esc(o.link_label||"Open")+' →</a></div></div>'
-    +(o.verified_on?'<div class="verified">verified '+esc(o.verified_on)+'</div>':'')
     +'</div>';
 }
 function renderOpps(){
