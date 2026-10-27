@@ -31,7 +31,8 @@ def load(path, default):
         return default
 
 def fetch_tab(sheet_id, tab):
-    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={tab}"
+    sel = "gid=0" if tab == "Opportunities" else f"sheet={tab}"
+    url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&{sel}"
     with urllib.request.urlopen(url, timeout=20) as r:
         text = r.read().decode("utf-8")
     rows = list(csv.DictReader(io.StringIO(text)))
@@ -56,10 +57,13 @@ def main():
         sid = conf.get("SHEET_ID")
         if not sid: sys.exit("config.json has no SHEET_ID")
         opps = [ {k: r.get(k,"") for k in OPP_COLS} for r in fetch_tab(sid, "Opportunities") if r.get("title") ]
-        reads = readings_from_rows(fetch_tab(sid, "Readings"))
         json.dump(opps, open(OPPS,"w",encoding="utf-8"), indent=1, ensure_ascii=False)
-        json.dump(reads, open(READS,"w",encoding="utf-8"), indent=1, ensure_ascii=False)
-        print(f"refreshed from sheet: {len(opps)} opportunities, {len(reads)} readings")
+        try:
+            reads = readings_from_rows(fetch_tab(sid, "Readings"))
+            if reads: json.dump(reads, open(READS,"w",encoding="utf-8"), indent=1, ensure_ascii=False)
+        except Exception:
+            reads = None  # no Readings tab yet; keep the repo copy
+        print(f"refreshed from sheet: {len(opps)} opportunities" + (f", {len(reads)} readings" if reads else " (readings kept from repo)"))
     opps = load(OPPS, []); reads = load(READS, [])
     tpl = open(TEMPLATE, encoding="utf-8").read()
     def j(x): return json.dumps(x, ensure_ascii=False).replace("</", "<\\/")
