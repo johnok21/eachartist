@@ -1,0 +1,639 @@
+[
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "documentary",
+  "badge": "Documentary · Free on Tubi",
+  "title": "Miracle on 42nd Street (2017)",
+  "description": "Manhattan Plaza in Hell's Kitchen — 3,500+ residents, 70% performing artists, housed in subsidized housing that transformed a neighborhood and launched careers. A powerful case for artist housing as civic infrastructure.",
+  "links": [
+   {
+    "url": "https://tubitv.com/movies/100027955/miracle-on-42nd-street",
+    "label": "Watch Free on Tubi"
+   },
+   {
+    "url": "https://en.wikipedia.org/wiki/Miracle_on_42nd_Street",
+    "label": "Wikipedia"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "case-study",
+  "badge": "Case Study · San Francisco",
+  "title": "Warfield Commons — SF's New Arts & Media Hub",
+  "description": "CAST and KALW acquired the 9-floor Warfield Building at 988 Market St. for $7.3M — a permanent, below-market home for artists, journalists, and cultural workers in Mid-Market. A live, local proof of concept that creative infrastructure can be essential infrastructure.",
+  "links": [
+   {
+    "url": "https://warfieldcommons.com",
+    "label": "Warfield Commons"
+   },
+   {
+    "url": "https://sfist.com/2025/08/31/warfield-commons-arts-and-media-hub-now-open-anchor-tenant-kalw-to-begin-renovations/",
+    "label": "SFist"
+   },
+   {
+    "url": "https://www.kqed.org/arts/13971623/kalw-warfield-theatre-arts-hub-san-francisco-market-street",
+    "label": "KQED"
+   },
+   {
+    "url": "https://brokeassstuart.com/2025/08/28/the-arts-journalism-media-hqs-on-top-of-the-warfield/",
+    "label": "Broke-Ass Stuart"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "case-study",
+  "badge": "Case Study · Mississippi",
+  "title": "Cooperation Jackson, Mississippi",
+  "description": "Worker cooperatives, a community land trust, and a cultural center — built on the cooperative economics of the Black freedom movement. Now entering its second decade, and one of the most-cited models nationally for what a solidarity economy looks like in practice.",
+  "links": [
+   {
+    "url": "https://nonprofitquarterly.org/cooperation-jackson-at-10-lessons-for-building-a-solidarity-economy/",
+    "label": "NPQ: 10-Year Lessons"
+   },
+   {
+    "url": "https://nonprofitquarterly.org/building-a-solidarity-economy-in-the-south-and-beyond-cooperation-jackson/",
+    "label": "NPQ: Build & Fight"
+   },
+   {
+    "url": "https://geo.coop/gleanings/building-solidarity-economy-jackson-mississippi",
+    "label": "GEO Overview"
+   },
+   {
+    "url": "https://cooperationjackson.org",
+    "label": "Home"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "case-study",
+  "badge": "Case Study · San Francisco",
+  "title": "Red Poppy Art House, San Francisco",
+  "description": "A 650-square-foot Mission District storefront that's been a community-governed, artist-run cultural space since 2003 — hosting 150+ performances, exhibitions, and workshops annually. Proof that you don't need scale to build something essential.",
+  "links": [
+   {
+    "url": "https://redpoppyarthouse.org",
+    "label": "Red Poppy"
+   },
+   {
+    "url": "https://redpoppyarthouse.org/about/mission-vision/",
+    "label": "Mission & Vision"
+   },
+   {
+    "url": "https://www.thebolditalic.com/my-favorite-corner-of-sf-23rd-and-folsom-in-the-mission/",
+    "label": "Bold Italic"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "case-study",
+  "badge": "Case Study · New York City",
+  "title": "The Laundromat Project, NYC",
+  "description": "A Black-rooted, POC-led nonprofit embedding artists in everyday neighborhood spaces — laundromats, bodegas, parks, gardens — to build social cohesion and civic imagination. Two decades of proof that art as everyday infrastructure works.",
+  "links": [
+   {
+    "url": "https://laundromatproject.org",
+    "label": "Home"
+   },
+   {
+    "url": "https://nextcity.org/urbanist-news/the-nonprofit-that-puts-art-inside-laundromats-and-wherever-else-people-are",
+    "label": "Next City"
+   },
+   {
+    "url": "https://news.artnet.com/art-world/laundromat-project-brooklyn-space-2165352",
+    "label": "Artnet"
+   },
+   {
+    "url": "https://wallacefoundation.org/report/make-art-build-community-create-change-ethnographic-study-laundromat-project-ethnographic",
+    "label": "Wallace Study"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "A Brief History of Black Cooperatives in the United States",
+  "description": "Essential historical grounding — from Reconstruction-era mutual aid societies through today's solidarity economy movement. The lineage this work stands in.",
+  "links": [
+   {
+    "url": "https://civilrightsteaching.org/resource/brief-history-of-black-cooperatives",
+    "label": "Civil Rights Teaching · civilrightsteaching.org"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "The Cooperative Movement: A Brief History",
+  "description": "From the Rochdale Principles (1844) to Mondragon to today's platform cooperatives — the sweep of cooperative economic history, spanning nearly two centuries and every continent.",
+  "links": [
+   {
+    "url": "https://ncba.coop",
+    "label": "NCBA CLUSA · ncba.coop"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "essay",
+  "badge": "Essay · 1968",
+  "title": "The Black Arts Movement — Larry Neal",
+  "description": "The foundational text of the Black Arts Movement — the aesthetic and spiritual arm of Black Power. Neal argues the artist's primary obligation is to the community, not the marketplace. Written to consolidate dignity and coherence among people under siege.",
+  "links": [
+   {
+    "url": "https://nationalhumanitiescenter.org/pds/maai3/community/text8/blackartsmovement.pdf",
+    "label": "National Humanities Center · PDF"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "stories",
+  "subsection": "",
+  "badge_class": "video",
+  "badge": "Video · 17 min",
+  "title": "Emory Douglas: The Black Panther Artist (PBS)",
+  "description": "Minister of Culture for the Black Panther Party and the visual architect of the BPP newspaper — at its peak the highest-circulation paper in the country. He speaks plainly about art as service, not mystified genius.",
+  "links": [
+   {
+    "url": "https://pbs.org/video/emory-douglas-the-black-panther-artist-uiabo7",
+    "label": "PBS / Artbound · pbs.org"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "data",
+  "badge": "Data",
+  "title": "Arts & Culture = 7.5% of California's Economy",
+  "description": "Arts, culture, media, and innovation contribute $288 billion and employ 820,000+ people statewide. The single most powerful data point for making the case to any policymaker or funder.",
+  "links": [
+   {
+    "url": "https://creativeeconomy.arts.ca.gov/",
+    "label": "California Creative Economy · arts.ca.gov"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "data",
+  "badge": "Data",
+  "title": "Arts & Cultural Production Satellite Account (BEA / NEA)",
+  "description": "Annual, state-by-state data on arts and cultural GDP contribution, employment, and compensation. California consistently ranks among the top four states nationally.",
+  "links": [
+   {
+    "url": "https://bea.gov/data/special-topics/arts-and-culture",
+    "label": "U.S. Bureau of Economic Analysis · bea.gov"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "The Science of Awe (Greater Good Science Center)",
+  "description": "Research on awe: how experiences of vastness reduce self-focus, increase prosocial behavior, and strengthen community bonds. The intellectual grounding for why art in public life matters.",
+  "links": [
+   {
+    "url": "https://ggsc.berkeley.edu/images/uploads/GGSC-JTF_White_Paper-Awe_FINAL.pdf",
+    "label": "Greater Good white paper · PDF"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "Why Awe Is Such an Important Emotion — Dacher Keltner",
+  "description": "Foundational work on awe as a civic emotion — how it makes us more cooperative, generous, and connected.",
+  "links": [
+   {
+    "url": "https://greatergood.berkeley.edu",
+    "label": "Greater Good Magazine / UC Berkeley"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "data",
+  "badge": "Article / Data",
+  "title": "The Case for Public Art (NEA Research Brief)",
+  "description": "Data on how public art builds civic attachment, reduces isolation, and improves neighborhood wellbeing across income and race lines.",
+  "links": [
+   {
+    "url": "https://arts.gov/impact",
+    "label": "National Endowment for the Arts · arts.gov"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "toolkit",
+  "badge": "Toolkit",
+  "title": "Artwork: A Guide for Artists Building the Solidarity Economy",
+  "description": "Art.coop's foundational guide — how to build collective structures, price your work, and build power without sacrificing artistic freedom. Essential reading for any culture circle.",
+  "links": [
+   {
+    "url": "https://art.coop/artwork",
+    "label": "Art.coop · art.coop/artwork"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "What Is the Solidarity Economy?",
+  "description": "Clear, accessible explainer covering principles, history, and practices. The best single-page intro for someone coming to this fresh.",
+  "links": [
+   {
+    "url": "https://neweconomy.net/solidarity-economy",
+    "label": "New Economy Coalition · neweconomy.net"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "toolkit",
+  "badge": "Toolkit",
+  "title": "Economics for Emancipation",
+  "description": "Framework readings for understanding the solidarity economy — what it is, how it works, how to build it where you are. Good for study groups and culture circle sessions.",
+  "links": [
+   {
+    "url": "https://neweconomy.net",
+    "label": "New Economy Coalition · neweconomy.net"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "directory",
+  "badge": "Directory",
+  "title": "Solidarity Economy Funding Library",
+  "description": "A curated directory of funders, grants, and fellowships aligned with solidarity economy work. Start looking for money that won't compromise your values.",
+  "links": [
+   {
+    "url": "https://neweconomy.net/fundinglibrary/",
+    "label": "New Economy Coalition · Funding Library"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "article",
+  "badge": "Article · Major Key",
+  "title": "Will the Revolution Be Funded?",
+  "description": "The canonical text on the relationship between liberation movements and institutional funding. Foundation money has a gravitational pull that can redirect organizations away from their most radical work. Not a reason not to seek funding — a reason to seek it with your eyes open.",
+  "links": [
+   {
+    "url": "https://theforge.press/will-the-revolution-be-funded",
+    "label": "The Forge · theforge.press"
+   }
+  ],
+  "status": "check"
+ },
+ {
+  "category": "reports",
+  "subsection": "",
+  "badge_class": "report",
+  "badge": "Report",
+  "title": "Solidarity Not Charity: Arts & Culture Grantmaking in the Solidarity Economy",
+  "description": "How arts and culture funding can align with solidarity economy principles — moving from extractive philanthropy toward reciprocal, community-driven investment.",
+  "links": [
+   {
+    "url": "https://www.giarts.org/sites/default/files/solidarity-not-charity.pdf",
+    "label": "Grantmakers in the Arts · giarts.org · PDF"
+   }
+  ],
+  "status": "check"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "sessions",
+  "badge": "Community Sessions",
+  "title": "Money Journey Sessions — Money Health Collective",
+  "description": "Free, virtual group sessions where participants share money experiences, learn together, and build real financial skills in a non-judgmental community. Facilitated by Lin Shi. Check the site for the next cohort.",
+  "links": [
+   {
+    "url": "https://www.moneyhealthcollective.com",
+    "label": "Money Health Collective · moneyhealthcollective.com"
+   }
+  ],
+  "status": "check"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "tool",
+  "badge": "Tool",
+  "title": "Rocket Money (Budget Tracker)",
+  "description": "Free app that syncs with bank accounts and makes your actual spending visible. Excellent starting point for artists with irregular income.",
+  "links": [
+   {
+    "url": "https://rocketmoney.com",
+    "label": "Rocket Money · rocketmoney.com"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "Managing Money as a Freelance Artist",
+  "description": "Practical, judgment-free guide to budgeting on irregular income: separating accounts, saving for taxes, building an emergency fund, pricing your work.",
+  "links": [
+   {
+    "url": "https://thecreativeindependent.com",
+    "label": "The Creative Independent"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "toolkit",
+  "badge": "Toolkit",
+  "title": "The Freelancer's Guide to Taxes",
+  "description": "Step-by-step guide to self-employment taxes, quarterly payments, and deductions for creative workers. Free and printable.",
+  "links": [
+   {
+    "url": "https://fundraising.fracturedatlas.org/each-artist-cultural-hub-each",
+    "label": "Fractured Atlas · fracturedatlas.org"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "Money Stories: Understanding Your Financial Autobiography",
+  "description": "Reflective framework for exploring the emotional and cultural roots of your money beliefs — scarcity thinking, family patterns, shame.",
+  "links": [
+   {
+    "url": "https://soulofmoney.org",
+    "label": "Soul of Money Institute · soulofmoney.org"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "toolkit",
+  "badge": "Toolkit",
+  "title": "Rotating Savings Circles (ROSCAs) — How It Works",
+  "description": "Tandas, susus, osusu — a centuries-old community wealth tool. Structure, practice, and how to start a rotating savings circle in your community.",
+  "links": [
+   {
+    "url": "https://missionassetfund.org",
+    "label": "Mission Asset Fund · missionassetfund.org"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Money Health",
+  "badge_class": "course",
+  "badge": "Course · Free",
+  "title": "Khan Academy Personal Finance",
+  "description": "Free, self-paced personal finance covering budgeting, credit, saving, and insurance. Zero jargon.",
+  "links": [
+   {
+    "url": "https://khanacademy.org/college-careers-more/personal-finance",
+    "label": "Khan Academy · khanacademy.org"
+   }
+  ],
+  "status": "check"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "podcast",
+  "badge": "Podcast",
+  "title": "Remember the Future — Art.coop",
+  "description": "QTBIPOC creatives discuss building livelihoods rooted in care and cooperation — firing bosses, freeing land, and creating on their own terms. One of the best on-ramps for artists new to solidarity economics.",
+  "links": [
+   {
+    "url": "https://rememberthefuture.buzzsprout.com/",
+    "label": "Listen · Buzzsprout"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "fellowship",
+  "badge": "Fellowship · $15K + TA",
+  "title": "Remember the Future Fellowship",
+  "description": "$15,000 plus technical assistance to arts/culture groups challenging dominant economic paradigms. Rolling applications.",
+  "links": [
+   {
+    "url": "https://art.coop/fellowship",
+    "label": "Art.coop · art.coop/fellowship"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "course",
+  "badge": "Course · Free",
+  "title": "NO STARVING ARTISTS! NO SELLOUTS! — Intro to Creative Work in the Solidarity Economy",
+  "description": "A free course laying out principles and practices for building creative livelihoods outside the starve-or-sell-out binary. A practical on-ramp for cooperative economics.",
+  "links": [
+   {
+    "url": "https://creativestudy.com/course/no-starving-artists-no-sellouts",
+    "label": "Creative Study · course page"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "book",
+  "badge": "Book",
+  "title": "Emergent Strategy — adrienne maree brown",
+  "description": "Building adaptive, resilient movements using lessons from nature. Widely read in the community organizing and artist collective space.",
+  "links": [
+   {
+    "url": "https://adriennemareebrown.net/book/emergent-strategy/",
+    "label": "adriennemareebrown.net · the book"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "toolkit",
+  "badge": "Toolkit · Free",
+  "title": "Liberating Structures",
+  "description": "Dozens of practical facilitation methods for building participation and collective intelligence in groups of any size.",
+  "links": [
+   {
+    "url": "https://liberatingstructures.com",
+    "label": "Liberating Structures · liberatingstructures.com"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "toolkit",
+  "badge": "Toolkit · Free PDF",
+  "title": "Mutual Aid 101 — Dean Spade",
+  "description": "What mutual aid is, how it differs from charity, how to build it. Essential for artist circles moving toward resource-sharing.",
+  "links": [
+   {
+    "url": "https://bigdoorbrigade.com",
+    "label": "Big Door Brigade / Dean Spade"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "article",
+  "badge": "Article",
+  "title": "Mutual Aid Is Essential to Our Survival",
+  "description": "The durable case for mutual aid as permanent infrastructure for communities that can't afford to wait for rescue.",
+  "links": [
+   {
+    "url": "https://truthout.org/articles/mutual-aid-is-essential-to-our-survival-regardless-of-who-is-in-the-white-house",
+    "label": "Truthout / Dean Spade"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "community",
+  "badge": "Community",
+  "title": "The Conscious Citizens",
+  "description": "A newsletter, directory, and global community dedicated to building collective consciousness and community power.",
+  "links": [
+   {
+    "url": "https://theconsciouscitizens.org",
+    "label": "The Conscious Citizens · theconsciouscitizens.org"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Collective Practice & Community Building",
+  "badge_class": "toolkit",
+  "badge": "Toolkit",
+  "title": "Conflict Resolution for Collectives",
+  "description": "Practical toolkit for navigating conflict within artist groups — collective agreements, repair practices, facilitation guides. Open source and adaptable.",
+  "links": [
+   {
+    "url": "https://transformharm.org",
+    "label": "Transform Harm · transformharm.org"
+   }
+  ],
+  "status": "cut"
+ },
+ {
+  "category": "practices",
+  "subsection": "Grounding & Presence",
+  "badge_class": "book",
+  "badge": "Books",
+  "title": "Peace Is Every Step + The Art of Power — Thich Nhat Hanh",
+  "description": "Peace Is Every Step grounds mindfulness in daily life. The Art of Power reframes power as freedom, understanding, and love. Find both at your local library.",
+  "links": [
+   {
+    "url": "https://plumvillage.org/books/peace-is-every-step",
+    "label": "Peace Is Every Step"
+   },
+   {
+    "url": "https://plumvillage.org/books/the-art-of-power",
+    "label": "The Art of Power"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Grounding & Presence",
+  "badge_class": "course",
+  "badge": "Course · Online",
+  "title": "Zen and the Art of Saving the Planet — Online Course",
+  "description": "A transformative online course bringing Thich Nhat Hanh's teachings to life. Balance personal wellbeing with climate action, master difficult emotions, train in deep listening, and turn climate concern into sustainable action. Join a community of changemakers.",
+  "links": [
+   {
+    "url": "https://plumvillage.org/courses/zen-and-the-art-of-saving-the-planet",
+    "label": "Plum Village · plumvillage.org"
+   }
+  ],
+  "status": "live"
+ },
+ {
+  "category": "practices",
+  "subsection": "Grounding & Presence",
+  "badge_class": "essay",
+  "badge": "Essay",
+  "title": "Trying to Write in a Terrible World — Susan Muaddi Darraj",
+  "description": "Darraj explores the Palestinian value of sumud — steadfast presence, refusing erasure — and what it means to write while bearing witness. An invitation to every artist navigating their practice in a world that gives many reasons to put down the pen.",
+  "links": [
+   {
+    "url": "https://theconsciouscitizens.org",
+    "label": "The Conscious Citizens"
+   }
+  ],
+  "status": "cut"
+ }
+]
