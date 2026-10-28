@@ -2,6 +2,11 @@
 (function () {
   'use strict';
 
+  // Expose the sticky header's height so page-level sticky bars can sit under it.
+  var header = document.querySelector('.site-header');
+  function setHeaderH() { if (header) document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px'); }
+  setHeaderH(); window.addEventListener('resize', setHeaderH);
+
   // Mobile nav
   var burger = document.querySelector('.hamburger');
   var links = document.querySelector('.nav-links');
@@ -9,6 +14,7 @@
     burger.addEventListener('click', function () {
       var open = links.classList.toggle('open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      setHeaderH();
     });
   }
 

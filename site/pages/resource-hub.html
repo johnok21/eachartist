@@ -21,7 +21,7 @@
 .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.marquee-inner{animation:none}}
 /* jump bar */
-.jump-bar{position:sticky;top:0;z-index:900;display:flex;flex-wrap:wrap;gap:.4rem;padding:.6rem 2rem;background:rgba(244,241,232,.92);backdrop-filter:blur(8px);border-bottom:3px solid rgba(0,0,0,.1)}
+.jump-bar{position:sticky;top:var(--header-h,0px);z-index:40;display:flex;flex-wrap:wrap;gap:.4rem;padding:.6rem 2rem;background:rgba(244,241,232,.92);backdrop-filter:blur(8px);border-bottom:3px solid rgba(0,0,0,.1)}
 .jump-bar a{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding:.4rem .8rem;border:2px solid var(--black);background:#fff;transition:all .15s}
 .jump-bar a:hover{background:var(--black);color:var(--green)}
 .jump-bar a.readings-link{border-style:dashed;margin-left:auto}
