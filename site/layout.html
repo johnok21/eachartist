@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="canonical" href="https://eachartist.org/{{CANONICAL}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:image" content="https://eachartist.org/{{OG_IMAGE}}">
+<meta property="og:site_name" content="Each Artist Cultural Hub">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eachartist.org/{{CANONICAL}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/gif" href="favicon.gif">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="each.css?v={{BUILD}}">
+{{HEAD_EXTRA}}
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2163130');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="logo-chip" href="index.html" aria-label="Each Artist Cultural Hub — home"><img src="each-logo-small.png" alt="EACH" width="88" height="38"></a>
+    <a class="btn-join" href="contact.html" data-join data-umami-event="nav-join">Join us ↗</a>
+    <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+{{NAV}}
+    </ul>
+  </nav>
+  <a class="ticker" href="{{TICKER_URL}}" data-umami-event="ticker-next-event"><span class="tag">{{TICKER_TAG}}</span><span class="what">{{TICKER_TEXT}}</span><span class="go">Details →</span></a>
+</header>
+
+<main id="main">
+{{BODY}}
+</main>
+
+<section class="band-lavender" style="border-top: 4px solid var(--ink)">
+  <div class="wrap section-tight split split-even split-center">
+    <div class="stack">
+      <h2>Stay connected</h2>
+      <p>One email a month, give or take: meetups, resources, and opportunities. No spam. Just art and community.</p>
+    </div>
+    <div class="signup-form">
+      <span class="eyebrow">Join the EACH mailing list</span>
+      <a class="btn btn-ink" href="contact.html" data-join data-umami-event="footer-join">Join up →</a>
+      <p class="note">Opens the signup form. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<div class="statusline" aria-hidden="true"><span>Artists connected: {{COUNT}}</span><span class="sep">▮</span><span>Last saved: {{LAST_SAVED}}</span><span class="sep">▮</span><span>100% artist-run</span><span class="sep">▮</span><span class="end">Made in San Francisco ✦</span></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="each-logo-full-still.png" alt="Each Artist Cultural Hub" width="200" height="106">
+    <div class="lines">
+      <span>Each Artist Cultural Hub · fiscally sponsored by Fractured Atlas, Inc.</span>
+      <span>Office at Groundfloor · 455 Valencia St, San Francisco, CA 94103</span>
+    </div>
+    <div class="links">
+      <a href="contact.html" data-join>Join up</a>
+      <a href="mailto:info@eachartist.org">Reach out</a>
+      <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">Instagram @eachartistbayarea</a>
+      <a class="give" href="https://fundraising.fracturedatlas.org/each-artist-cultural-hub-each" target="_blank" rel="noopener">Make a tax-deductible contribution</a>
+    </div>
+    <span class="fine">© 2026 · This project is for EACH of us. Built by <a href="https://www.linkedin.com/in/jawnookhiulu/" target="_blank" rel="noopener">jawno</a> · powered by all of us.</span>
+  </div>
+</footer>
+
+<script src="each.js?v={{BUILD}}"></script>
+{{SCRIPTS_EXTRA}}
+</body>
+</html>

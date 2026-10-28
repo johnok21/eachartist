@@ -1,0 +1,217 @@
+<!--meta
+{"title": "EACH — Each Artist Cultural Hub",
+ "description": "Each Artist Cultural Hub — a by-artist, for-artist hub building peer support pathways and shared resources toward a more connected creative and conscious community in the Bay Area.",
+ "nav": "", "out": "index.html", "scripts": ["paint", "sphere"]}
+-->
+
+<!-- HERO -->
+<section class="wrap hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow eyebrow-dot">Bay Area · artist-led · since 2026</p>
+    <h1>Each artist cultural hub</h1>
+    <p class="lead">An artist-led hub building peer support pathways and shared resources toward a more connected, conscious, and vibrant community.</p>
+    <p class="hero-tag">We're walking together toward a Bay Renaissance.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="events.html#alh3" data-umami-event="hero-next-event">Next up: Nov 12 →</a>
+      <a class="btn" href="contact.html" data-join data-umami-event="hero-join">Join the email list</a>
+    </div>
+  </div>
+  <div class="hero-media">
+    <img class="hero-star" src="img/star.png" alt="" aria-hidden="true" width="120" height="118">
+    <div class="hero-frame">
+      <video autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg" aria-label="Scenes from EACH gatherings">
+        <source src="hero-loop.mp4" type="video/mp4">
+      </video>
+      <span class="osd osd-tl" aria-hidden="true">● LIVE</span>
+      <span class="osd osd-tr osd-cream" aria-hidden="true">SP 0:00:18</span>
+      <span class="osd osd-br osd-cream" aria-hidden="true">OCT 25 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="band band-accent mission">
+  <img class="mission-arch" src="img/arch.png" alt="" aria-hidden="true" width="300" height="144">
+  <div class="wrap section split">
+    <div class="stack">
+      <p class="eyebrow">01 / What EACH is for</p>
+      <h2>Artistic &amp; economic freedom</h2>
+    </div>
+    <div class="stack" style="font-size:18px">
+      <p class="lead">EACH is an artist-led organization piloting solutions at the intersection of the arts and community health — addressing loneliness and social isolation, strengthening belonging and mental well-being, and building a solidarity economy that gives Bay Area artists a sustainable livelihood.</p>
+      <p>Artists are the imaginary and nervous systems of our communities. Art is how we process together — how we grieve, celebrate, question, and imagine what's next. In the Bay Area, too many artists are isolated, burned out, and getting pushed out. And too many neighbors are disconnected from the art and artists who could help them make sense of what they're moving through.</p>
+      <p class="quote-block">EACH exists because artists — and the communities that ground them — deserve connective tissue.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAGE BREAK: the paint window -->
+<section class="band band-teal collage-band" id="collage" aria-label="Bay Area artists collage">
+  <div class="wrap" style="padding-block:64px">
+    <div class="band-inner">
+      <button class="btn btn-primary reopen" type="button" id="paint-reopen">Reopen paint window ↗</button>
+      <div class="win win-static" id="paint-win" role="region" aria-label="Paint window">
+        <div class="titlebar">
+          <img src="img/star.png" alt="" width="16" height="16">
+          <span class="title">bay_area_artists.bmp - Paint</span>
+          <div class="winbtns">
+            <svg width="60" height="16" viewBox="0 0 60 16" aria-hidden="true">
+              <g><rect x="0" y="0" width="18" height="16" fill="#f4f1e8"/><path d="M0 15.5 V0.5 H17.5" stroke="#fff" fill="none"/><path d="M0.5 15.5 H18 V0" stroke="#0a0a0a" fill="none"/><path d="M1.5 14.5 H17 V1" stroke="#9a9385" fill="none"/><rect x="5" y="11" width="7" height="2" fill="#0a0a0a"/></g>
+              <g><rect x="20" y="0" width="18" height="16" fill="#f4f1e8"/><path d="M20 15.5 V0.5 H37.5" stroke="#fff" fill="none"/><path d="M20.5 15.5 H38 V0" stroke="#0a0a0a" fill="none"/><path d="M21.5 14.5 H37 V1" stroke="#9a9385" fill="none"/><rect x="24.5" y="3.5" width="9" height="8" fill="none" stroke="#0a0a0a"/><rect x="24" y="3" width="10" height="2" fill="#0a0a0a"/></g>
+              <g><rect x="42" y="0" width="18" height="16" fill="#f4f1e8"/><path d="M42 15.5 V0.5 H59.5" stroke="#fff" fill="none"/><path d="M42.5 15.5 H60 V0" stroke="#0a0a0a" fill="none"/><path d="M43.5 14.5 H59 V1" stroke="#9a9385" fill="none"/><path d="M47 4 L55 12 M55 4 L47 12" stroke="#0a0a0a" stroke-width="2"/></g>
+            </svg>
+            <button type="button" id="paint-min" style="left:0" title="Minimize">Minimize</button>
+            <button type="button" id="paint-max" style="left:20px" title="Maximize">Maximize</button>
+            <button type="button" id="paint-close" style="left:42px" title="Close">Close</button>
+          </div>
+        </div>
+        <nav class="menubar" aria-label="Paint menus" id="paint-menus" hidden>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>F</u>ile</button>
+            <ul>
+              <li><button type="button" data-act="save">Save as PNG <kbd>⌘S</kbd></button></li>
+              <li><button type="button" data-act="copy">Copy image</button></li>
+              <li class="sep"></li>
+              <li><button type="button" data-act="reset">Reset canvas</button></li>
+            </ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>E</u>dit</button>
+            <ul><li><button type="button" data-act="undo">Undo <kbd>⌘Z</kbd></button></li><li><button type="button" disabled>Select all <kbd>v2</kbd></button></li></ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>V</u>iew</button>
+            <ul><li><button type="button" data-act="max">Fit to band</button></li><li><button type="button" data-act="restore">Restore size</button></li></ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>I</u>mage</button>
+            <ul><li><button type="button" disabled>Flip / Rotate <kbd>v2</kbd></button></li><li><button type="button" disabled>Invert colors <kbd>v2</kbd></button></li></ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>C</u>olors</button>
+            <ul><li><button type="button" disabled>Edit colors… <kbd>v2</kbd></button></li></ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>S</u>tamps</button>
+            <ul><li><button type="button" data-act="stamp">Pick a stamp</button></li></ul>
+          </div>
+          <div class="menu"><button type="button" aria-haspopup="true"><u>H</u>elp</button>
+            <ul><li><button type="button" data-act="help">How this works</button></li></ul>
+          </div>
+        </nav>
+        <div class="win-body no-rail" id="paint-body">
+          <div class="tools" role="toolbar" aria-label="Tools" id="paint-tools" hidden>
+            <button class="tool" type="button" data-tool="pencil" aria-pressed="true" title="Pencil"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24 L8 18 L21 5 L25 9 L12 22 Z"/><path d="M8 18 L12 22"/></svg></button>
+            <button class="tool" type="button" data-tool="brush" aria-pressed="false" title="Wacky brush"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 4 L26 13"/><path d="M14 7 L23 16 L16 21 L9 14 Z" fill="#f5c542"/><path d="M9 14 L5 20 L8 25 L13 21"/><circle cx="20" cy="25" r="1.6" fill="#ff3b30" stroke="none"/><circle cx="25" cy="22" r="1.2" fill="#00d4aa" stroke="none"/></svg></button>
+            <button class="tool" type="button" disabled title="Rectangle — v2"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" aria-hidden="true"><rect x="5" y="8" width="20" height="14" fill="#c4a8d8"/></svg></button>
+            <button class="tool" type="button" disabled title="Oval — v2"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" aria-hidden="true"><ellipse cx="15" cy="15" rx="11" ry="8" fill="#00d4aa"/></svg></button>
+            <button class="tool" type="button" data-tool="fill" aria-pressed="false" title="Paint can (fill)"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12 L18 6 L25 13 L15 19 Z" fill="#ff8c2e"/><path d="M8 12 L8 20 L15 26 L15 19"/><path d="M15 26 L25 20 L25 13"/><path d="M5 20 C3 24 3 27 5 27 C7 27 7 24 5 20 Z" fill="#6dde5a"/></svg></button>
+            <button class="tool" type="button" data-tool="eraser" aria-pressed="false" title="Eraser"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 L15 9 L25 19 L17 27 L9 27 Z" fill="#fff"/><path d="M11 13 L21 23"/></svg></button>
+            <button class="tool" type="button" disabled title="Text — v2"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><text x="15" y="24" text-anchor="middle" font-family="Anton, sans-serif" font-size="26" fill="#0a0a0a">A</text></svg></button>
+            <button class="tool" type="button" data-tool="stamp" aria-pressed="false" title="Stamp"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><polygon points="15,3 18.5,11 27,11 20,16.5 22.5,25 15,20 7.5,25 10,16.5 3,11 11.5,11" fill="#f5c542"/></svg></button>
+          </div>
+          <div class="canvas-wrap" id="paint-canvas-wrap">
+            <div class="collage-ground" id="collage-static">
+              <div class="art">
+                <img src="img/collage.webp" alt="Collage of Bay Area artists" width="993" height="700">
+                <span class="tape tape-a" aria-hidden="true"></span><span class="tape tape-b" aria-hidden="true"></span>
+              </div>
+              <span class="sticker" aria-hidden="true">Est. 2026 · San Francisco</span>
+            </div>
+          </div>
+        </div>
+        <div class="palette" id="paint-palette" hidden>
+          <div class="current" id="paint-current" aria-hidden="true"></div>
+          <div class="swatches" id="paint-swatches" role="radiogroup" aria-label="Colors"></div>
+          <div class="tray" id="paint-tray" role="radiogroup" aria-label="Stamps"></div>
+        </div>
+        <div class="status">
+          <span class="hint" id="paint-hint">Fig. 01 — Bay Area artists, cut &amp; pasted</span>
+          <span class="xy" id="paint-xy">1100, 560</span>
+        </div>
+        <div class="edge edge-l" id="paint-edge-l" aria-hidden="true"></div>
+        <div class="edge edge-r" id="paint-edge-r" aria-hidden="true"></div>
+        <div class="grip" id="paint-grip" aria-hidden="true" title="Drag to resize"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'RE BUILDING -->
+<section class="wrap section stack" id="building" style="gap:36px">
+  <div class="section-head">
+    <div class="stack-sm">
+      <p class="eyebrow">02 / Programs</p>
+      <h2>What we're building</h2>
+    </div>
+    <p class="eyebrow">Three ways in</p>
+  </div>
+  <div class="grid-3">
+    <article class="card">
+      <div class="card-band" style="background:var(--gold)"></div>
+      <div class="card-body">
+        <h3>Community Arts Navigators</h3>
+        <p class="grow">Artists supporting artists. Artists helping neighbors find the art that speaks to them. A relational social infrastructure program based on the community health worker model.</p>
+        <a class="textlink" href="navigators.html">Learn more →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-band" style="background:var(--lavender)"></div>
+      <div class="card-body">
+        <h3>Artist Meetups</h3>
+        <p class="grow">A regular place for artists to gather freely to play, workshop, rest, and hold one another up. These are co-created spaces where we tend to our inner creatives and honor the value of our work in our communities.</p>
+        <a class="textlink" href="events.html">All events →</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-band" style="background:var(--cyan)"></div>
+      <div class="card-body">
+        <h3>Shared Spaces</h3>
+        <p class="grow">Connecting artists who need room with neighbors who have it. A backyard, a café, a garage, a storefront — more spaces for art to bloom and inspire.</p>
+        <a class="textlink" href="shared-spaces.html">Learn more →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NEXT GATHERING -->
+<section class="band band-ink" id="events">
+  <div class="wrap section-tight split split-wide split-center">
+    <div class="stack">
+      <p class="eyebrow" style="color:var(--accent)">03 / Next gathering</p>
+      <h2>Artists Live Here <span style="color:var(--gold)">Ep. 3</span></h2>
+      <p class="lead">Thursday, November 12, 2026 · 4–8 PM</p>
+      <p>SOMArts Cultural Center · 934 Brannan St, San Francisco. The next Artists Live Here is coming to SOMArts. More details soon.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="events.html#alh3" data-umami-event="home-alh3">Details →</a>
+        <a class="btn btn-light" href="contact.html" data-join data-umami-event="home-invites">Get invites</a>
+      </div>
+    </div>
+    <img src="img/meetup-chairs.jpg" alt="Two artists seated at the October meetup" width="1200" height="1600" style="width:100%;height:320px;object-fit:cover;border:3px solid var(--cream);box-shadow:10px 10px 0 var(--accent)">
+  </div>
+</section>
+
+<!-- THE BAY NEEDS ITS ARTISTS -->
+<section class="band band-orange">
+  <div class="wrap section split split-wide split-center">
+    <div class="stack">
+      <h2>The Bay needs its artists</h2>
+      <p style="font-size:19px;line-height:1.6">Imagine a Bay Area where garage doors roll up after dark, where sidewalks and backyards and storefronts open to artists sharing their work. Neighbors stopping to listen, to look, to feel something together. A more connected, awe-inspired Bay — because when artists are resourced and connected, and when neighbors can find their way to the artists who see them, there is more space for truth and play in public life. More beauty. More courage. More civic imagination.</p>
+    </div>
+    <div class="sphere-wrap"><div id="medium-sphere" class="sphere" aria-hidden="true"></div></div>
+  </div>
+</section>
+<div class="marquee" aria-hidden="true">Dancers <b>✦</b> Ceramicists <b>✦</b> Musicians <b>✦</b> Songwriters <b>✦</b> Producers <b>✦</b> Filmmakers <b>✦</b> Actors <b>✦</b> Poets <b>✦</b> Writers <b>✦</b> Visual artists <b>✦</b> Immersive artists <b>✦</b> Muralists <b>✦</b> Craft artists <b>✦</b> Weavers <b>✦</b> Fashion designers <b>✦</b> Photographers <b>✦</b> Printmakers <b>✦</b> Illustrators <b>✦</b> Comedians <b>✦</b> DJs <b>✦</b> Dancers <b>✦</b> Ceramicists <b>✦</b> Musicians</div>
+
+<!-- PLUG IN -->
+<section class="wrap section stack" id="plug" style="gap:36px">
+  <div class="section-head">
+    <div class="stack-sm">
+      <p class="eyebrow">04 / Plug in</p>
+      <h2>How you can plug in</h2>
+    </div>
+    <p class="eyebrow">Pick the one that's you</p>
+  </div>
+  <div class="grid-3">
+    <a class="role" href="mailto:info@eachartist.org" data-umami-event="plug-artist"><h3 style="color:var(--red)">Artist</h3><p>Join the community. Let us know if you're interested in the CAN pilot, or come find us at an Artist Meetup.</p><span class="go">Get in touch →</span></a>
+    <a class="role" href="mailto:info@eachartist.org" data-umami-event="plug-neighbor"><h3 style="color:var(--blue)">Neighbor</h3><p>You don't have to be an artist to be part of this. Looking for art that speaks to what you're carrying? Tell us what you're searching for.</p><span class="go">Reach out →</span></a>
+    <a class="role" href="shared-spaces.html" data-umami-event="plug-space"><h3 style="color:#00a884">Space-Holder</h3><p>Wanna be part of the Bay Renaissance? List your patio, garage, backyard, storefront, or rehearsal room through our shared spaces intake.</p><span class="go">Open your door →</span></a>
+    <a class="role" href="mailto:info@eachartist.org?subject=Interested in funding EACH" data-umami-event="plug-funder"><h3 style="color:#c58a00">Funder</h3><p>We're gathering funds for the CAN pilot right now. We're looking for partners who want to resource the joyful, social infrastructure it takes to have a thriving, interconnected, and resilient community in the Bay.</p><span class="go">Start a conversation →</span></a>
+    <a class="role" href="mailto:info@eachartist.org?subject=Advisory" data-umami-event="plug-advisor"><h3 style="color:#8a5fb0">Advisor</h3><p>Our advisory circle meets quarterly and we're rounding it out. Lend your expertise across arts, philanthropy, local government, finance, or community organizing.</p><span class="go">Step on up →</span></a>
+    <a class="role" href="mailto:info@eachartist.org?subject=Introduction" data-umami-event="plug-connector"><h3 style="color:#e0601e">Connector</h3><p>Know someone who should know us? A warm introduction goes a long way.</p><span class="go">Send a connection →</span></a>
+  </div>
+</section>

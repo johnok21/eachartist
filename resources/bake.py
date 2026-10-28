@@ -2,7 +2,8 @@
 """Bake the Resource Hub page.
 
 Reads resources/opportunities.json, resources/readings.json and resources/config.json,
-injects them into resources/resource-hub.template.html, and writes ../resource-hub.html.
+injects them into site/pages/resource-hub.html, wraps it in site/layout.html via site/build.py,
+and writes ../resource-hub.html.
 
 Run from anywhere:  python3 resources/bake.py
 
@@ -15,7 +16,7 @@ import csv, io, json, os, sys, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-TEMPLATE = os.path.join(HERE, "resource-hub.template.html")
+PAGE = os.path.join(ROOT, "site", "pages", "resource-hub.html")   # body + page styles; the shell is site/layout.html
 OUT = os.path.join(ROOT, "resource-hub.html")
 OPPS = os.path.join(HERE, "opportunities.json")
 READS = os.path.join(HERE, "readings.json")
@@ -51,9 +52,10 @@ def readings_from_rows(rows):
                     "links": links, "status": r.get("status","live")})
     return out
 
-def main():
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
     conf = load(CONF, {})
-    if "--from-sheet" in sys.argv:
+    if "--from-sheet" in argv:
         sid = conf.get("SHEET_ID")
         if not sid: sys.exit("config.json has no SHEET_ID")
         opps = [ {k: r.get(k,"") for k in OPP_COLS} for r in fetch_tab(sid, "Opportunities") if r.get("title") ]
@@ -65,11 +67,13 @@ def main():
             reads = None  # no Readings tab yet; keep the repo copy
         print(f"refreshed from sheet: {len(opps)} opportunities" + (f", {len(reads)} readings" if reads else " (readings kept from repo)"))
     opps = load(OPPS, []); reads = load(READS, [])
-    tpl = open(TEMPLATE, encoding="utf-8").read()
+    sys.path.insert(0, os.path.join(ROOT, "site"))
+    import build
+    meta, body = build.split_meta(open(PAGE, encoding="utf-8").read())
     def j(x): return json.dumps(x, ensure_ascii=False).replace("</", "<\\/")
-    html = (tpl.replace("/*__OPPS__*/", j(opps)).replace("/*__READINGS__*/", j(reads))
-               .replace("/*__SHEET_ID__*/", conf.get("SHEET_ID","")).replace("/*__TALLY__*/", conf.get("TALLY_FORM_URL","")))
-    open(OUT, "w", encoding="utf-8").write(html)
+    body = (body.replace("/*__OPPS__*/", j(opps)).replace("/*__READINGS__*/", j(reads))
+                .replace("/*__SHEET_ID__*/", conf.get("SHEET_ID","")).replace("/*__TALLY__*/", conf.get("TALLY_FORM_URL","")))
+    build.render(meta, body, "resource-hub.html")
     live_o = sum(1 for o in opps if (o.get("status","live").lower()=="live"))
     live_r = sum(1 for r in reads if (r.get("status","live").lower()=="live"))
     print(f"baked {OUT}: {live_o}/{len(opps)} opportunities live, {live_r}/{len(reads)} readings live")
