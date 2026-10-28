@@ -156,7 +156,6 @@ p { margin: 0; }
 .osd-tl { top: 12px; left: 14px; } .osd-tr { top: 12px; right: 14px; } .osd-br { bottom: 12px; right: 14px; }
 .hero-media .osd-tl { top: 60px; } .hero-media .osd-tr { top: 60px; }
 @media (max-width: 900px) { .hero-media .osd-tl { top: 46px; } .osd-tr, .osd-br { display: none; } }
-.tape-label { margin-top: 14px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
 
 /* ---------- cards & grids ---------- */
 .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
