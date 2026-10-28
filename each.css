@@ -318,12 +318,11 @@ canvas#paint.tool-fill { cursor: cell; } canvas#paint.tool-stamp { cursor: copy;
 
 /* ---------- footer ---------- */
 .site-footer { background: var(--ink); color: var(--cream); }
-.site-footer .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; font-size: 14px; }
+.site-footer .wrap { padding-block: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; font-size: 14px; text-align: left; }
 .site-footer img { height: 44px; width: auto; }
 .site-footer .lines { display: flex; flex-direction: column; gap: 4px; }
-.site-footer .links { margin-left: auto; display: flex; flex-wrap: wrap; gap: 14px 18px; }
+.site-footer .links { display: flex; flex-wrap: wrap; gap: 10px 22px; }
 .site-footer a { color: var(--cream); font-weight: 700; }
 .site-footer a:hover { color: var(--accent); }
 .site-footer .give { color: var(--accent); }
-.site-footer .fine { width: 100%; opacity: .7; }
-@media (max-width: 760px) { .site-footer .links { margin-left: 0; } }
+.site-footer .fine { opacity: .7; }
