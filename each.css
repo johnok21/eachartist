@@ -167,8 +167,8 @@ p { margin: 0; }
 .sphere-letter { display: inline-block; will-change: transform; }
 .band-orange { position: relative; z-index: 0; }
 .sphere-sparks { width: 100%; height: 100%; pointer-events: none; z-index: 120; }
-.sphere-word { position: absolute; left: 50%; top: 50%; white-space: nowrap; font-family: var(--display); text-transform: uppercase; font-size: 26px; letter-spacing: .02em; color: var(--ink); will-change: transform, opacity; text-shadow: 2px 2px 0 rgba(244,241,232,.5); }
-@media (max-width: 900px) { .sphere { width: min(300px, 100%); margin-top: 8px; } .sphere-word { font-size: 20px; } }
+.sphere-word { position: absolute; left: 50%; top: 50%; white-space: nowrap; font-family: var(--display); text-transform: uppercase; font-size: 31px; letter-spacing: .02em; color: var(--ink); will-change: transform, opacity; text-shadow: 2px 2px 0 rgba(244,241,232,.5); }
+@media (max-width: 900px) { .sphere { width: min(300px, 100%); margin-top: 8px; } .sphere-word { font-size: 22px; } }
 
 /* camcorder overlay */
 .osd { position: absolute; z-index: 3; font-family: var(--pix); font-size: 24px; line-height: 1; letter-spacing: .04em; color: var(--red); text-shadow: 2px 2px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink); pointer-events: none; }

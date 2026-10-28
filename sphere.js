@@ -9,10 +9,12 @@
   if (!host) return;
   var WORDS = ['Dancers', 'Ceramicists', 'Musicians', 'Songwriters', 'Producers', 'Filmmakers', 'Actors', 'Poets', 'Writers',
     'Visual artists', 'Immersive artists', 'Muralists', 'Craft artists', 'Weavers', 'Fashion designers', 'Photographers',
-    'Printmakers', 'Illustrators', 'Comedians', 'DJs', 'Sculptors', 'Painters'];
+    'Printmakers', 'Illustrators', 'Comedians', 'DJs', 'Sculptors', 'Painters', 'Animators', 'Performance artists',
+    'Playwrights', 'Choreographers', 'Zinemakers', 'Puppeteers', 'Composers', 'Tattoo artists', 'Game designers', 'Drag artists',
+    'Spoken word', 'Curators'];
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SPARK_COLORS = ['#f5c542', '#f4f1e8', '#0a0a0a', '#00d4aa', '#ff3b30'];
-  var LATS = [-1.05, -0.55, 0, 0.55, 1.05];         // five rings, radians from the equator
+  var LATS = [-1.15, -0.78, -0.4, 0, 0.4, 0.78, 1.15];   // seven rings, radians from the equator
   var TILT_X = -0.32;                               // lean the top toward the viewer a little
 
   // --- build: words on rings, letters as spans ---
@@ -23,7 +25,7 @@
   host.appendChild(canvas); host.appendChild(stage);
   var rings = LATS.map(function (lat) { return { lat: lat, words: [], offset: Math.random() * 6.28, speed: 1 + 0.55 * Math.cos(lat) }; });
   WORDS.forEach(function (w, i) {
-    var ring = rings[(i * 2 + (i % 5)) % rings.length];   // spread words over rings, mixing lengths
+    var ring = rings[(i * 3 + (i % 4)) % rings.length];   // spread words over rings, mixing lengths
     var el = document.createElement('span'); el.className = 'sphere-word';
     var letters = [];
     for (var k = 0; k < w.length; k++) {
