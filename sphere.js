@@ -1,6 +1,8 @@
-/* sphere.js — "The Bay needs its artists": a 3D word globe of artistic mediums.
-   Scrolling spins it (faster scroll, faster spin, more sparks); idle, it turns slowly.
-   Respects prefers-reduced-motion: static globe, no sparks. Homepage only. */
+/* sphere.js — "The Bay needs its artists": a kinetic word globe of artistic mediums.
+   Words sit on latitude rings that turn at different speeds (equator fastest, like a
+   gas planet) on an axis tilted like the Earth's; letters ripple like water; scrolling
+   adds spin and throws sparks in proportion to scroll speed. Static under
+   prefers-reduced-motion. Homepage only. */
 (function () {
   'use strict';
   var host = document.getElementById('medium-sphere');
@@ -10,34 +12,53 @@
     'Printmakers', 'Illustrators', 'Comedians', 'DJs', 'Sculptors', 'Painters'];
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var SPARK_COLORS = ['#f5c542', '#f4f1e8', '#0a0a0a', '#00d4aa', '#ff3b30'];
+  var LATS = [-1.05, -0.55, 0, 0.55, 1.05];         // five rings, radians from the equator
+  var TILT_X = -0.32;                               // lean the top toward the viewer a little
 
-  // --- build ---
-  var size = host.clientWidth || 400, R = size * 0.42;
+  // --- build: words on rings, letters as spans ---
+  var size = host.clientWidth || 400, R = size * 0.44;
   var stage = document.createElement('div'); stage.className = 'sphere-stage';
   var canvas = document.createElement('canvas'); canvas.className = 'sphere-sparks'; canvas.width = size * 2; canvas.height = size * 2;
   var ctx = canvas.getContext('2d'); ctx.scale(2, 2);
   host.appendChild(canvas); host.appendChild(stage);
-  var items = WORDS.map(function (w, i) {
-    var el = document.createElement('span'); el.className = 'sphere-word'; el.textContent = w; stage.appendChild(el);
-    // Fibonacci sphere: evenly spread points
-    var y = 1 - (i / (WORDS.length - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.399963;
-    return { el: el, x: Math.cos(th) * r, y: y, z: Math.sin(th) * r };
+  var rings = LATS.map(function (lat) { return { lat: lat, words: [], offset: Math.random() * 6.28, speed: 1 + 0.55 * Math.cos(lat) }; });
+  WORDS.forEach(function (w, i) {
+    var ring = rings[(i * 2 + (i % 5)) % rings.length];   // spread words over rings, mixing lengths
+    var el = document.createElement('span'); el.className = 'sphere-word';
+    var letters = [];
+    for (var k = 0; k < w.length; k++) {
+      var l = document.createElement('span'); l.className = 'sphere-letter'; l.textContent = w[k] === ' ' ? ' ' : w[k]; el.appendChild(l); letters.push(l);
+    }
+    stage.appendChild(el);
+    ring.words.push({ el: el, letters: letters, phase: Math.random() * 6.28 });
   });
+  rings.forEach(function (r) { r.words.forEach(function (w, i) { w.lon = (i / r.words.length) * Math.PI * 2; }); });
 
   // --- state ---
-  var rotY = 0.6, rotX = -0.35, vel = 0.004, lastScroll = window.pageYOffset, lastT = performance.now(), sparks = [], running = false, visible = false;
+  var rotY = 0, vel = 0.0035, lastScroll = window.pageYOffset, lastT = performance.now(), t0 = lastT, sparks = [], running = false, visible = false;
 
-  function render() {
-    var cy = Math.cos(rotY), sy = Math.sin(rotY), cx = Math.cos(rotX), sx = Math.sin(rotX);
-    for (var i = 0; i < items.length; i++) {
-      var p = items[i];
-      var x1 = p.x * cy - p.z * sy, z1 = p.x * sy + p.z * cy;           // spin about Y
-      var y2 = p.y * cx - z1 * sx, z2 = p.y * sx + z1 * cx;            // tilt about X
-      var depth = (z2 + 1) / 2;                                         // 0 back … 1 front
-      var scale = 0.55 + depth * 0.65;
-      p.el.style.transform = 'translate(-50%,-50%) translate3d(' + (x1 * R).toFixed(1) + 'px,' + (y2 * R).toFixed(1) + 'px,0) scale(' + scale.toFixed(3) + ')';
-      p.el.style.opacity = (0.18 + depth * 0.82).toFixed(2);
-      p.el.style.zIndex = Math.round(depth * 100);
+  function render(now) {
+    var tt = (now - t0) / 1000, cx = Math.cos(TILT_X), sx = Math.sin(TILT_X);
+    for (var r = 0; r < rings.length; r++) {
+      var ring = rings[r], cl = Math.cos(ring.lat), sl = Math.sin(ring.lat);
+      for (var i = 0; i < ring.words.length; i++) {
+        var w = ring.words[i];
+        var lon = w.lon + rotY * ring.speed + ring.offset + (reduce ? 0 : Math.sin(tt * 0.7 + w.phase) * 0.06);
+        var x = Math.cos(lon) * cl, z = Math.sin(lon) * cl, y = sl + (reduce ? 0 : Math.sin(tt * 1.3 + lon * 2) * 0.06);   // wave along the ring
+        var y2 = y * cx - z * sx, z2 = y * sx + z * cx;                                  // tilt toward viewer
+        var depth = (z2 + 1) / 2, scale = 0.5 + depth * 0.7;
+        var fore = Math.max(0.28, Math.sqrt(Math.max(0, 1 - x * x)));                  // foreshorten toward the limb
+        var rotZ = -x * y2 * 28;                                                        // follow the curve of the globe
+        w.el.style.transform = 'translate(-50%,-50%) translate3d(' + (x * R).toFixed(1) + 'px,' + (y2 * R).toFixed(1) + 'px,0) rotate(' + rotZ.toFixed(1) + 'deg) scale(' + scale.toFixed(3) + ') scaleX(' + fore.toFixed(3) + ')';
+        w.el.style.opacity = (0.14 + depth * 0.86).toFixed(2);
+        w.el.style.zIndex = Math.round(depth * 100);
+        if (!reduce && depth > 0.35) {                                                  // letters ripple like water on the visible side
+          for (var k = 0; k < w.letters.length; k++) {
+            var ph = tt * 4 + w.phase + k * 0.55;
+            w.letters[k].style.transform = 'translateY(' + (Math.sin(ph) * 3).toFixed(1) + 'px) scaleY(' + (1 + Math.sin(ph + 1.2) * 0.14).toFixed(3) + ') skewX(' + (Math.sin(ph * 0.5) * 6).toFixed(1) + 'deg)';
+          }
+        }
+      }
     }
   }
 
@@ -49,7 +70,6 @@
     }
     if (sparks.length > 160) sparks.splice(0, sparks.length - 160);
   }
-
   function drawSparks() {
     ctx.clearRect(0, 0, size, size);
     for (var i = sparks.length - 1; i >= 0; i--) {
@@ -58,8 +78,8 @@
       if (s.life <= 0) { sparks.splice(i, 1); continue; }
       ctx.globalAlpha = Math.max(0, s.life); ctx.fillStyle = s.color;
       if (s.star) {
-        ctx.beginPath(); var r = s.size * 1.6;
-        for (var k = 0; k < 8; k++) { var rr = k % 2 ? r * 0.4 : r, ang = k * Math.PI / 4; ctx.lineTo(s.x + Math.cos(ang) * rr, s.y + Math.sin(ang) * rr); }
+        ctx.beginPath(); var rr = s.size * 1.6;
+        for (var k = 0; k < 8; k++) { var q = k % 2 ? rr * 0.4 : rr, ang = k * Math.PI / 4; ctx.lineTo(s.x + Math.cos(ang) * q, s.y + Math.sin(ang) * q); }
         ctx.closePath(); ctx.fill();
       } else { ctx.fillRect(s.x - s.size / 2, s.y - s.size / 2, s.size, s.size); }
     }
@@ -68,36 +88,29 @@
 
   function frame(t) {
     var dt = Math.min(48, t - lastT) || 16; lastT = t;
-    if (!reduce) {
-      rotY += vel * dt / 16;
-      vel += (0.004 - vel) * 0.03;   // ease back to the idle spin
-    }
-    render();
+    if (!reduce) { rotY += vel * dt / 16; vel += (0.0035 - vel) * 0.03; }
+    render(t);
     if (!reduce) drawSparks();
-    if (visible && (!reduce || sparks.length)) requestAnimationFrame(frame); else running = false;
+    if (visible && !reduce) requestAnimationFrame(frame); else running = false;
   }
   function start() { if (!running) { running = true; lastT = performance.now(); requestAnimationFrame(frame); } }
 
-  // scroll → velocity + sparks
   var lastEvt = performance.now();
   window.addEventListener('scroll', function () {
     if (reduce || !visible) return;
     var now = performance.now(), y = window.pageYOffset, dy = y - lastScroll, dtm = Math.max(16, now - lastEvt);
     lastScroll = y; lastEvt = now;
-    var speed = Math.abs(dy) / dtm;                 // px per ms
+    var speed = Math.abs(dy) / dtm;
     vel += (dy > 0 ? 1 : -1) * Math.min(0.08, speed * 0.02);
     spawnSparks(Math.min(14, Math.round(speed * 6)));
     start();
   }, { passive: true });
 
-  // only animate while on screen
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) start(); }, { threshold: 0.05 }).observe(host);
   } else { visible = true; start(); }
-
-  // keep square on resize
   window.addEventListener('resize', function () {
-    size = host.clientWidth || 400; R = size * 0.42; canvas.width = size * 2; canvas.height = size * 2; ctx.setTransform(2, 0, 0, 2, 0, 0); render();
+    size = host.clientWidth || 400; R = size * 0.44; canvas.width = size * 2; canvas.height = size * 2; ctx.setTransform(2, 0, 0, 2, 0, 0); render(performance.now());
   });
-  render();
+  render(performance.now());
 })();
