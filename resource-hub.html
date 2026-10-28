@@ -1,30 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5c72d986-1938-4f5e-a902-962421a4347e"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resource Hub — EACH</title>
 <meta name="description" content="Grants, spaces, classes, people, and readings for Bay Area artists. Verified, dated, and shared by the EACH community. Take what helps. Pass something on.">
+<link rel="canonical" href="https://eachartist.org/resource-hub.html">
 <meta property="og:title" content="Resource Hub — EACH">
 <meta property="og:description" content="Grants, spaces, classes, people, and readings for Bay Area artists. Verified, dated, and shared by the EACH community. Take what helps. Pass something on.">
-<meta property="og:site_name" content="Each Artist Cultural Hub">
 <meta property="og:image" content="https://eachartist.org/each-logo-full-still.png">
-
+<meta property="og:site_name" content="Each Artist Cultural Hub">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eachartist.org/resource-hub.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/gif" href="favicon.gif">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="each.css?v=202610281014">
+
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2163130');
+</script>
+<!-- End MailerLite Universal -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Primary">
+    <a class="logo-chip" href="index.html" aria-label="Each Artist Cultural Hub — home"><img src="each-logo-small.png" alt="EACH" width="88" height="38"></a>
+    <a class="btn-join" href="contact.html" data-join data-umami-event="nav-join">Join us ↗</a>
+    <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="navigators.html">Navigators</a></li>
+      <li><a href="shared-spaces.html">Shared Spaces</a></li>
+      <li><a href="resource-hub.html" aria-current="page">Resources</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="contribute.html">Contribute</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <a class="ticker" href="events.html#alh3" data-umami-event="ticker-next-event"><span class="tag">Next up</span><span class="what">Thu Nov 12 · Artists Live Here, Episode 3 · SOMArts · 4–8 PM</span><span class="go">Details →</span></a>
+</header>
+
+<main id="main">
 <style>
+/* Resource Hub page styles (page-specific; the shell comes from each.css) */
 :root{--black:#0a0a0a;--white:#f5f5f0;--green:#6dde5a;--lavender:#c4a8d8;--red:#ff3b30;--gold:#f5c542;--orange:#ff8c2e;--blue:#1a5fb4;--cyan:#00d4aa}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);overflow-x:hidden;background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,.05) 1px, transparent 0);background-size:16px 16px}
-.floating-logo{position:fixed;top:1rem;left:1rem;z-index:1000;width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.6);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;transition:transform .2s;text-decoration:none}
-.floating-logo:hover{transform:scale(1.08)}.floating-logo img{width:44px;height:auto}
-.site-nav{position:fixed;top:1rem;right:1rem;z-index:1000;display:flex;gap:.4rem}
-.site-nav a{padding:.45rem .9rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:2px solid rgba(0,0,0,.25);color:var(--black);background:rgba(255,255,255,.6);backdrop-filter:blur(8px);border-radius:6px;transition:all .2s}
-.site-nav a:hover,.site-nav a.active{background:var(--green);color:var(--black);border-color:var(--green)}
 .bold-type{font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.02em}.mono{font-family:"Space Mono",monospace}a{color:inherit}
-.hub-hero{min-height:58vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 3rem;position:relative;overflow:hidden;background:linear-gradient(180deg,#8bea6f 0%, #6dde5a 45%, #b7f2a4 100%)}
+.hub-hero{min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:4rem 2rem 3rem;position:relative;overflow:hidden;background:linear-gradient(180deg,#8bea6f 0%, #6dde5a 45%, #b7f2a4 100%)}
 .hub-hero .big-title{font-size:clamp(3.5rem,11vw,9rem);line-height:.9;color:var(--black);position:relative;z-index:2;text-shadow:3px 3px 0 rgba(255,255,255,.18)}
 .hub-hero .subtitle{font-size:clamp(1rem,2.2vw,1.18rem);color:var(--black);max-width:760px;margin-top:1.2rem;line-height:1.7;position:relative;z-index:2;background:rgba(255,255,255,.2);padding:1rem 1.2rem;border:2px solid rgba(0,0,0,.14);border-radius:16px}
 .search-bar{max-width:640px;width:100%;margin:1.8rem auto 0;position:relative;z-index:2;display:flex;box-shadow:8px 8px 0 rgba(0,0,0,.08)}
@@ -37,13 +69,11 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .marquee-bar{background:var(--black);color:var(--green);padding:.7rem 0;overflow:hidden;white-space:nowrap;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase}
 .marquee-inner{display:inline-block;animation:marquee 30s linear infinite}@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.marquee-inner{animation:none}}
-
 /* jump bar */
 .jump-bar{position:sticky;top:0;z-index:900;display:flex;flex-wrap:wrap;gap:.4rem;padding:.6rem 2rem;background:rgba(244,241,232,.92);backdrop-filter:blur(8px);border-bottom:3px solid rgba(0,0,0,.1)}
 .jump-bar a{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding:.4rem .8rem;border:2px solid var(--black);background:#fff;transition:all .15s}
 .jump-bar a:hover{background:var(--black);color:var(--green)}
 .jump-bar a.readings-link{border-style:dashed;margin-left:auto}
-
 /* closing soon */
 .soon{margin:2rem 2rem 0;border:3px solid var(--black);background:#fff;box-shadow:10px 10px 0 rgba(0,0,0,.08);position:relative;padding:1.4rem 1.4rem 1rem}
 .soon::before{content:"✦ CLOSING SOON";position:absolute;top:-.85rem;left:1.2rem;background:var(--red);color:#fff;padding:.22rem .7rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:2px solid var(--black)}
@@ -57,7 +87,6 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .soon.empty{display:none}
 .soon.watch{margin-top:2.6rem}.soon.watch::before{content:"✦ COMING BACK AROUND";background:var(--lavender);color:var(--black)}
 .soon.watch .date{color:var(--blue)}.watch-intro{font-size:.9rem;opacity:.75;margin-bottom:.9rem;max-width:720px}
-
 /* sections */
 .sec{margin-top:2.6rem;scroll-margin-top:4.2rem}
 .sec-head{display:flex;align-items:baseline;gap:1rem;padding:0 2rem;flex-wrap:wrap}
@@ -81,7 +110,6 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .card-foot .go{margin-left:auto;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:.35rem .7rem;border:2px solid var(--black);background:var(--black);color:var(--green);text-decoration:none;transition:all .15s}
 .card-foot .go:hover{background:var(--green);color:var(--black)}
 .sec-empty{padding:1rem 2rem;font-size:.9rem;opacity:.6;display:none}
-
 /* section colors */
 .sec[data-section="money"] .sec-tag{background:var(--gold)}
 .sec[data-section="space"] .sec-tag{background:var(--orange)}
@@ -89,14 +117,12 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .sec[data-section="show"] .sec-tag{background:var(--red);color:#fff;border-color:var(--red)}
 .sec[data-section="help"] .sec-tag{background:var(--cyan)}
 .sec[data-section="connect"] .sec-tag{background:var(--lavender)}
-
 /* submit strip */
 .submit-strip{margin:3rem 2rem 0;padding:1.4rem;border:3px solid var(--black);background:var(--green);display:flex;flex-wrap:wrap;align-items:center;gap:1rem;box-shadow:10px 10px 0 rgba(0,0,0,.08)}
 .submit-strip h3{font-size:1.4rem;line-height:1.1}
 .submit-strip p{font-size:.92rem;line-height:1.5;flex:1 1 320px}
 .submit-strip a.btn{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.6rem 1rem;border:3px solid var(--black);background:var(--black);color:var(--green);text-decoration:none;white-space:nowrap}
 .submit-strip a.btn:hover{background:#fff;color:var(--black)}
-
 /* paper intro */
 .paper-intro{max-width:820px;margin:3rem auto 0;padding:0 2rem}
 .paper-card{background:#fffdf7;border:2px solid rgba(0,0,0,.14);box-shadow:10px 10px 0 rgba(0,0,0,.08);padding:1.5rem 1.4rem 1.4rem;position:relative}
@@ -104,7 +130,6 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .paper-card::after{content:"";position:absolute;right:20px;top:-10px;width:74px;height:22px;background:rgba(245,197,66,.7);transform:rotate(4deg)}
 .paper-card h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:.9rem}
 .paper-card p{font-size:1.07rem;line-height:1.75}.paper-card p + p{margin-top:.9rem}.paper-card a{text-underline-offset:3px}
-
 /* readings layer */
 .readings{margin-top:3.5rem;border-top:6px solid var(--black);background:#efe9d8;padding-bottom:2rem;scroll-margin-top:4.2rem}
 .readings-head{padding:2.2rem 2rem .5rem;max-width:820px}
@@ -137,56 +162,11 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 .callout-box{border-left:6px solid;padding:1.2rem 1.2rem 1.2rem 1.8rem;margin:1.5rem 2rem;background:#fff;position:relative}
 .callout-box .callout-label{position:absolute;top:-.6rem;left:1.2rem;padding:.12rem .6rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .callout-box blockquote{font-style:italic;font-size:1rem;line-height:1.6}.callout-box .callout-cite{font-size:.78rem;margin-top:.4rem;opacity:.65}
-
 .no-results{padding:2.5rem 2rem;text-align:center;font-size:1.05rem;opacity:.7;display:none}
 .status-line{font-family:"Space Mono",monospace;font-size:.68rem;opacity:.5;padding:1.2rem 2rem 0;text-align:right}
-.footer{margin-top:2.5rem;background:var(--green);color:rgba(10,10,10,.92);padding:1.35rem 2rem 1.6rem;text-align:center;border-top:2px solid rgba(0,0,0,.12);font-size:.92rem}.footer a{color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px}.footer a:hover{color:var(--blue)}
-
-@media(max-width:700px){.cards-grid{grid-template-columns:1fr;padding:.8rem 1rem 0;gap:1rem}.sec-head,.sec-intro,.jump-bar,.readings-head,.rsub-head,.rgroup-label,.status-line{padding-left:1rem;padding-right:1rem}.soon,.submit-strip,.dyk-card,.callout-box{margin-left:1rem;margin-right:1rem}.soon li{grid-template-columns:1fr}.jump-bar a.readings-link{margin-left:0}.site-nav .hamburger{display:flex}.site-nav{flex-direction:column;align-items:flex-end;gap:0}.site-nav .nav-links{display:none;flex-direction:column;gap:.3rem;margin-top:.4rem;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-radius:8px;padding:.6rem;border:1px solid rgba(255,255,255,.15)}.site-nav .nav-links.open{display:flex}.site-nav a{padding:.5rem 1rem;font-size:.8rem;text-align:right}.search-bar{margin:1.2rem 0 0}}
-
-/* HAMBURGER */
-.hamburger{display:none;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border:2px solid rgba(255,255,255,.3);border-radius:6px;padding:.5rem .6rem;cursor:pointer;z-index:1001;flex-direction:column;gap:4px;align-items:center;justify-content:center}
-.hamburger span{display:block;width:20px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
-.hamburger:hover{background:var(--green)}.hamburger:hover span{background:var(--black)}
-.nav-links{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:flex-end}
-
-/* animated EACH mark on hover */
-.floating-logo img{width:46px;height:auto;display:block}
-.floating-logo .logo-move{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .18s ease}
-.floating-logo:hover .logo-still{opacity:0}
-.floating-logo:hover .logo-move{opacity:1}
-@media (prefers-reduced-motion: reduce){.floating-logo .logo-move{display:none}.floating-logo:hover .logo-still{opacity:1}}
+@media(max-width:700px){.cards-grid{grid-template-columns:1fr;padding:.8rem 1rem 0;gap:1rem}.sec-head,.sec-intro,.jump-bar,.readings-head,.rsub-head,.rgroup-label,.status-line{padding-left:1rem;padding-right:1rem}.soon,.submit-strip,.dyk-card,.callout-box{margin-left:1rem;margin-right:1rem}.soon li{grid-template-columns:1fr}.jump-bar a.readings-link{margin-left:0}.search-bar{margin:1.2rem 0 0}}
 </style>
-<link rel="icon" type="image/gif" href="favicon.gif">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!-- MailerLite Universal -->
-<script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '2163130');
-</script>
-<!-- End MailerLite Universal -->
-</head>
-<body>
-<a href="index.html" class="floating-logo">
-<img class="logo-still" src="each-logo-small.png" alt="EACH">
-<img class="logo-move" src="each-mark.gif" alt="" aria-hidden="true">
-</a>
-<nav class="site-nav">
-  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links">
-    <a href="navigators.html">Navigators</a>
-    <a href="shared-spaces.html">Shared Spaces</a>
-    <a href="resource-hub.html" class="active">Resources</a>
-    <a href="events.html">Events</a>
-    <a href="contribute.html">Contribute</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+
 
 <section class="hub-hero">
 <h1 class="bold-type big-title">RESOURCE<br>HUB</h1>
@@ -243,17 +223,6 @@ body{font-family:"DM Sans",sans-serif;background:#f4f1e8;color:var(--black);over
 </section>
 
 <div class="status-line" id="statusLine"></div>
-
-<footer class="footer">
-  <p>
-    built by <a href="https://www.linkedin.com/in/jawnookhiulu/" target="_blank" rel="noopener">jawno</a> ·
-    powered by all of us ·
-    <a href="javascript:void(0)" class="ml-onclick-form" onclick="ml('show', 'dniyZj', true)">join up</a> ·
-    <a href="mailto:info@eachartist.org" data-umami-event="email-general-resource-hub">reach out</a> · <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">@eachartistbayarea</a>
-    <br>fiscally sponsored by Fractured Atlas, Inc. · <a href="https://fundraising.fracturedatlas.org/each-artist-cultural-hub-each" target="_blank" rel="noopener">Make a Tax-Deductible Contribution</a> supporting creative community fabric.
-    <br>&copy; 2026 Each Artist Cultural Hub. This project is for EACH of us.
-  </p>
-</footer>
 
 <!-- Baked copy of the data. Regenerate with: python3 resources/bake.py -->
 <script id="baked-opportunities" type="application/json">[{"section": "money", "title": "CCI Quick Grant", "who": "Any artist living full-time in California", "what": "Up to $600 for workshops, conference or festival registration, a coach or consultant, memberships, travel, and the childcare you need to attend. Applications open on the 16th of each month and close on the 15th at 11:59 a.m. PT; you hear back by the 16th of the following month.", "cost": "Free to apply", "deadline": "2026-11-15", "recurring": "15th of every month", "location": "California", "url": "https://cciarts.org/quick-grant/", "link_label": "CCI Quick Grant", "verified_on": "2026-10-27", "status": "live"}, {"section": "money", "title": "Theatre Bay Area CA$H grants", "who": "Individual theatre artists and small theatre companies in the Bay Area", "what": "$2,500 (CA$H Creates) or $5,000 (CA$H Performs). Companies must have budgets under $100,000. No extensions.", "cost": "Free to apply", "deadline": "2026-11-02", "recurring": "", "location": "Bay Area", "url": "https://www.theatrebayarea.org/grants/cash/", "link_label": "CA$H grants", "verified_on": "2026-10-27", "status": "live"}, {"section": "money", "title": "Kala Art Institute Fellowship", "who": "Artists in any medium, local or not", "what": "$3,000 plus a one- to nine-month studio residency at Kala in Berkeley, a class or workshop, and a group show. Applications open December 2026 for the July 2027 to June 2028 residency year.", "cost": "Application fee not stated on the page; check before applying", "deadline": "2027-03-01", "recurring": "", "location": "East Bay", "url": "https://www.kala.org/residencies/fellowship-program/", "link_label": "Kala Fellowship", "verified_on": "2026-10-27", "status": "live"}, {"section": "show", "title": "Theatre Bay Area General Auditions 2027", "who": "Actors, union and non-union, with a free TBA individual membership", "what": "Live auditions Feb 6 and 7, 2027 at A.C.T.'s Strand Theater in San Francisco, in front of Bay Area theatre companies. Slots are limited; apply by Nov 19.", "cost": "Free to apply and audition", "deadline": "2026-11-19", "recurring": "", "location": "San Francisco", "url": "https://www.theatrebayarea.org/general-auditions/", "link_label": "General Auditions", "verified_on": "2026-10-27", "status": "live"}, {"section": "space", "title": "Bay Area makerspaces (Eddie's List)", "who": "Anyone who needs tools, a shop, or a workbench", "what": "A running list of makerspaces, library tool programs, and shared workshops around the Bay.", "cost": "Varies by space", "deadline": "", "recurring": "", "location": "Bay Area", "url": "https://www.eddies-list.com/p/san-francisco-bay-area-makerspaces", "link_label": "Eddie's List", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "CCSF Free City", "who": "San Francisco residents taking credit classes at City College", "what": "Covers the $46-per-unit enrollment fee for any course of study: jewelry, film, acting, music, and more. Other small fees (health, registration, materials) still apply.", "cost": "Free tuition", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://www.ccsf.edu/free-city", "link_label": "Free City", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "Discover & Go (SF Public Library)", "who": "San Francisco residents with a library card", "what": "Reserve free passes to museums, science centers, theaters, and other venues through the library. Two active reservations at a time; new passes release on the 1st of each month.", "cost": "Free", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://sfpl.discoverandgo.net/", "link_label": "Discover & Go", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "Beginner Bay Area Street Dance Resource Guide", "who": "Anyone curious about street dance", "what": "Decentered Arts' guide to classes, sessions, and community for people starting out in street dance in the Bay.", "cost": "Free", "deadline": "", "recurring": "", "location": "Bay Area", "url": "https://decentered.org/blog/beginner-bay-area-street-dance-resource-guide", "link_label": "Read the guide", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "Renaissance Entrepreneurship Center", "who": "Artists running or starting a small business", "what": "Small-business training and support with San Francisco locations in SoMa and the Bayview. Recommended in the room by Sharon Zimmerman for individual classes.", "cost": "Varies by program", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://www.rencenter.org/", "link_label": "Renaissance Center", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "Decentered's Bay Area Survival Guide", "who": "Artists getting by in the Bay", "what": "Decentered Arts' guide to resources for making it work here, shared at the October meetup.", "cost": "Free", "deadline": "", "recurring": "", "location": "Bay Area", "url": "https://decentered.org/blog/decentered-s-bay-area-survival-guide", "link_label": "Read the guide", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "Sharon Z Consulting: business advising for artists", "who": "Makers and artists who want help running the business side", "what": "Individual consulting from Sharon Zimmerman, a jewelry artist and business coach. At the October meetup she mentioned group classes (around 20 to 25 people, such as networking) are under consideration.", "cost": "Contact for rates", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://sharonz-consulting.com/get-in-torch-contact-me/", "link_label": "Get in touch", "verified_on": "2026-10-27", "status": "live"}, {"section": "connect", "title": "Decentered Event Tracker", "who": "Anyone looking for indie art events, or listing one", "what": "A community calendar of independent art events around the Bay, run by Decentered Arts.", "cost": "Free", "deadline": "", "recurring": "", "location": "Bay Area", "url": "https://events.decentered.org/", "link_label": "Event Tracker", "verified_on": "2026-10-27", "status": "live"}, {"section": "connect", "title": "Open Ballot: compare voter guides", "who": "California voters", "what": "Compare endorsements across voter guides side by side for the Nov 3, 2026 California general election.", "cost": "Free", "deadline": "2026-11-03", "recurring": "", "location": "California", "url": "https://www.openballot.app/elections/california-general-election-2026/compare", "link_label": "Open Ballot", "verified_on": "2026-10-27", "status": "live"}, {"section": "space", "title": "Hospitality House Community Arts Program", "who": "Low-income SF artists and Tenderloin neighbors", "what": "Free fine-arts studio and gallery at 1009 Market St, with free materials. Artists keep 100% of sales. Open studio hours are posted on the site; call 415-553-4525 ext. 301 to confirm before your first visit.", "cost": "Free", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://hospitalityhouse.org/community-arts", "link_label": "Community Arts Program", "verified_on": "2026-10-27", "status": "live"}, {"section": "space", "title": "Harvey Milk Photo Center", "who": "Photographers at any level", "what": "Public black-and-white darkroom with 30+ stations, film lab, digital lab, and classes. One-time $15 orientation, then a $25 day pass or a six-month membership ($88 limited, $221 unlimited). Classes don't require membership.", "cost": "$15 orientation, $25 day pass, memberships from $88", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://www.harveymilkphotocenter.org/?p=76", "link_label": "Memberships & darkroom", "verified_on": "2026-10-27", "status": "live"}, {"section": "space", "title": "Oakland Tool Lending Library", "who": "Oakland, Piedmont, and Emeryville residents 18+", "what": "Borrow tools for seven days through Oakland Public Library. Register in person; reserve by phone at 510-597-5089.", "cost": "Free to borrow; late fees apply", "deadline": "", "recurring": "", "location": "East Bay", "url": "https://oaklandlibrary.org/otll/lending/", "link_label": "Tool Lending Library", "verified_on": "2026-10-27", "status": "live"}, {"section": "show", "title": "SOMArts Ramp Gallery: open application", "who": "Bay Area artists, solo or group", "what": "Rolling applications for four-week shows in SOMArts' Ramp Gallery. Apply through the Google Form on the page.", "cost": "No fee stated", "deadline": "", "recurring": "Rolling", "location": "San Francisco", "url": "https://somarts.org/rampgallery/", "link_label": "Ramp Gallery", "verified_on": "2026-10-27", "status": "live"}, {"section": "show", "title": "CounterPulse Co-Produce", "who": "Performing artists with a finished work to stage", "what": "Subsidized space, marketing, and production support in CounterPulse's fall and spring seasons. Co-producers keep 100% of net ticket income. Rolling applications.", "cost": "Subsidized; rates not stated", "deadline": "", "recurring": "Rolling", "location": "San Francisco", "url": "https://counterpulse.org/open-calls", "link_label": "Open calls", "verified_on": "2026-10-27", "status": "live"}, {"section": "show", "title": "SF Art Vendor License", "who": "Artists and crafters who make their own work", "what": "A city license to sell original handmade work at designated street spots. Work is screened at a public committee meeting; spaces go by lottery or first come, first served.", "cost": "License free; $91/yr business registration", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://www.sf.gov/art-vendor-programs", "link_label": "Art vendor program", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "Creative Capital Artist Lab", "who": "Individual artists, all disciplines", "what": "Free on-demand courses on grant writing, taxes, legal basics, insurance, and finances, plus live webinars. The courses are moving to a new site starting November 2026, so some may be briefly unavailable.", "cost": "Free", "deadline": "", "recurring": "", "location": "Online", "url": "https://creative-capital.org/opportunities/creative-capital-artist-lab", "link_label": "Artist Lab", "verified_on": "2026-10-27", "status": "live"}, {"section": "learn", "title": "SF Office of Small Business: free counseling", "who": "Anyone running a small business in SF, including a sole-proprietor art practice", "what": "Free one-on-one counseling, permit help, webinars, and trainings from the city's small-business office and SBDC advisers.", "cost": "Free", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://www.sf.gov/free-small-business-counseling-office-small-business", "link_label": "Office of Small Business", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "Covered California open enrollment", "who": "Uninsured Californians", "what": "Open enrollment for 2027 health plans runs Nov 1 to Jan 31. Enroll by Dec 31 for coverage starting Jan 1; most people qualify for financial help.", "cost": "Premiums vary; subsidies available", "deadline": "2026-12-31", "recurring": "", "location": "California", "url": "https://www.coveredca.com/enrollment/open-enrollment", "link_label": "Covered California", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "Healthy San Francisco", "who": "Uninsured SF residents 18+ not eligible for Medi-Cal or Medicare, income up to 500% of the poverty level", "what": "The city's health-access program for uninsured adults. Immigration status and pre-existing conditions don't bar enrollment. Enroll through a Certified Application Assistor.", "cost": "Participant fee may apply", "deadline": "", "recurring": "", "location": "San Francisco", "url": "https://healthysanfrancisco.org/visitors/are-you-eligible", "link_label": "Am I eligible?", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "Artists' Fellowship emergency aid", "who": "Professional visual artists in a recent, unexpected emergency", "what": "One-time aid for illness, disaster, bereavement, or serious emergency. Average award $2,500, up to $20,000. Requires two complete recent federal tax returns; a Schedule C helps show a working practice, and you can explain in your letter if you don't have one. The board meets monthly, September through June.", "cost": "Free to apply", "deadline": "", "recurring": "", "location": "Online", "url": "https://www.artistsfellowship.org/financial-aid", "link_label": "Emergency aid", "verified_on": "2026-10-27", "status": "live"}, {"section": "help", "title": "SF Artist Housing Certification", "who": "SF artists, by income, grant history, or portfolio", "what": "A certification that gives lottery priority for the Artists Hub on Market affordable artist housing. The portfolio pathway needs no income or grant history. Applications aren't open yet; the city expects the housing lottery in late 2027. Check the page for when certification opens.", "cost": "Free to apply", "deadline": "", "recurring": "Not open yet", "location": "San Francisco", "url": "https://www.sf.gov/artist-housing-certification", "link_label": "Artist housing certification", "verified_on": "2026-10-27", "status": "live"}, {"section": "money", "title": "Intersection for the Arts fiscal sponsorship", "who": "Bay Area artists and project directors who need a nonprofit umbrella to receive grants and tax-deductible gifts", "what": "Rolling applications, reviewed and onboarded in cohorts. Basic: $100 a year plus 9% of funds raised. Comprehensive: $150 a year plus 11%. The page lists the next cohort deadline as Jan 31, 2027, with applications reopening Dec 1, 2026; email fiscalsponsorship@theintersection.org to confirm timing.", "cost": "$100–$150/yr plus 9–11% of funds raised", "deadline": "", "recurring": "Rolling, cohort-based", "location": "Bay Area", "url": "https://theintersection.org/fiscal", "link_label": "Fiscal sponsorship", "verified_on": "2026-10-27", "status": "live"}, {"section": "watch", "title": "SF Arts Commission individual artist grants (FY2028)", "who": "SF artists", "what": "The city says FY2028 grant programs are not yet available and details are expected later this fall (2026). Past cycles have funded individual artists.", "cost": "", "deadline": "", "recurring": "Expected fall 2026", "location": "San Francisco", "url": "https://www.sf.gov/grants", "link_label": "sf.gov/grants", "verified_on": "2026-10-27", "status": "live"}, {"section": "watch", "title": "City of Berkeley Individual Artist Projects grant", "who": "Berkeley residents", "what": "Project grants for Berkeley-resident artists. FY28 deadlines will be released in fall 2026; the city anticipates the application window Jan–Mar 2027.", "cost": "", "deadline": "", "recurring": "Expected Jan–Mar 2027", "location": "East Bay", "url": "https://berkeleyca.gov/community-recreation/civic-arts/civic-arts-grants", "link_label": "Berkeley Civic Arts", "verified_on": "2026-10-27", "status": "live"}, {"section": "watch", "title": "Headlands Center for the Arts residencies (2028)", "who": "Artists in all disciplines", "what": "The 2027 cycle is closed; the 2028 application opens April 2027.", "cost": "", "deadline": "", "recurring": "Opens April 2027", "location": "Marin", "url": "https://www.headlands.org/programs/", "link_label": "Headlands programs", "verified_on": "2026-10-27", "status": "live"}, {"section": "watch", "title": "SFFILM filmmaker funds (2027 cycles)", "who": "Filmmakers", "what": "SFFILM's Rainin, Documentary, and Cedar Road funds are closed for 2026. Watch the page for the 2027 cycles.", "cost": "", "deadline": "", "recurring": "Watch for 2027", "location": "Bay Area", "url": "https://sffilm.org/artist-development/fund-your-film/", "link_label": "Fund Your Film", "verified_on": "2026-10-27", "status": "live"}, {"section": "watch", "title": "Free tax help (VITA partner sites)", "who": "SF residents with household income up to $67,000", "what": "Free tax preparation through city partners. The page still shows the 2025-return season; the next season's dates aren't posted yet.", "cost": "", "deadline": "", "recurring": "Next season not yet posted", "location": "San Francisco", "url": "https://www.sfhsa.org/services/jobs-money/free-tax-help/how-file-your-taxes-free", "link_label": "Free tax help", "verified_on": "2026-10-27", "status": "live"}]</script>
@@ -410,5 +379,43 @@ function boot(){
 }
 document.addEventListener("DOMContentLoaded",boot);
 </script>
+
+</main>
+
+<section class="band-lavender" style="border-top: 4px solid var(--ink)">
+  <div class="wrap section-tight split split-even split-center">
+    <div class="stack">
+      <h2>Stay connected</h2>
+      <p>One email a month, give or take: the next meetup, what the room shared, and opportunities with real deadlines. No spam. Just art and community.</p>
+    </div>
+    <div class="signup-form">
+      <span class="eyebrow">Join the EACH mailing list</span>
+      <a class="btn btn-ink" href="contact.html" data-join data-umami-event="footer-join">Join up →</a>
+      <p class="note">Opens the signup form. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<div class="statusline" aria-hidden="true"><span>Artists connected: 149</span><span class="sep">▮</span><span>Last saved: Oct 2026</span><span class="sep">▮</span><span>100% artist-run</span><span class="sep">▮</span><span class="end">Made in San Francisco ✦</span></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="each-logo-full-still.png" alt="Each Artist Cultural Hub" width="200" height="106">
+    <div class="lines">
+      <span>Each Artist Cultural Hub · fiscally sponsored by Fractured Atlas, Inc.</span>
+      <span>Office at Groundfloor · 455 Valencia St, San Francisco, CA 94103</span>
+    </div>
+    <div class="links">
+      <a href="contact.html" data-join>Join up</a>
+      <a href="mailto:info@eachartist.org">Reach out</a>
+      <a href="https://www.instagram.com/eachartistbayarea/" target="_blank" rel="noopener">@eachartistbayarea</a>
+      <a class="give" href="https://fundraising.fracturedatlas.org/each-artist-cultural-hub-each" target="_blank" rel="noopener">Make a tax-deductible contribution</a>
+    </div>
+    <span class="fine">© 2026 · This project is for EACH of us. Built by <a href="https://www.linkedin.com/in/jawnookhiulu/" target="_blank" rel="noopener">jawno</a> · powered by all of us.</span>
+  </div>
+</footer>
+
+<script src="each.js?v=202610281014"></script>
+
 </body>
 </html>
