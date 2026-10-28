@@ -72,6 +72,9 @@ a:hover { color: var(--blue); }
 .band-teal { background: var(--teal); }
 .band-ink { background: var(--ink); color: var(--cream); }
 .band-ink a:hover { color: var(--accent); }
+.band-ink .btn:hover, .band-ink .btn-primary:hover { color: var(--ink); }
+.band-ink .btn-light:hover { color: var(--cream); }
+.band-ink .btn-ink:hover { color: var(--cream); }
 
 /* ---------- type ---------- */
 .display, h1, h2, h3 { font-family: var(--display); text-transform: uppercase; font-weight: 400; margin: 0; text-wrap: balance; }
