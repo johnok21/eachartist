@@ -152,9 +152,9 @@ p { margin: 0; }
 
 /* mission band: the halftone arch rises from the band's bottom edge, under the heading column */
 .mission { position: relative; overflow: hidden; }
-.mission-arch { position: absolute; left: var(--gutter); bottom: -3px; width: 300px; height: auto; pointer-events: none; }
-.mission .section { padding-bottom: calc(var(--section) + 60px); }
-@media (max-width: 900px) { .mission-arch { width: 180px; } .mission .section { padding-bottom: calc(var(--section) + 70px); } }
+.mission-arch { position: absolute; left: var(--gutter); bottom: -3px; width: min(440px, 38vw); height: auto; pointer-events: none; }
+.mission .section { padding-bottom: calc(var(--section) + 100px); }
+@media (max-width: 900px) { .mission-arch { width: 240px; } .mission .section { padding-bottom: calc(var(--section) + 90px); } }
 
 /* camcorder overlay */
 .osd { position: absolute; z-index: 3; font-family: var(--pix); font-size: 24px; line-height: 1; letter-spacing: .04em; color: var(--red); text-shadow: 2px 2px 0 var(--ink), -1px -1px 0 var(--ink), 1px -1px 0 var(--ink), -1px 1px 0 var(--ink); pointer-events: none; }
