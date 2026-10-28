@@ -31,6 +31,7 @@ EXTRA_SCRIPTS = {
     "luma": '<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>',
     "instagram": '<script async src="https://www.instagram.com/embed.js"></script>',
     "paint": '<script src="paint.js?v={{BUILD}}" defer></script>',
+    "sphere": '<script src="sphere.js?v={{BUILD}}" defer></script>',
 }
 
 def nav_html(current):
