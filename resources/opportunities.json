@@ -432,5 +432,19 @@
   "link_label": "Free tax help",
   "verified_on": "2026-10-27",
   "status": "live"
+ },
+ {
+  "section": "money",
+  "title": "Field Funds: Artist-led Gatherings (A Blade of Grass)",
+  "who": "US-based artists with a history of socially engaged work; nonprofits and businesses can't apply",
+  "what": "$500 for a gathering of three or more people, in person or online, public or private, spent however you see fit. Eligible applications are picked at random, so there's no pitch to win; 5–7 are funded this cycle. Applications close Nov 30 at 8:59 p.m. PT (11:59 p.m. ET). Funded gatherings happen Dec 16, 2026 to June 30, 2027. Drop-in Zoom office hours Nov 16 (10–11 a.m. PT) and Nov 23 (12–1 p.m. PT).",
+  "cost": "Free to apply",
+  "deadline": "2026-11-30",
+  "recurring": "",
+  "location": "Online",
+  "url": "https://www.abladeofgrass.org/field-funds",
+  "link_label": "Field Funds",
+  "verified_on": "2026-11-04",
+  "status": "live"
  }
 ]
