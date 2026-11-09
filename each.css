@@ -267,6 +267,7 @@ p { margin: 0; }
 .canvas-wrap { position: relative; background: var(--white); overflow: hidden; min-width: 0; display: flex;
   border: 2px solid; border-color: var(--sh) var(--hi) var(--hi) var(--sh); box-shadow: inset 1px 1px 0 var(--ink); }
 .canvas-wrap > * { width: 100%; }
+.canvas-wrap > .osd { width: auto; }
 .collage-ground { position: relative; background: var(--lavender); background-image: radial-gradient(circle, rgba(10,10,10,.22) 1.6px, transparent 1.7px); background-size: 11px 11px; padding: 44px 48px 52px; display: flex; justify-content: center; }
 .collage-ground .art { position: relative; width: 100%; max-width: 760px; transform: rotate(-1.5deg); }
 .collage-ground .art img { width: 100%; filter: drop-shadow(10px 10px 0 var(--red)) drop-shadow(-7px -7px 0 var(--cyan)); }
