@@ -14,17 +14,17 @@
   "status": "live"
  },
  {
-  "section": "money",
+  "section": "watch",
   "title": "Theatre Bay Area CA$H grants",
   "who": "Individual theatre artists and small theatre companies in the Bay Area",
-  "what": "$2,500 (CA$H Creates) or $5,000 (CA$H Performs). Companies must have budgets under $100,000. No extensions.",
+  "what": "$2,500 (CA$H Creates) or $5,000 (CA$H Performs). Companies must have budgets under $100,000. No extensions. The fall 2026 round closed Nov 2; watch the page for the next cycle.",
   "cost": "Free to apply",
-  "deadline": "2026-11-02",
-  "recurring": "",
+  "deadline": "",
+  "recurring": "Next cycle expected 2027",
   "location": "Bay Area",
   "url": "https://www.theatrebayarea.org/grants/cash/",
   "link_label": "CA$H grants",
-  "verified_on": "2026-10-27",
+  "verified_on": "2026-11-09",
   "status": "live"
  },
  {
@@ -178,8 +178,8 @@
   "location": "California",
   "url": "https://www.openballot.app/elections/california-general-election-2026/compare",
   "link_label": "Open Ballot",
-  "verified_on": "2026-10-27",
-  "status": "live"
+  "verified_on": "2026-11-09",
+  "status": "cut"
  },
  {
   "section": "space",
